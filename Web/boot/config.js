@@ -26,9 +26,9 @@ exports = module.exports = function() {
         pass: 'password'
       },
       facebook: {
-        enabled: false,
-        appID: '',
-        appSecret: '',
+        enabled: true,
+        appID: '742900129109809',
+        appSecret: 'a36db94e433328f66f2b7737539daccc',
         scope: [ 'email' ]
       },
       google: {

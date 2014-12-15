@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		028BAAE61A3E202C009D3DF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAE51A3E202C009D3DF9 /* AppDelegate.swift */; };
+		028BAAE91A3E202C009D3DF9 /* SwagSwap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAE71A3E202C009D3DF9 /* SwagSwap.xcdatamodeld */; };
+		028BAAEB1A3E202C009D3DF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAEA1A3E202C009D3DF9 /* ViewController.swift */; };
+		028BAAEE1A3E202C009D3DF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028BAAEC1A3E202C009D3DF9 /* Main.storyboard */; };
+		028BAAF01A3E202C009D3DF9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028BAAEF1A3E202C009D3DF9 /* Images.xcassets */; };
+		028BAAF31A3E202C009D3DF9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 028BAAF11A3E202C009D3DF9 /* LaunchScreen.xib */; };
+		028BAAFF1A3E202C009D3DF9 /* SwagSwapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAFE1A3E202C009D3DF9 /* SwagSwapTests.swift */; };
+		02B0023F1A3F694B00DE8703 /* UIView+temp.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B0023E1A3F694B00DE8703 /* UIView+temp.m */; };
+		75A199E0F5DF36804B69E910 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5770C8540E035669C94C13 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		028BAAF91A3E202C009D3DF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 028BAAD81A3E202C009D3DF9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 028BAADF1A3E202C009D3DF9;
+			remoteInfo = SwagSwap;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		028BAAE01A3E202C009D3DF9 /* SwagSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwagSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		028BAAE41A3E202C009D3DF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		028BAAE51A3E202C009D3DF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		028BAAE81A3E202C009D3DF9 /* SwagSwap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwagSwap.xcdatamodel; sourceTree = "<group>"; };
+		028BAAEA1A3E202C009D3DF9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		028BAAED1A3E202C009D3DF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		028BAAEF1A3E202C009D3DF9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		028BAAF21A3E202C009D3DF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		028BAAF81A3E202C009D3DF9 /* SwagSwapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwagSwapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		028BAAFD1A3E202C009D3DF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		028BAAFE1A3E202C009D3DF9 /* SwagSwapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwagSwapTests.swift; sourceTree = "<group>"; };
+		02B0023C1A3F692E00DE8703 /* SwagSwap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwagSwap-Bridging-Header.h"; sourceTree = "<group>"; };
+		02B0023D1A3F694B00DE8703 /* UIView+temp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+temp.h"; sourceTree = "<group>"; };
+		02B0023E1A3F694B00DE8703 /* UIView+temp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+temp.m"; sourceTree = "<group>"; };
+		2091062A0D674628BAEDD060 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		4F5770C8540E035669C94C13 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		79D28FC0537965D099CF55F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		028BAADD1A3E202C009D3DF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75A199E0F5DF36804B69E910 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		028BAAF51A3E202C009D3DF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		028BAAD71A3E202C009D3DF9 = {
+			isa = PBXGroup;
+			children = (
+				028BAAE21A3E202C009D3DF9 /* SwagSwap */,
+				028BAAFB1A3E202C009D3DF9 /* SwagSwapTests */,
+				028BAAE11A3E202C009D3DF9 /* Products */,
+				E416815CAB059ACF7B9D1B2A /* Pods */,
+				E6E5C42CADFB6F42662C0747 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		028BAAE11A3E202C009D3DF9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				028BAAE01A3E202C009D3DF9 /* SwagSwap.app */,
+				028BAAF81A3E202C009D3DF9 /* SwagSwapTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		028BAAE21A3E202C009D3DF9 /* SwagSwap */ = {
+			isa = PBXGroup;
+			children = (
+				028BAAE51A3E202C009D3DF9 /* AppDelegate.swift */,
+				028BAAEA1A3E202C009D3DF9 /* ViewController.swift */,
+				028BAAEC1A3E202C009D3DF9 /* Main.storyboard */,
+				028BAAEF1A3E202C009D3DF9 /* Images.xcassets */,
+				028BAAF11A3E202C009D3DF9 /* LaunchScreen.xib */,
+				028BAAE71A3E202C009D3DF9 /* SwagSwap.xcdatamodeld */,
+				02B0023C1A3F692E00DE8703 /* SwagSwap-Bridging-Header.h */,
+				02B0023D1A3F694B00DE8703 /* UIView+temp.h */,
+				02B0023E1A3F694B00DE8703 /* UIView+temp.m */,
+				028BAAE31A3E202C009D3DF9 /* Supporting Files */,
+			);
+			path = SwagSwap;
+			sourceTree = "<group>";
+		};
+		028BAAE31A3E202C009D3DF9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				028BAAE41A3E202C009D3DF9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		028BAAFB1A3E202C009D3DF9 /* SwagSwapTests */ = {
+			isa = PBXGroup;
+			children = (
+				028BAAFE1A3E202C009D3DF9 /* SwagSwapTests.swift */,
+				028BAAFC1A3E202C009D3DF9 /* Supporting Files */,
+			);
+			path = SwagSwapTests;
+			sourceTree = "<group>";
+		};
+		028BAAFC1A3E202C009D3DF9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				028BAAFD1A3E202C009D3DF9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E416815CAB059ACF7B9D1B2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2091062A0D674628BAEDD060 /* Pods.debug.xcconfig */,
+				79D28FC0537965D099CF55F5 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E6E5C42CADFB6F42662C0747 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F5770C8540E035669C94C13 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		028BAADF1A3E202C009D3DF9 /* SwagSwap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 028BAB021A3E202C009D3DF9 /* Build configuration list for PBXNativeTarget "SwagSwap" */;
+			buildPhases = (
+				B225F6649BDDA6AB72CEE48F /* Check Pods Manifest.lock */,
+				028BAADC1A3E202C009D3DF9 /* Sources */,
+				028BAADD1A3E202C009D3DF9 /* Frameworks */,
+				028BAADE1A3E202C009D3DF9 /* Resources */,
+				D6B36A9D3414B64896F2A915 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwagSwap;
+			productName = SwagSwap;
+			productReference = 028BAAE01A3E202C009D3DF9 /* SwagSwap.app */;
+			productType = "com.apple.product-type.application";
+		};
+		028BAAF71A3E202C009D3DF9 /* SwagSwapTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 028BAB051A3E202C009D3DF9 /* Build configuration list for PBXNativeTarget "SwagSwapTests" */;
+			buildPhases = (
+				028BAAF41A3E202C009D3DF9 /* Sources */,
+				028BAAF51A3E202C009D3DF9 /* Frameworks */,
+				028BAAF61A3E202C009D3DF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				028BAAFA1A3E202C009D3DF9 /* PBXTargetDependency */,
+			);
+			name = SwagSwapTests;
+			productName = SwagSwapTests;
+			productReference = 028BAAF81A3E202C009D3DF9 /* SwagSwapTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		028BAAD81A3E202C009D3DF9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = loganisitt;
+				TargetAttributes = {
+					028BAADF1A3E202C009D3DF9 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					028BAAF71A3E202C009D3DF9 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 028BAADF1A3E202C009D3DF9;
+					};
+				};
+			};
+			buildConfigurationList = 028BAADB1A3E202C009D3DF9 /* Build configuration list for PBXProject "SwagSwap" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 028BAAD71A3E202C009D3DF9;
+			productRefGroup = 028BAAE11A3E202C009D3DF9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				028BAADF1A3E202C009D3DF9 /* SwagSwap */,
+				028BAAF71A3E202C009D3DF9 /* SwagSwapTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		028BAADE1A3E202C009D3DF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				028BAAEE1A3E202C009D3DF9 /* Main.storyboard in Resources */,
+				028BAAF31A3E202C009D3DF9 /* LaunchScreen.xib in Resources */,
+				028BAAF01A3E202C009D3DF9 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		028BAAF61A3E202C009D3DF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B225F6649BDDA6AB72CEE48F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D6B36A9D3414B64896F2A915 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		028BAADC1A3E202C009D3DF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				028BAAEB1A3E202C009D3DF9 /* ViewController.swift in Sources */,
+				028BAAE91A3E202C009D3DF9 /* SwagSwap.xcdatamodeld in Sources */,
+				02B0023F1A3F694B00DE8703 /* UIView+temp.m in Sources */,
+				028BAAE61A3E202C009D3DF9 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		028BAAF41A3E202C009D3DF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				028BAAFF1A3E202C009D3DF9 /* SwagSwapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		028BAAFA1A3E202C009D3DF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 028BAADF1A3E202C009D3DF9 /* SwagSwap */;
+			targetProxy = 028BAAF91A3E202C009D3DF9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		028BAAEC1A3E202C009D3DF9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				028BAAED1A3E202C009D3DF9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		028BAAF11A3E202C009D3DF9 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				028BAAF21A3E202C009D3DF9 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		028BAB001A3E202C009D3DF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		028BAB011A3E202C009D3DF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		028BAB031A3E202C009D3DF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2091062A0D674628BAEDD060 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = SwagSwap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwagSwap/SwagSwap-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		028BAB041A3E202C009D3DF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79D28FC0537965D099CF55F5 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = SwagSwap/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwagSwap/SwagSwap-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		028BAB061A3E202C009D3DF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwagSwapTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwagSwap.app/SwagSwap";
+			};
+			name = Debug;
+		};
+		028BAB071A3E202C009D3DF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwagSwapTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwagSwap.app/SwagSwap";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		028BAADB1A3E202C009D3DF9 /* Build configuration list for PBXProject "SwagSwap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				028BAB001A3E202C009D3DF9 /* Debug */,
+				028BAB011A3E202C009D3DF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		028BAB021A3E202C009D3DF9 /* Build configuration list for PBXNativeTarget "SwagSwap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				028BAB031A3E202C009D3DF9 /* Debug */,
+				028BAB041A3E202C009D3DF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		028BAB051A3E202C009D3DF9 /* Build configuration list for PBXNativeTarget "SwagSwapTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				028BAB061A3E202C009D3DF9 /* Debug */,
+				028BAB071A3E202C009D3DF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		028BAAE71A3E202C009D3DF9 /* SwagSwap.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				028BAAE81A3E202C009D3DF9 /* SwagSwap.xcdatamodel */,
+			);
+			currentVersion = 028BAAE81A3E202C009D3DF9 /* SwagSwap.xcdatamodel */;
+			path = SwagSwap.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 028BAAD81A3E202C009D3DF9 /* Project object */;
+}
