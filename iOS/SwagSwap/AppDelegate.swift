@@ -27,13 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SocketIODelegate {
         
         if session.state == FBSessionState.Open {
             var fbAccessToken = session.accessTokenData!.accessToken!
-            NSLog("This is the token: %@", fbAccessToken)
             var url: NSURL = NSURL(string: NSString(format: "http://localhost:3000/api/auth/facebook?access_token=%@", fbAccessToken))!
             var req: NSMutableURLRequest = NSMutableURLRequest(URL: url)
             req.HTTPMethod = "POST"
-            
-            
-            print(fbAccessToken)
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
                 
@@ -49,65 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SocketIODelegate {
                     var jsonParsingError: NSError?
 
                     if let json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonParsingError) as? NSDictionary {
-                        NSLog("Dict: %@", json)
-                        // this code is executed if the json is a NSDictionary
-                    }
-                    if let json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonParsingError) as? NSArray {
-                        NSLog("Dict: %@", json)
-                        // this code is executed if the json is a NSDictionary
-                    }
-                    else {
-                        let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonParsingError)
-                        NSLog("Not quite right")
-                        print(json)
-                        // otherwise, this code is executed
+                        NSLog("%@", json)
                     }
                 }
             })
-            
-            
-//            var keys: Array = ["access_token"]
-//            var objects: Array = [fbAccessToken]
-//            
-//            var jsonDictionary: NSDictionary = NSDictionary(objects: objects, forKeys: keys)
-//            var jsonData: NSData
-//            var jsonString: NSString
-//            
-//            if NSJSONSerialization.isValidJSONObject(jsonDictionary) {
-//                jsonData = NSJSONSerialization.dataWithJSONObject(jsonDictionary, options: NSJSONWritingOptions.allZeros, error: nil)!
-//                jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)!
-//                
-//                
-//                var requestString: String = "http://localhost:8080/auth/facebook"
-//                var url: NSURL = NSURL(string: requestString)!
-//                
-//                var cLength: NSString = NSString(format: "%d", jsonData.length)
-//                
-//                var request: NSMutableURLRequest = NSMutableURLRequest(URL: url)
-//                request.HTTPMethod = "POST"
-//                request.HTTPBody = jsonData
-//                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//                request.setValue(cLength, forHTTPHeaderField: "Content-Length")
-//                
-//                var errorReturned: NSError?
-//                var theResponse = NSURLResponse() as NSURLResponse?
-//                
-//                var data: NSData = NSURLConnection.sendSynchronousRequest(request, returningResponse: &(theResponse), error: &errorReturned)!
-//                
-//                if (errorReturned != nil) {
-//                    NSLog("Error: %@", errorReturned!.description)
-//                }
-//                else {
-//                    var jsonParsingError: NSError?
-//                    var arrDoctorInfo = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers | NSJSONReadingOptions.AllowFragments, error: &jsonParsingError) as NSMutableArray
-//                    
-//                    NSLog("Dict: %@", arrDoctorInfo)
-//                }
-//            }
-//            else {
-//                NSLog("Something didn't work")
-//            }
-            
         }
     }
 

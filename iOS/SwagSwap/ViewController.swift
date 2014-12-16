@@ -10,14 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, FBLoginViewDelegate, SocketIODelegate {
     
-    var socketio: SocketIO!
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        socketio = SocketIO(delegate: self)
-        socketio.connectToHost("localhost", onPort: 1337)
-        socketio.sendMessage("Hello!", withAcknowledge: nil)
     }
 
     override func didReceiveMemoryWarning() {

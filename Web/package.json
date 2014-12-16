@@ -95,7 +95,7 @@
   "gitHead": "c69c8538d0b078355f1ea05f93f7d6477e2c8d1b",
   "_id": "eskimo@0.2.23",
   "_shasum": "21051cfd0fb0f25842a2cac0833432e9297d15da",
-  "_from": "eskimo@",
+  "_from": "eskimo@*",
   "_npmVersion": "2.1.5",
   "_nodeVersion": "0.10.32",
   "_npmUser": {
@@ -118,5 +118,6 @@
   },
   "directories": {},
   "_resolved": "https://registry.npmjs.org/eskimo/-/eskimo-0.2.23.tgz",
+  "readme": "ERROR: No README data found!",
   "private": true
 }
