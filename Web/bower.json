@@ -1,0 +1,15 @@
+{
+  "name": "Bazaaru",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-strap": "~2.1.3",
+    "angular-messages": "~1.3.4",
+    "angular-resource": "~1.3.4",
+    "angular-cookies": "~1.3.4",
+    "moment": "~2.8.4"
+  },
+  "devDependencies": {}
+}
