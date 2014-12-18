@@ -165,6 +165,7 @@ module.exports = function(passport) {
             return done(err);
           }
           if (user) {
+
             // if there is a user id already but no token (user was linked at one point and then removed)
             if (!user.facebook.token) {
               user.facebook.token = accessToken;
@@ -203,7 +204,7 @@ module.exports = function(passport) {
         var user = req.user; // pull the user out of the session
 
         user.facebook.id = profile.id;
-        user.facebook.token = token;
+        user.facebook.token = accessToken;
         user.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
         user.facebook.email = (profile.emails[0].value || '').toLowerCase();
 

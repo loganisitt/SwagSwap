@@ -1,17 +1,11 @@
 module.exports = function(app, passport) {
-  
+
   // process the login form
   app.post('/login', passport.authenticate('local-login', {
     failureFlash: true // allow flash messages
   }));
 
   // SIGNUP =================================
-  // show the signup form
-  app.get('/signup', function(req, res) {
-    res.render('signup.ejs', {
-      message: req.flash('signupMessage')
-    });
-  });
 
   // process the signup form
   app.post('/signup', passport.authenticate('local-signup', {
@@ -22,41 +16,30 @@ module.exports = function(app, passport) {
 
   // facebook -------------------------------
 
-  // app.get('/auth/facebook', passport.authenticate('facebook', {
-  //   scope: 'email',
-  //   session: true
-  // }));
-  //
-  // // handle the callback after facebook has authenticated the user
-  // app.get('/auth/facebook/callback',
-  //   passport.authenticate('facebook', {
-  //     successRedirect: '/profile',
-  //     failureRedirect: '/'
-  //   }));
+  app.get('/auth/facebook', passport.authenticate('facebook', {
+    scope: 'email',
+    session: true
+  }));
 
-  app.get('/auth/facebook',
-    passport.authenticate('facebook'));
-
+  // handle the callback after facebook has authenticated the user
   app.get('/auth/facebook/callback',
-    passport.authenticate('facebook', {
-      failureRedirect: '/login'
-    }),
+    passport.authenticate('facebook'),
     function(req, res) {
-      // Successful authentication, redirect home.
-      res.redirect('/');
+      var another = res;
+      another.send(200)
+      res.redirect('/login');
     });
+
 
   app.post('/auth/facebook',
     passport.authenticate('facebook-token', {
       session: true
     }),
     function(req, res) {
-      res.send(req.user ? 200 : 401);
+      res.json(req.user);
     });
 
-  // =============================================================================
   // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
-  // =============================================================================
 
   // locally --------------------------------
   app.get('/connect/local', function(req, res) {
