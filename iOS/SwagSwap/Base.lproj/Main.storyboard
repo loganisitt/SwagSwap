@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -18,10 +19,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFx-UN-hYd">
-                                <rect key="frame" x="151" y="275" width="299" height="50"/>
+                                <rect key="frame" x="16" y="486" width="568" height="94"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="299" id="Lr8-S6-T07"/>
-                                    <constraint firstAttribute="width" secondItem="eFx-UN-hYd" secondAttribute="height" multiplier="299:50" id="kzW-oB-w9R"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="299" id="xXF-KW-aJb"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="facebookBtn">
@@ -36,12 +35,36 @@
                                     <action selector="facebookLoginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nq7-os-W8J"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfJ-OM-cBt">
+                                <rect key="frame" x="280" y="285" width="41" height="30"/>
+                                <state key="normal" title="POST">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="postTodo" destination="BYZ-38-t0r" eventType="touchUpInside" id="uPF-VF-spz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0s-aT-OIz">
+                                <rect key="frame" x="280" y="170" width="30" height="30"/>
+                                <state key="normal" title="GET">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getTodos" destination="BYZ-38-t0r" eventType="touchUpInside" id="8kG-my-D4W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="eFx-UN-hYd" secondAttribute="centerY" id="ATn-jn-pfj"/>
+                            <constraint firstAttribute="bottom" secondItem="eFx-UN-hYd" secondAttribute="bottom" constant="20" symbolic="YES" id="Jwh-N0-gaq"/>
+                            <constraint firstItem="eFx-UN-hYd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="LMs-ZQ-bM8"/>
+                            <constraint firstItem="mfJ-OM-cBt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OoF-AT-lfE"/>
                             <constraint firstAttribute="width" secondItem="eFx-UN-hYd" secondAttribute="height" multiplier="12:1" id="ZPX-Wx-2GO"/>
-                            <constraint firstAttribute="centerX" secondItem="eFx-UN-hYd" secondAttribute="centerX" constant="-0.5" id="tvG-Fn-fpg"/>
+                            <constraint firstItem="mfJ-OM-cBt" firstAttribute="centerX" secondItem="eFx-UN-hYd" secondAttribute="centerX" id="ZxD-QM-LHe"/>
+                            <constraint firstItem="e0s-aT-OIz" firstAttribute="leading" secondItem="mfJ-OM-cBt" secondAttribute="leading" id="aZZ-NV-a81"/>
+                            <constraint firstItem="eFx-UN-hYd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="466" id="hgE-zR-0Rv"/>
+                            <constraint firstItem="mfJ-OM-cBt" firstAttribute="top" secondItem="e0s-aT-OIz" secondAttribute="bottom" constant="85" id="npZ-W9-arC"/>
+                            <constraint firstItem="eFx-UN-hYd" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="w6W-L6-QfB"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">

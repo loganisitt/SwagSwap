@@ -1,143 +1,27 @@
+# Easy Node Authentication
 
-# Web
+Code for the entire scotch.io tutorial series: Complete Guide to Node Authentication
 
-> The author of [Eskimo](http://eskimo.io) highly recommends
-reading [ZAG](http://goo.gl/DPmCWa) and adding an onliness statement here.
-After completed, you can delete this blockquote from the Markdown file.
+We will be using Passport to authenticate users locally, with Facebook, Twitter, and Google.
 
-> "What's the one thing that makes your brand both different and compelling?
-What makes you the 'only'?  Complete a simple onliness statement.
-Add detail by answering what, how, who, where, when, and why."
-&ndash; Marty Neumeier
+#### Upgraded To Express 4.0
+This tutorial has been upgraded to use ExpressJS 4.0. See [the commit](https://github.com/scotch-io/easy-node-authentication/commit/020dea057d5a0664caaeb041b18978237528f9a3) for specific changes.
 
-> (e.g. "Eskimo is the only boilerplate for Node.js developers who want
-a proven, quick, and easy way to build rapid MVPs in 0-60 days.")
+## Instructions
 
-**TODO**: Web is the only &hellip; that &hellip;
+If you would like to download the code and try it for yourself:
 
+1. Clone the repo: `git clone git@github.com:scotch-io/easy-node-authentication`
+2. Install packages: `npm install`
+3. Change out the database configuration in config/database.js
+4. Change out auth keys in config/auth.js
+5. Launch: `node server.js`
+6. Visit in your browser at: `http://localhost:8080`
 
-## Install
+## The Tutorials
 
-```bash
-# clone the repo
-git clone git@github.com:yourname/web.git
-
-# change dir to the cloned repo
-cd web
-
-# install dev dependencies
-npm install -d
-
-# install gulp cli
-npm install -g gulp
-
-# build bower/less files
-gulp postinstall
-```
-
-
-## Configuration
-
-Configuration (e.g. database and logging setting per environment) is stored in "boot/config.js".
-
-
-## Usage
-
-### Development
-
-Default:
-
-```bash
-node app
-```
-
-Debugging:
-
-```bash
-DEBUG=* node app
-```
-
-#### Gulp tasks:
-
-```bash
-# Run 'bower', 'less', and 'jshint' tasks
-gulp postinstall
-
-# Runs 'build'
-gulp
-
-# Run jshint to check syntax of JavaScript files
-gulp jshint
-
-# Runs 'clean', 'bower', 'less', 'copy', 'imagemin', 'usemin-css', 'usemin-js', and 'usemin-jade'
-gulp build
-
-# Runs 'watch-noreload', and starts a livereload server to automatically refresh your browser when changes are done
-gulp watch
-
-# Watches changes to public assets (images, fonts, less/css, js, and jade files) and runs appropriate tasks ('imagemin', 'less'/'usemin-css', 'usemin-js', 'usemin-jade') to parse them
-gulp watch-noreload
-
-# Run less to create CSS files
-gulp less
-
-# Optimizes and copies images to 'assets/dist/img'
-gulp imagemin
-
-# Adds versions to JS files, copying them later to 'assets/dist/js'
-gulp usemin-js
-
-# Adds versions to CSS files, optimizes and parses images and CSS files as well, copying them later to 'assets/dist'
-gulp usemin-css
-
-# Adds versions to assets in JADE files, optimizes and parses assets, copying them later to 'assets/dist'
-gulp usemin-jade
-
-# Cleans 'assets/dist' and 'bower_components' directories
-gulp clean
-
-# Copies some static files (favicon, robots.txt, etc) to 'assets/dist'
-gulp copy
-```
-
-### Production
-
-> Production environment requires that you have built out the "assets/dist" folder.
-
-Build project with [gulp.js](http://gulpjs.com/):
-
-```bash
-gulp build
-```
-
-> Now you can proceed to running in production mode with optional `recluster` support.
-
-Default:
-
-```bash
-sudo NODE_ENV=production node app
-```
-
-[Recluster](https://github.com/doxout/recluster):
-
-```bash
-sudo NODE_ENV=production node cluster
-# kill -s SIGUSR2 %d
-```
-
-
-## Tests
-
-```bash
-npm test
-```
-
-
-## Contributors
-
-See "package.json" for a list of contributors.  Learn how to add contributors using [npm's docs](https://www.npmjs.org/doc/files/package.json.html#people-fields-author-contributors).
-
-
-## License
-
-**TODO**: [Choose a license](http://choosealicense.com/) and insert it here.
+- [Getting Started and Local Authentication](http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local)
+- [Facebook](http://scotch.io/tutorials/javascript/easy-node-authentication-facebook)
+- [Twitter](http://scotch.io/tutorials/javascript/easy-node-authentication-twitter)
+- [Google](http://scotch.io/tutorials/javascript/easy-node-authentication-google)
+- [Linking All Accounts Together](http://scotch.io/tutorials/javascript/easy-node-authentication-linking-all-accounts-together)
