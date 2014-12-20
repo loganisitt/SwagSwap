@@ -31,53 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SocketIODelegate {
             print("DOING IT\n")
             let fbToken = session.accessTokenData.accessToken as String
             
-            var url = "http://localhost:8080/auth/facebook"
-            var url2 = "http://localhost:8080/auth/facebook?access_token=" + fbToken
+            var url = "http://localhost:8080/auth/facebook?access_token=" + fbToken
             
-            var tUrl = NSURL(string: url)
-            var tUrl2 = NSURL(string:url2)
-            
-            let parameters = [
-                "access_token": fbToken
-                ] as Dictionary
-            
-            
-//            Alamofire.request(.POST, url, parameters: parameters).responseJSON() {
-//                (_, _, data, _) in
-//                println(data)
-//            }
-            
-            Alamofire.request(.POST, url2).responseJSON() {
+            Alamofire.request(.POST, url).responseJSON() {
                 (_, _, data, error) in
                 println(data)
                 println(error)
             }
-            
-//            Alamofire.request(.POST, url, parameters: parameters).validate().responseJSON() {
-//                (_, _, data, error) in
-//                println(data)
-//                println(error)
-//            }
         }
-        
-        
-//        if session.state == FBSessionState.Open {
-//            
-//            
-//            
-//            
-//            let parameters = [
-//                "access_token": "CAAKjqepMlzEBAPYN0UXZAzkzLVQih1ZC9QdZB1x3THu9Dzdh8gtrtWPT3JoBihkSOuHR0v3ReErfWt7LGGpZCarEwHr2KKDAQZBmc3QLzgZBIDL2T31KNVOXsizXj3St8ZBA1tbiZAu4orDgAZChaQl4BiEskpu9d00tnB9RZBCQx13Ge8hrepM0Hk2g6YxZB8V7XS0zRqFGtKenRmumgXIJ2v1ZCZAhPsRoe2cy3YbC1tOv9jwZDZD"
-//                ] as Dictionary
-//            var fbToken = session.accessTokenData.accessToken
-//            
-//            var url = "http://localhost:1337/auth/facebook/token?access_token=" + fbToken
-//            
-//            Alamofire.request(.POST, url).responseString() {
-//                (_, _, data, _) in
-//                println(data)
-//            }
-//        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

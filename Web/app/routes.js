@@ -1,5 +1,9 @@
 module.exports = function(app, passport) {
 
+  app.get('/login', function(req, res){
+    res.sendfile('./public/views/login.html');
+  });
+
   // process the login form
   app.post('/login', passport.authenticate('local-login', {
     failureFlash: true // allow flash messages
