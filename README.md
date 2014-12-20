@@ -1,4 +1,4 @@
 SwagSwap
 ========
 
-![alt tag](https://raw.github.com/loganisitt/SwagSwap/master/Icon.png)
+![alt tag](https://github.com/loganisitt/SwagSwap/blob/master/Icon.png)
