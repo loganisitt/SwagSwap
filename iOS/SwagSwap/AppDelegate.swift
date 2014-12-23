@@ -11,7 +11,7 @@ import CoreData
 import Alamofire
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, SocketIODelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SocketIODelegate {
                 self.sessionStateChanged(session, state: state, error: error)
             })
         }
+        
         return true
     }
     
@@ -28,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SocketIODelegate {
         
         if session.state == FBSessionState.Open || session.state == FBSessionState.OpenTokenExtended {
             
-            print("DOING IT\n")
             let fbToken = session.accessTokenData.accessToken as String
             
             var url = "http://localhost:8080/auth/facebook?access_token=" + fbToken
@@ -75,18 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SocketIODelegate {
         var wasHandled = FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
         
         return wasHandled
-    }
-    
-    // MARK: - SOCKET.io
-    
-    func socketIODidConnect(socket: SocketIO!) {
-        print("Socket: Connected!")
-    }
-    
-    func socketIO(socket: SocketIO!, onError error: NSError!) {
-        print("Socket: Error!")
-    }
-    
+    }    
     
     // MARK: - Core Data stack
 

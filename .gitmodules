@@ -1,0 +1,3 @@
+[submodule "iOS/--force"]
+	path = iOS/--force
+	url = https://github.com/Alamofire/Alamofire.git
