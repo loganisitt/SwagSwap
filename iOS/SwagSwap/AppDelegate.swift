@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.sessionStateChanged(session, state: state, error: error)
             })
         }
-        
         return true
     }
     
@@ -75,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var wasHandled = FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication)
         
         return wasHandled
-    }    
+    }
     
     // MARK: - Core Data stack
 

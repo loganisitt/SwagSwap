@@ -14,7 +14,6 @@
 		028BAAF01A3E202C009D3DF9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028BAAEF1A3E202C009D3DF9 /* Images.xcassets */; };
 		028BAAF31A3E202C009D3DF9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 028BAAF11A3E202C009D3DF9 /* LaunchScreen.xib */; };
 		028BAAFF1A3E202C009D3DF9 /* SwagSwapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAFE1A3E202C009D3DF9 /* SwagSwapTests.swift */; };
-		02B0023F1A3F694B00DE8703 /* UIView+temp.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B0023E1A3F694B00DE8703 /* UIView+temp.m */; };
 		02F232741A4A05ED00C3EEDB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F232711A4A05E500C3EEDB /* Alamofire.framework */; };
 		02F232751A4A05ED00C3EEDB /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02F232711A4A05E500C3EEDB /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75A199E0F5DF36804B69E910 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5770C8540E035669C94C13 /* libPods.a */; };
@@ -78,8 +77,6 @@
 		028BAAFD1A3E202C009D3DF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		028BAAFE1A3E202C009D3DF9 /* SwagSwapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwagSwapTests.swift; sourceTree = "<group>"; };
 		02B0023C1A3F692E00DE8703 /* SwagSwap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwagSwap-Bridging-Header.h"; sourceTree = "<group>"; };
-		02B0023D1A3F694B00DE8703 /* UIView+temp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+temp.h"; sourceTree = "<group>"; };
-		02B0023E1A3F694B00DE8703 /* UIView+temp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+temp.m"; sourceTree = "<group>"; };
 		02F2326B1A4A05E500C3EEDB /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		2091062A0D674628BAEDD060 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4F5770C8540E035669C94C13 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,13 +129,11 @@
 			children = (
 				028BAAE51A3E202C009D3DF9 /* AppDelegate.swift */,
 				028BAAEA1A3E202C009D3DF9 /* ViewController.swift */,
+				028BAAF11A3E202C009D3DF9 /* LaunchScreen.xib */,
 				028BAAEC1A3E202C009D3DF9 /* Main.storyboard */,
 				028BAAEF1A3E202C009D3DF9 /* Images.xcassets */,
-				028BAAF11A3E202C009D3DF9 /* LaunchScreen.xib */,
 				028BAAE71A3E202C009D3DF9 /* SwagSwap.xcdatamodeld */,
 				02B0023C1A3F692E00DE8703 /* SwagSwap-Bridging-Header.h */,
-				02B0023D1A3F694B00DE8703 /* UIView+temp.h */,
-				02B0023E1A3F694B00DE8703 /* UIView+temp.m */,
 				028BAAE31A3E202C009D3DF9 /* Supporting Files */,
 			);
 			path = SwagSwap;
@@ -357,7 +352,6 @@
 			files = (
 				028BAAEB1A3E202C009D3DF9 /* ViewController.swift in Sources */,
 				028BAAE91A3E202C009D3DF9 /* SwagSwap.xcdatamodeld in Sources */,
-				02B0023F1A3F694B00DE8703 /* UIView+temp.m in Sources */,
 				028BAAE61A3E202C009D3DF9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

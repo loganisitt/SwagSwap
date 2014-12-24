@@ -18,57 +18,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFx-UN-hYd">
-                                <rect key="frame" x="16" y="486" width="568" height="94"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ujT-N2-BbX">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="tintColor" red="0.1215686275" green="0.52941176469999995" blue="0.30588235289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ftd-Xi-jJa">
+                                <rect key="frame" x="27" y="490" width="546" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="299" id="xXF-KW-aJb"/>
+                                    <constraint firstAttribute="width" secondItem="Ftd-Xi-jJa" secondAttribute="height" multiplier="91:15" id="LzL-mT-nTD"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="signUpBtn">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYp-hJ-kCt">
+                                <rect key="frame" x="27" y="392" width="546" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BYp-hJ-kCt" secondAttribute="height" multiplier="91:15" id="5L4-nf-lDk"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="loginInBtn">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2j-ff-Gz5">
+                                <rect key="frame" x="27" y="294" width="546" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Y2j-ff-Gz5" secondAttribute="height" multiplier="91:15" id="6eA-Cg-Eeb"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="facebookBtn">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="xXF-KW-aJb"/>
-                                    </mask>
-                                </variation>
                                 <connections>
-                                    <action selector="facebookLoginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nq7-os-W8J"/>
+                                    <action selector="facebookLoginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="odV-xl-JH1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mfJ-OM-cBt">
-                                <rect key="frame" x="280" y="285" width="41" height="30"/>
-                                <state key="normal" title="POST">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="postTodo" destination="BYZ-38-t0r" eventType="touchUpInside" id="uPF-VF-spz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0s-aT-OIz">
-                                <rect key="frame" x="280" y="170" width="30" height="30"/>
-                                <state key="normal" title="GET">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getTodos" destination="BYZ-38-t0r" eventType="touchUpInside" id="8kG-my-D4W"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emblem" translatesAutoresizingMaskIntoConstraints="NO" id="Sgy-2A-n8v">
+                                <rect key="frame" x="27" y="20" width="546" height="266"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="eFx-UN-hYd" secondAttribute="bottom" constant="20" symbolic="YES" id="Jwh-N0-gaq"/>
-                            <constraint firstItem="eFx-UN-hYd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="LMs-ZQ-bM8"/>
-                            <constraint firstItem="mfJ-OM-cBt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OoF-AT-lfE"/>
-                            <constraint firstAttribute="width" secondItem="eFx-UN-hYd" secondAttribute="height" multiplier="12:1" id="ZPX-Wx-2GO"/>
-                            <constraint firstItem="mfJ-OM-cBt" firstAttribute="centerX" secondItem="eFx-UN-hYd" secondAttribute="centerX" id="ZxD-QM-LHe"/>
-                            <constraint firstItem="e0s-aT-OIz" firstAttribute="leading" secondItem="mfJ-OM-cBt" secondAttribute="leading" id="aZZ-NV-a81"/>
-                            <constraint firstItem="eFx-UN-hYd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="466" id="hgE-zR-0Rv"/>
-                            <constraint firstItem="mfJ-OM-cBt" firstAttribute="top" secondItem="e0s-aT-OIz" secondAttribute="bottom" constant="85" id="npZ-W9-arC"/>
-                            <constraint firstItem="eFx-UN-hYd" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="w6W-L6-QfB"/>
+                            <constraint firstItem="Sgy-2A-n8v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="11" id="0I3-jD-fXr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ftd-Xi-jJa" secondAttribute="trailing" constant="11" id="68W-ZM-IPp"/>
+                            <constraint firstItem="Ftd-Xi-jJa" firstAttribute="centerX" secondItem="BYp-hJ-kCt" secondAttribute="centerX" id="7sl-v8-WJ2"/>
+                            <constraint firstItem="ujT-N2-BbX" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="8k6-eq-Kjl"/>
+                            <constraint firstItem="ujT-N2-BbX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BLX-8e-Acm"/>
+                            <constraint firstItem="BYp-hJ-kCt" firstAttribute="top" secondItem="Y2j-ff-Gz5" secondAttribute="bottom" constant="8" id="Bv2-H8-XlA"/>
+                            <constraint firstItem="Ftd-Xi-jJa" firstAttribute="top" secondItem="BYp-hJ-kCt" secondAttribute="bottom" constant="20" id="CSW-k3-UoO"/>
+                            <constraint firstItem="Ftd-Xi-jJa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="91:100" id="DiA-tg-ejc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y2j-ff-Gz5" secondAttribute="trailing" constant="11" id="EFM-IR-2BQ"/>
+                            <constraint firstItem="Ftd-Xi-jJa" firstAttribute="top" secondItem="BYp-hJ-kCt" secondAttribute="bottom" constant="8" id="Gzu-Ku-Ikq"/>
+                            <constraint firstItem="Ftd-Xi-jJa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="11" id="JnJ-jq-jBs"/>
+                            <constraint firstAttribute="centerY" secondItem="BYp-hJ-kCt" secondAttribute="centerY" constant="-125" id="Lu9-8v-0x3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Sgy-2A-n8v" secondAttribute="trailing" constant="11" id="O6J-kV-yFK"/>
+                            <constraint firstItem="BYp-hJ-kCt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="11" id="Obr-dS-7PA"/>
+                            <constraint firstItem="Sgy-2A-n8v" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QQ4-UA-GjF"/>
+                            <constraint firstAttribute="centerY" secondItem="Ftd-Xi-jJa" secondAttribute="centerY" constant="-235" id="Rab-wI-AuH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ftd-Xi-jJa" secondAttribute="bottom" constant="20" id="S1C-fy-5sv"/>
+                            <constraint firstItem="ujT-N2-BbX" firstAttribute="centerX" secondItem="BYp-hJ-kCt" secondAttribute="centerX" id="TAm-uu-ECl"/>
+                            <constraint firstItem="Y2j-ff-Gz5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="11" id="adL-gV-OLs"/>
+                            <constraint firstItem="ujT-N2-BbX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="chD-Bg-EdC"/>
+                            <constraint firstItem="Y2j-ff-Gz5" firstAttribute="top" secondItem="Sgy-2A-n8v" secondAttribute="bottom" constant="8" id="nHA-J9-jpg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BYp-hJ-kCt" secondAttribute="trailing" constant="11" id="yPh-iu-Rdk"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="ZPX-Wx-2GO"/>
+                                <exclude reference="Lu9-8v-0x3"/>
+                                <exclude reference="CSW-k3-UoO"/>
+                                <exclude reference="DiA-tg-ejc"/>
+                                <exclude reference="Rab-wI-AuH"/>
                             </mask>
                         </variation>
                     </view>
@@ -79,6 +97,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="facebookBtn" width="299" height="50"/>
+        <image name="background" width="320" height="568"/>
+        <image name="emblem" width="251" height="278"/>
+        <image name="facebookBtn" width="273" height="46"/>
+        <image name="loginInBtn" width="273" height="45"/>
+        <image name="signUpBtn" width="273" height="45"/>
     </resources>
 </document>

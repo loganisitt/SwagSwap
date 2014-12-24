@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "facebookBtn.png"
+      "filename" : "emblem.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "facebookBtn@2x.png"
+      "filename" : "emblem@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "facebookBtn@3x.png"
+      "filename" : "emblem@3x.png"
     }
   ],
   "info" : {
