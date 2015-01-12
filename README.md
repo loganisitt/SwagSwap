@@ -8,17 +8,15 @@ Swagswap is a community-based local commerce application that intends to be used
 2. Install <a href="http://nodejs.org" target="_blank">Node.js</a>
 3. Install Bower: `npm install -g bower`
 4. Install Grunt: `npm install -g grunt-cli`
-###### For iOS (Optional)
-5. Install Cocoapods (for iOS): `sudo gem install cocoapods`
+5. OPTIONAL: Install Cocoapods (for iOS): `sudo gem install cocoapods`
 
 ##### ~ Clone this project: `git clone git@github.com:loganisitt/SwagSwap.git`
 ##### ~ Setup
 1. Change to Web directory of SwagSwap: `cd SwagSwap/Web/`
 2. Install the npm modules: `npm install`
 3. Install the Bower components: `bower install`
-###### For iOS (Optional)
-4. Change to iOS direcotry of SwagSwap: `cd ../iOS`
-5. Install Cocoapod dependencies: `pod install`
+4. OPTIONAL: Change to iOS directory of SwagSwap: `cd ../iOS`
+5. OPTIONAL: Install Cocoapod dependencies: `pod install`
 
 ## Development
 ##### ~ For web
