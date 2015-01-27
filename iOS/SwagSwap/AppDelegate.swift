@@ -30,12 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let fbToken = session.accessTokenData.accessToken as String
             
-            var url = "http://localhost:8080/auth/facebook?access_token=" + fbToken
-            
-            Alamofire.request(.POST, url).responseJSON() {
-                (_, _, data, error) in
-                println(data)
-                println(error)
+            if Client.sharedInstance.signinWithFacebook(fbToken) {
+                var signinViewController = self.window!.rootViewController as SigninViewController
+                signinViewController.performSegueWithIdentifier("Dashboard", sender: self)
+            }
+            else {
+                println("Houston, we have a problem!")
             }
         }
     }

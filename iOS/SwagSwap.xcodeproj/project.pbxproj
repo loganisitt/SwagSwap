@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021359701A782FA500959930 /* CreateListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0213596F1A782FA500959930 /* CreateListingViewController.swift */; };
+		021359731A78392100959930 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021359721A78392100959930 /* Client.swift */; };
 		028BAAE61A3E202C009D3DF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAE51A3E202C009D3DF9 /* AppDelegate.swift */; };
 		028BAAE91A3E202C009D3DF9 /* SwagSwap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAE71A3E202C009D3DF9 /* SwagSwap.xcdatamodeld */; };
-		028BAAEB1A3E202C009D3DF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAEA1A3E202C009D3DF9 /* ViewController.swift */; };
+		028BAAEB1A3E202C009D3DF9 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAEA1A3E202C009D3DF9 /* SigninViewController.swift */; };
 		028BAAEE1A3E202C009D3DF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028BAAEC1A3E202C009D3DF9 /* Main.storyboard */; };
 		028BAAF01A3E202C009D3DF9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028BAAEF1A3E202C009D3DF9 /* Images.xcassets */; };
 		028BAAF31A3E202C009D3DF9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 028BAAF11A3E202C009D3DF9 /* LaunchScreen.xib */; };
 		028BAAFF1A3E202C009D3DF9 /* SwagSwapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAFE1A3E202C009D3DF9 /* SwagSwapTests.swift */; };
+		028D1AFC1A78255E0004B5D7 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028D1AFB1A78255E0004B5D7 /* DashboardViewController.swift */; };
 		02F232741A4A05ED00C3EEDB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F232711A4A05E500C3EEDB /* Alamofire.framework */; };
 		02F232751A4A05ED00C3EEDB /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02F232711A4A05E500C3EEDB /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75A199E0F5DF36804B69E910 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5770C8540E035669C94C13 /* libPods.a */; };
@@ -65,18 +68,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0213596F1A782FA500959930 /* CreateListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListingViewController.swift; sourceTree = "<group>"; };
+		021359721A78392100959930 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		028BAAE01A3E202C009D3DF9 /* SwagSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwagSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		028BAAE41A3E202C009D3DF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		028BAAE51A3E202C009D3DF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		028BAAE81A3E202C009D3DF9 /* SwagSwap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwagSwap.xcdatamodel; sourceTree = "<group>"; };
-		028BAAEA1A3E202C009D3DF9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		028BAAEA1A3E202C009D3DF9 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		028BAAED1A3E202C009D3DF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		028BAAEF1A3E202C009D3DF9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		028BAAF21A3E202C009D3DF9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		028BAAF81A3E202C009D3DF9 /* SwagSwapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwagSwapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		028BAAFD1A3E202C009D3DF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		028BAAFE1A3E202C009D3DF9 /* SwagSwapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwagSwapTests.swift; sourceTree = "<group>"; };
-		02B0023C1A3F692E00DE8703 /* SwagSwap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwagSwap-Bridging-Header.h"; sourceTree = "<group>"; };
+		028D1AFB1A78255E0004B5D7 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		02B0023C1A3F692E00DE8703 /* SwagSwap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "SwagSwap-Bridging-Header.h"; sourceTree = "<group>"; };
 		02F2326B1A4A05E500C3EEDB /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		2091062A0D674628BAEDD060 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4F5770C8540E035669C94C13 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,14 +133,18 @@
 		028BAAE21A3E202C009D3DF9 /* SwagSwap */ = {
 			isa = PBXGroup;
 			children = (
+				021359721A78392100959930 /* Client.swift */,
 				028BAAE51A3E202C009D3DF9 /* AppDelegate.swift */,
-				028BAAEA1A3E202C009D3DF9 /* ViewController.swift */,
+				028BAAEA1A3E202C009D3DF9 /* SigninViewController.swift */,
+				028D1AFB1A78255E0004B5D7 /* DashboardViewController.swift */,
+				0213596F1A782FA500959930 /* CreateListingViewController.swift */,
 				028BAAF11A3E202C009D3DF9 /* LaunchScreen.xib */,
 				028BAAEC1A3E202C009D3DF9 /* Main.storyboard */,
 				028BAAEF1A3E202C009D3DF9 /* Images.xcassets */,
 				028BAAE71A3E202C009D3DF9 /* SwagSwap.xcdatamodeld */,
 				02B0023C1A3F692E00DE8703 /* SwagSwap-Bridging-Header.h */,
 				028BAAE31A3E202C009D3DF9 /* Supporting Files */,
+				028D1AFD1A7829390004B5D7 /* Additional Files */,
 			);
 			path = SwagSwap;
 			sourceTree = "<group>";
@@ -162,6 +172,13 @@
 				028BAAFD1A3E202C009D3DF9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		028D1AFD1A7829390004B5D7 /* Additional Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Additional Files";
 			sourceTree = "<group>";
 		};
 		02F2326C1A4A05E500C3EEDB /* Products */ = {
@@ -350,9 +367,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				028BAAEB1A3E202C009D3DF9 /* ViewController.swift in Sources */,
+				028BAAEB1A3E202C009D3DF9 /* SigninViewController.swift in Sources */,
+				021359701A782FA500959930 /* CreateListingViewController.swift in Sources */,
+				021359731A78392100959930 /* Client.swift in Sources */,
 				028BAAE91A3E202C009D3DF9 /* SwagSwap.xcdatamodeld in Sources */,
 				028BAAE61A3E202C009D3DF9 /* AppDelegate.swift in Sources */,
+				028D1AFC1A78255E0004B5D7 /* DashboardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,10 +7,9 @@
 //
 
 import UIKit
-
 import Alamofire
 
-class ViewController: UIViewController, FBLoginViewDelegate, SocketIODelegate {
+class SigninViewController: UIViewController, FBLoginViewDelegate, SocketIODelegate {
     
     var socketio: SocketIO!
     
