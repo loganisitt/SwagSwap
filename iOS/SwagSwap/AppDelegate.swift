@@ -14,15 +14,14 @@ import Alamofire
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var userId: String!
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
         if FBSession.activeSession().state == FBSessionState.CreatedTokenLoaded {
             FBSession.openActiveSessionWithReadPermissions(["public_profile"], allowLoginUI: false, completionHandler: {(session, state, error) -> Void in
                 self.sessionStateChanged(session, state: state, error: error)
             })
         }
-
         return true
     }
     
@@ -32,28 +31,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let fbToken = session.accessTokenData.accessToken as String
             
-            if Client.sharedInstance.signinWithFacebook(fbToken) {
+            var url = "http://localhost:1337/auth/facebook?access_token=" + fbToken
+            
+            Alamofire.request(.POST, url).responseJSON() {
+                (_, _, data, error) in
+                
+//                var json = JSON(data!)
+//                
+//                if let id = json["facebook"]["id"].string{
+//                    self.userId = id
+//                }
+                
                 self.pushMenuView()
-            }
-            else {
-                println("Houston, we have a problem!")
             }
         }
     }
+
     
     private func pushMenuView() {
         
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let mainViewController = storyboard.instantiateViewControllerWithIdentifier("DashboardViewController") as DashboardViewController
-        let leftViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as MenuViewController
+        let homeViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController") as HomeViewController
+        let menuViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as MenuViewController
         
-        let menuNav: UINavigationController = UINavigationController(rootViewController: mainViewController)
-        let dashNav: UINavigationController = UINavigationController(rootViewController: leftViewController)
+        let homeNav: UINavigationController = UINavigationController(rootViewController: homeViewController)
+        let menuNav: UINavigationController = UINavigationController(rootViewController: menuViewController)
         
-        leftViewController.mainViewController = menuNav
+        menuViewController.homeViewController = homeNav
         
-        let slideMenuController = SlideMenuController(mainViewController:menuNav, leftMenuViewController: dashNav)
+        let slideMenuController = SlideMenuController(mainViewController:homeNav, leftMenuViewController: menuNav)
         
         self.window?.rootViewController?.presentViewController(slideMenuController, animated: true, completion: nil)
         

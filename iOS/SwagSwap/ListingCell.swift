@@ -11,5 +11,19 @@ import UIKit
 class ListingCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var label: UILabel!
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.imageView = UIImageView(frame: frame)
+        self.label = UILabel(frame: frame)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        self.imageView = UIImageView(frame: self.bounds)
+        self.label = UILabel(frame: self.bounds)
+    }
 }

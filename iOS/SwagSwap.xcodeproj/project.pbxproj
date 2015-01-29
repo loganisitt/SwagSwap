@@ -25,9 +25,15 @@
 		028BAAF01A3E202C009D3DF9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 028BAAEF1A3E202C009D3DF9 /* Images.xcassets */; };
 		028BAAF31A3E202C009D3DF9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 028BAAF11A3E202C009D3DF9 /* LaunchScreen.xib */; };
 		028BAAFF1A3E202C009D3DF9 /* SwagSwapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAFE1A3E202C009D3DF9 /* SwagSwapTests.swift */; };
-		028D1AFC1A78255E0004B5D7 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028D1AFB1A78255E0004B5D7 /* DashboardViewController.swift */; };
+		028D1AFC1A78255E0004B5D7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028D1AFB1A78255E0004B5D7 /* HomeViewController.swift */; };
 		02F232741A4A05ED00C3EEDB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F232711A4A05E500C3EEDB /* Alamofire.framework */; };
 		02F232751A4A05ED00C3EEDB /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02F232711A4A05E500C3EEDB /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02F65CC11A7AA326003790BE /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F65CC01A7AA326003790BE /* BrowseViewController.swift */; };
+		02F65CC31A7AA333003790BE /* WatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F65CC21A7AA333003790BE /* WatchViewController.swift */; };
+		02F65CC51A7AA33E003790BE /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F65CC41A7AA33E003790BE /* AccountViewController.swift */; };
+		02F65CC71A7AA35B003790BE /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F65CC61A7AA35B003790BE /* InboxViewController.swift */; };
+		02F65CC91A7AA36D003790BE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F65CC81A7AA36D003790BE /* SettingsViewController.swift */; };
+		02F65CCB1A7AA37E003790BE /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F65CCA1A7AA37E003790BE /* HelpViewController.swift */; };
 		8487BA433DED1CB74A5282DE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDE93B735B0FBEE18661B95C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -99,9 +105,15 @@
 		028BAAF81A3E202C009D3DF9 /* SwagSwapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwagSwapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		028BAAFD1A3E202C009D3DF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		028BAAFE1A3E202C009D3DF9 /* SwagSwapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwagSwapTests.swift; sourceTree = "<group>"; };
-		028D1AFB1A78255E0004B5D7 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		028D1AFB1A78255E0004B5D7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		02B0023C1A3F692E00DE8703 /* SwagSwap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "SwagSwap-Bridging-Header.h"; sourceTree = "<group>"; };
 		02F2326B1A4A05E500C3EEDB /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		02F65CC01A7AA326003790BE /* BrowseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
+		02F65CC21A7AA333003790BE /* WatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchViewController.swift; sourceTree = "<group>"; };
+		02F65CC41A7AA33E003790BE /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		02F65CC61A7AA35B003790BE /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
+		02F65CC81A7AA36D003790BE /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		02F65CCA1A7AA37E003790BE /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		63C1BF895F32B4190E92ABED /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DDE93B735B0FBEE18661B95C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEDADA343ADAAD41694118EA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,7 +190,13 @@
 				028BAAE51A3E202C009D3DF9 /* AppDelegate.swift */,
 				028BAAEA1A3E202C009D3DF9 /* SigninViewController.swift */,
 				0251A5F31A796772003F527A /* MenuViewController.swift */,
-				028D1AFB1A78255E0004B5D7 /* DashboardViewController.swift */,
+				028D1AFB1A78255E0004B5D7 /* HomeViewController.swift */,
+				02F65CC01A7AA326003790BE /* BrowseViewController.swift */,
+				02F65CC21A7AA333003790BE /* WatchViewController.swift */,
+				02F65CC41A7AA33E003790BE /* AccountViewController.swift */,
+				02F65CC61A7AA35B003790BE /* InboxViewController.swift */,
+				02F65CC81A7AA36D003790BE /* SettingsViewController.swift */,
+				02F65CCA1A7AA37E003790BE /* HelpViewController.swift */,
 				0251A5FC1A799267003F527A /* ListingCell.swift */,
 				0213596F1A782FA500959930 /* CreateListingViewController.swift */,
 				028BAAE31A3E202C009D3DF9 /* Supporting Files */,
@@ -416,15 +434,21 @@
 				028BAAEB1A3E202C009D3DF9 /* SigninViewController.swift in Sources */,
 				021359701A782FA500959930 /* CreateListingViewController.swift in Sources */,
 				0251A5F91A797269003F527A /* StringExtension.swift in Sources */,
+				02F65CC71A7AA35B003790BE /* InboxViewController.swift in Sources */,
 				021359731A78392100959930 /* Client.swift in Sources */,
 				0251A5FA1A797269003F527A /* UITableViewExtension.swift in Sources */,
 				0251A5F41A796772003F527A /* MenuViewController.swift in Sources */,
+				02F65CC31A7AA333003790BE /* WatchViewController.swift in Sources */,
 				0251A5FD1A799267003F527A /* ListingCell.swift in Sources */,
 				028BAAE61A3E202C009D3DF9 /* AppDelegate.swift in Sources */,
 				0251A5FB1A797269003F527A /* UIViewControllerExtension.swift in Sources */,
 				022C971E1A7933AC00DCB1E1 /* FontAwesome.swift in Sources */,
+				02F65CC91A7AA36D003790BE /* SettingsViewController.swift in Sources */,
+				02F65CCB1A7AA37E003790BE /* HelpViewController.swift in Sources */,
+				02F65CC51A7AA33E003790BE /* AccountViewController.swift in Sources */,
 				022C97251A793B0800DCB1E1 /* SlideMenuController.swift in Sources */,
-				028D1AFC1A78255E0004B5D7 /* DashboardViewController.swift in Sources */,
+				028D1AFC1A78255E0004B5D7 /* HomeViewController.swift in Sources */,
+				02F65CC11A7AA326003790BE /* BrowseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
