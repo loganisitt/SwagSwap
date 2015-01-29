@@ -10,14 +10,15 @@ import UIKit
 
 import Alamofire
 
-private let _ClientSharedInstance = Client()
-
 class Client {
     
     var baseUrl = "http://localhost:8080"
     
     class var sharedInstance: Client {
-        return _ClientSharedInstance
+        struct Singleton {
+            static let instance = Client()
+        }
+        return Singleton.instance
     }
     
     func signinWithFacebook(accessToken: String) -> Bool {

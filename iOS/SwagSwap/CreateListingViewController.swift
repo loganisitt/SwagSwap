@@ -11,6 +11,11 @@ import Alamofire
 
 class CreateListingViewController: UIViewController {
     
+    @IBOutlet var nameField: UITextField!
+    @IBOutlet var priceField: UITextField!
+    @IBOutlet var descView: UITextView!
+    @IBOutlet var categoryBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     

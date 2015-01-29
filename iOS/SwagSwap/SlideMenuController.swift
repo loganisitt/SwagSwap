@@ -12,7 +12,7 @@ class SlideMenuOption {
     
     let leftViewWidth: CGFloat = 270.0
     let leftBezelWidth: CGFloat = 16.0
-    let contentViewScale: CGFloat = 0.96
+    let contentViewScale: CGFloat = 1 // 0.96
     let contentViewOpacity: CGFloat = 0.5
     let shadowOpacity: CGFloat = 0.0
     let shadowRadius: CGFloat = 0.0
@@ -26,7 +26,7 @@ class SlideMenuOption {
     let pointOfNoReturnWidth: CGFloat = 44.0
     
     init() {
-        
+        println(UIScreen().bounds.size.width)
     }
 }
 

@@ -75,21 +75,21 @@ public class MainFragment extends Fragment {
             // Creating HTTP client
             HttpClient httpClient = new DefaultHttpClient();
             // Creating HTTP Post
-            HttpPost httpPost = new HttpPost("http://localhost:8080");
+            HttpPost httpPost = new HttpPost("http://localhost:8080/auth/facebook?access_token=" + token);
 
-            // Building post parameters
-            // key and value pair
-            List<NameValuePair> nameValuePair = new ArrayList<NameValuePair>(1);
-            nameValuePair.add(new BasicNameValuePair(token,"usertoken"));
-
-
-            // Url Encoding the POST parameters
-            try {
-                httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
-            } catch (UnsupportedEncodingException e) {
-                // writing error to Log
-                e.printStackTrace();
-            }
+//            // Building post parameters
+//            // key and value pair
+//            List<NameValuePair> nameValuePair = new ArrayList<NameValuePair>(1);
+//            nameValuePair.add(new BasicNameValuePair(token,"usertoken"));
+//
+//
+//            // Url Encoding the POST parameters
+//            try {
+//                httpPost.setEntity(new UrlEncodedFormEntity(nameValuePair));
+//            } catch (UnsupportedEncodingException e) {
+//                // writing error to Log
+//                e.printStackTrace();
+//            }
 
             // Making HTTP Request
             try {

@@ -6,4 +6,10 @@
 //  Copyright (c) 2015 loganisitt. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class ListingCell: UICollectionViewCell {
+    
+    @IBOutlet var imageView: UIImageView!
+    
+}
