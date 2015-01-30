@@ -202,28 +202,17 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ysA-xg-nXO">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GSC-1W-7EB">
-                                            <rect key="frame" x="81" y="81" width="138" height="138"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="80"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ysA-xg-nXO" secondAttribute="trailing" id="3yw-G5-NaA"/>
-                                    <constraint firstItem="ysA-xg-nXO" firstAttribute="top" secondItem="Up6-vJ-9O4" secondAttribute="top" id="9VZ-OJ-m78"/>
-                                    <constraint firstItem="ysA-xg-nXO" firstAttribute="centerY" secondItem="GSC-1W-7EB" secondAttribute="centerY" id="EPO-uz-ADW"/>
-                                    <constraint firstItem="GSC-1W-7EB" firstAttribute="leading" secondItem="Up6-vJ-9O4" secondAttribute="leadingMargin" constant="73" id="c6v-0G-U85"/>
-                                    <constraint firstItem="GSC-1W-7EB" firstAttribute="top" secondItem="Up6-vJ-9O4" secondAttribute="topMargin" constant="73" id="iLH-iY-Y9g"/>
-                                    <constraint firstAttribute="bottom" secondItem="ysA-xg-nXO" secondAttribute="bottom" id="lJU-r5-N7p"/>
-                                    <constraint firstItem="GSC-1W-7EB" firstAttribute="centerX" secondItem="ysA-xg-nXO" secondAttribute="centerX" id="qMV-JH-72r"/>
-                                    <constraint firstItem="ysA-xg-nXO" firstAttribute="leading" secondItem="Up6-vJ-9O4" secondAttribute="leading" id="sct-Ho-6Od"/>
+                                    <constraint firstAttribute="bottom" secondItem="ysA-xg-nXO" secondAttribute="bottom" id="LtP-n6-DPg"/>
+                                    <constraint firstItem="ysA-xg-nXO" firstAttribute="leading" secondItem="Up6-vJ-9O4" secondAttribute="leading" id="M0j-xz-Psv"/>
+                                    <constraint firstItem="ysA-xg-nXO" firstAttribute="top" secondItem="Up6-vJ-9O4" secondAttribute="top" id="SfE-Rp-4wm"/>
+                                    <constraint firstAttribute="trailing" secondItem="ysA-xg-nXO" secondAttribute="trailing" id="ffp-cv-WSp"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="ysA-xg-nXO" id="Ltt-Nh-iid"/>
-                                    <outlet property="label" destination="GSC-1W-7EB" id="Zen-nf-Owr"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

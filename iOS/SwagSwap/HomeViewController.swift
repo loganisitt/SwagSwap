@@ -62,15 +62,6 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         cell.imageView.image = UIImage(named: "background")
         cell.label.text = "\(indexPath.row)"
         
-        println("Cell: \(indexPath.row)")
-        
-//        switch indexPath.row % 4 {
-//        case 0: cell.backgroundColor = UIColor.greenColor()
-//        case 1: cell.backgroundColor = UIColor.greenColor()
-//        case 2: cell.backgroundColor = UIColor.brownColor()
-//        default: cell.backgroundColor = UIColor.blueColor()
-//        }
-        
         return cell
     }
     

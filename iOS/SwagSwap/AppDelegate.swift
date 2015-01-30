@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import Alamofire
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,17 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             let fbToken = session.accessTokenData.accessToken as String
             
-            var url = "http://localhost:1337/auth/facebook?access_token=" + fbToken
-            
-            Alamofire.request(.POST, url).responseJSON() {
-                (_, _, data, error) in
-                
-//                var json = JSON(data!)
-//                
-//                if let id = json["facebook"]["id"].string{
-//                    self.userId = id
-//                }
-                
+            if (Client.sharedInstance.signinWithFacebook(fbToken)) {
                 self.pushMenuView()
             }
         }

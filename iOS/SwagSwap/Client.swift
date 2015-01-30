@@ -9,10 +9,13 @@
 import UIKit
 
 import Alamofire
+import SwiftyJSON
 
 class Client {
     
     var baseUrl = "http://localhost:8080"
+    
+    var userID: String!
     
     class var sharedInstance: Client {
         struct Singleton {
@@ -30,13 +33,21 @@ class Client {
         Alamofire.request(.POST, url).responseJSON() {
             (_, _, data, error) in
             
+            if (data != nil) {
+                var json = JSON(data!)
+                
+                self.userID = json["facebook"]["id"].string
+            }
         }
+        
+        println("UserID: \(self.userID)")
+        
         return true
     }
     
     func createNewListing(packet: Dictionary<String, AnyObject>) -> Bool {
         // test!
-        var parameters = ["userId":"abc123", "category": "Shoes", "name": "Old Navy", "description": "I am a short description", "price": 19.99]
+        var parameters = ["userId":self.userID, "category": "Shoes", "name": "Old Navy", "description": "I am a short description", "price": 19.99]
         
         var url = baseUrl + "/api/listing"
         

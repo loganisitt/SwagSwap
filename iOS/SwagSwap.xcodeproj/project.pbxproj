@@ -19,6 +19,10 @@
 		0251A5FA1A797269003F527A /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251A5F71A797269003F527A /* UITableViewExtension.swift */; };
 		0251A5FB1A797269003F527A /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251A5F81A797269003F527A /* UIViewControllerExtension.swift */; };
 		0251A5FD1A799267003F527A /* ListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251A5FC1A799267003F527A /* ListingCell.swift */; };
+		0273F13B1A7B4F7200BD78D4 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0273F12C1A7B4F0800BD78D4 /* SwiftyJSON.framework */; };
+		0273F13C1A7B4F7200BD78D4 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0273F12C1A7B4F0800BD78D4 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0273F13F1A7B4F7700BD78D4 /* Snap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0273F1211A7B4EFD00BD78D4 /* Snap.framework */; };
+		0273F1401A7B4F7700BD78D4 /* Snap.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0273F1211A7B4EFD00BD78D4 /* Snap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		028BAAE61A3E202C009D3DF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAE51A3E202C009D3DF9 /* AppDelegate.swift */; };
 		028BAAEB1A3E202C009D3DF9 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAEA1A3E202C009D3DF9 /* SigninViewController.swift */; };
 		028BAAEE1A3E202C009D3DF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 028BAAEC1A3E202C009D3DF9 /* Main.storyboard */; };
@@ -38,6 +42,48 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0273F1201A7B4EFD00BD78D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0273F1141A7B4EFD00BD78D4 /* Snap.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9D819CC627D0083B827;
+			remoteInfo = Snap;
+		};
+		0273F1221A7B4EFD00BD78D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0273F1141A7B4EFD00BD78D4 /* Snap.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EEBCC9E219CC627E0083B827;
+			remoteInfo = SnapTests;
+		};
+		0273F12B1A7B4F0800BD78D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0273F1241A7B4F0800BD78D4 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2E4FEFDB19575BE100351305;
+			remoteInfo = "SwiftyJSON iOS";
+		};
+		0273F12D1A7B4F0800BD78D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0273F1241A7B4F0800BD78D4 /* SwiftyJSON.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2E4FEFE619575BE100351305;
+			remoteInfo = SwiftyJSONTests;
+		};
+		0273F13D1A7B4F7200BD78D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0273F1241A7B4F0800BD78D4 /* SwiftyJSON.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E4FEFDA19575BE100351305;
+			remoteInfo = "SwiftyJSON iOS";
+		};
+		0273F1411A7B4F7700BD78D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0273F1141A7B4EFD00BD78D4 /* Snap.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = EEBCC9D719CC627D0083B827;
+			remoteInfo = Snap;
+		};
 		028BAAF91A3E202C009D3DF9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 028BAAD81A3E202C009D3DF9 /* Project object */;
@@ -75,7 +121,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0273F13C1A7B4F7200BD78D4 /* SwiftyJSON.framework in Embed Frameworks */,
 				02F232751A4A05ED00C3EEDB /* Alamofire.framework in Embed Frameworks */,
+				0273F1401A7B4F7700BD78D4 /* Snap.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,6 +143,8 @@
 		0251A5F71A797269003F527A /* UITableViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		0251A5F81A797269003F527A /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		0251A5FC1A799267003F527A /* ListingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingCell.swift; sourceTree = "<group>"; };
+		0273F1141A7B4EFD00BD78D4 /* Snap.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Snap.xcodeproj; path = Snap/Snap.xcodeproj; sourceTree = "<group>"; };
+		0273F1241A7B4F0800BD78D4 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = "<group>"; };
 		028BAAE01A3E202C009D3DF9 /* SwagSwap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwagSwap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		028BAAE41A3E202C009D3DF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		028BAAE51A3E202C009D3DF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,8 +174,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0273F13F1A7B4F7700BD78D4 /* Snap.framework in Frameworks */,
 				02F232741A4A05ED00C3EEDB /* Alamofire.framework in Frameworks */,
 				8487BA433DED1CB74A5282DE /* libPods.a in Frameworks */,
+				0273F13B1A7B4F7200BD78D4 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,9 +213,29 @@
 			name = "Cool Classes";
 			sourceTree = "<group>";
 		};
+		0273F1151A7B4EFD00BD78D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0273F1211A7B4EFD00BD78D4 /* Snap.framework */,
+				0273F1231A7B4EFD00BD78D4 /* SnapTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0273F1251A7B4F0800BD78D4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0273F12C1A7B4F0800BD78D4 /* SwiftyJSON.framework */,
+				0273F12E1A7B4F0800BD78D4 /* SwiftyJSONTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		028BAAD71A3E202C009D3DF9 = {
 			isa = PBXGroup;
 			children = (
+				0273F1241A7B4F0800BD78D4 /* SwiftyJSON.xcodeproj */,
+				0273F1141A7B4EFD00BD78D4 /* Snap.xcodeproj */,
 				02F2326B1A4A05E500C3EEDB /* Alamofire.xcodeproj */,
 				028BAAE21A3E202C009D3DF9 /* SwagSwap */,
 				028BAAFB1A3E202C009D3DF9 /* SwagSwapTests */,
@@ -246,7 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				02F232711A4A05E500C3EEDB /* Alamofire.framework */,
-				02F232731A4A05E500C3EEDB /* AlamofireTests.xctest */,
+				02F232731A4A05E500C3EEDB /* Alamofire iOS Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -286,6 +358,8 @@
 			);
 			dependencies = (
 				02F232771A4A05ED00C3EEDB /* PBXTargetDependency */,
+				0273F13E1A7B4F7200BD78D4 /* PBXTargetDependency */,
+				0273F1421A7B4F7700BD78D4 /* PBXTargetDependency */,
 			);
 			name = SwagSwap;
 			productName = SwagSwap;
@@ -344,6 +418,14 @@
 					ProductGroup = 02F2326C1A4A05E500C3EEDB /* Products */;
 					ProjectRef = 02F2326B1A4A05E500C3EEDB /* Alamofire.xcodeproj */;
 				},
+				{
+					ProductGroup = 0273F1151A7B4EFD00BD78D4 /* Products */;
+					ProjectRef = 0273F1141A7B4EFD00BD78D4 /* Snap.xcodeproj */;
+				},
+				{
+					ProductGroup = 0273F1251A7B4F0800BD78D4 /* Products */;
+					ProjectRef = 0273F1241A7B4F0800BD78D4 /* SwiftyJSON.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -354,6 +436,34 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		0273F1211A7B4EFD00BD78D4 /* Snap.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Snap.framework;
+			remoteRef = 0273F1201A7B4EFD00BD78D4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0273F1231A7B4EFD00BD78D4 /* SnapTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SnapTests.xctest;
+			remoteRef = 0273F1221A7B4EFD00BD78D4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0273F12C1A7B4F0800BD78D4 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = 0273F12B1A7B4F0800BD78D4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0273F12E1A7B4F0800BD78D4 /* SwiftyJSONTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftyJSONTests.xctest;
+			remoteRef = 0273F12D1A7B4F0800BD78D4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		02F232711A4A05E500C3EEDB /* Alamofire.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -361,10 +471,10 @@
 			remoteRef = 02F232701A4A05E500C3EEDB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		02F232731A4A05E500C3EEDB /* AlamofireTests.xctest */ = {
+		02F232731A4A05E500C3EEDB /* Alamofire iOS Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = AlamofireTests.xctest;
+			path = "Alamofire iOS Tests.xctest";
 			remoteRef = 02F232721A4A05E500C3EEDB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -463,6 +573,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0273F13E1A7B4F7200BD78D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SwiftyJSON iOS";
+			targetProxy = 0273F13D1A7B4F7200BD78D4 /* PBXContainerItemProxy */;
+		};
+		0273F1421A7B4F7700BD78D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Snap;
+			targetProxy = 0273F1411A7B4F7700BD78D4 /* PBXContainerItemProxy */;
+		};
 		028BAAFA1A3E202C009D3DF9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 028BAADF1A3E202C009D3DF9 /* SwagSwap */;
