@@ -1,4 +1,4 @@
-angular.module('Bazaaru')
+angular.module('SwagSwap')
 .controller('SignupCtrl', ['$scope', 'Auth', function($scope, Auth) {
   $scope.signup = function() {
     Auth.signup({

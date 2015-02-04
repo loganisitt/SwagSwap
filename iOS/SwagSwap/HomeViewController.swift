@@ -29,20 +29,7 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Montserrat-Regular", size: 32)!]
-        
-
-        
-//        self.collectionView?.registerClass(ListingCell.self, forCellWithReuseIdentifier: "Cell")
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
     
     // MARK: - Collection View Data Source
     

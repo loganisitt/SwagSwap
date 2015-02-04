@@ -10,7 +10,6 @@ server.listen(port, function () {
   console.log('Server listening at port %d', port);
 });
 
-
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
@@ -35,7 +34,7 @@ app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // required for passport
-app.use(session({ secret: 'hillbillyslovecakewithcransauce' })); // session secret
+app.use(session({ secret:'thisisahugesecret'})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session

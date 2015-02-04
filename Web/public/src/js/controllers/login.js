@@ -1,4 +1,4 @@
-angular.module('Bazaaru')
+angular.module('SwagSwap')
 .controller('LoginCtrl', function($scope, Auth) {
   console.log('LoginCtrl');
   $scope.login = function() {
