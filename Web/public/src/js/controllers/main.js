@@ -1,4 +1,4 @@
-angular.module('Bazaaru')
+angular.module('SwagSwap')
 .controller('MainCtrl', function($scope, Show) {
 
 });

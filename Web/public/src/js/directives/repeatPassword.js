@@ -1,4 +1,4 @@
-angular.module('Bazaaru')
+angular.module('SwagSwap')
 .directive('repeatPassword', function() {
   return {
     require: 'ngModel',

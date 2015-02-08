@@ -1,4 +1,4 @@
-angular.module('Bazaaru')
+angular.module('SwagSwap')
   .factory('Auth', ['$http', '$location', '$rootScope', '$cookieStore', '$alert', '$window',
     function($http, $location, $rootScope, $cookieStore, $alert, $window) {
       $rootScope.currentUser = $cookieStore.get('user');

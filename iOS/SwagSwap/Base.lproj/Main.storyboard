@@ -5,11 +5,17 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Signin View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwagSwap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SigninViewController" customModule="SwagSwap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -90,16 +96,314 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <segue destination="785-x8-gKg" kind="showDetail" identifier="Dashboard" id="5JE-vT-omP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="283" y="261"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="87w-S4-fof">
+            <objects>
+                <navigationController id="hZ4-PJ-w30" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="iDY-S7-AzF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CE7-80-o0h" kind="relationship" relationship="rootViewController" id="0Za-SN-4Aq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GjM-Up-dhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="-510"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="ctN-xh-hep">
+            <objects>
+                <viewController storyboardIdentifier="MenuViewController" id="CE7-80-o0h" customClass="MenuViewController" customModule="SwagSwap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FbX-MV-Fti"/>
+                        <viewControllerLayoutGuide type="bottom" id="1SA-9y-NDX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QAd-iF-yy0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kfL-Ii-uf6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                <color key="backgroundColor" red="0.043137254901960784" green="0.31764705882352939" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="SR3-Sz-dqH" imageView="zCJ-Ry-EcW" rowHeight="80" style="IBUITableViewCellStyleDefault" id="NZj-Iz-V8u">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NZj-Iz-V8u" id="BMN-Yw-us1">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SR3-Sz-dqH">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="22"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="inbox" id="zCJ-Ry-EcW">
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="CE7-80-o0h" id="YYG-wj-ZMd"/>
+                                    <outlet property="delegate" destination="CE7-80-o0h" id="Y1T-Jy-SYK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kfL-Ii-uf6" secondAttribute="trailing" id="5ss-pF-hDh"/>
+                            <constraint firstItem="kfL-Ii-uf6" firstAttribute="leading" secondItem="QAd-iF-yy0" secondAttribute="leading" id="6ca-75-CHO"/>
+                            <constraint firstItem="kfL-Ii-uf6" firstAttribute="bottom" secondItem="1SA-9y-NDX" secondAttribute="top" id="oFg-xc-cCQ"/>
+                            <constraint firstItem="kfL-Ii-uf6" firstAttribute="top" secondItem="FbX-MV-Fti" secondAttribute="bottom" id="z8f-fi-K5U"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tnw-oa-NNy"/>
+                    <connections>
+                        <outlet property="tableView" destination="kfL-Ii-uf6" id="QHq-gH-Ct5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CWn-D5-hZC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="-510"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="Mgv-3m-H4J">
+            <objects>
+                <collectionViewController storyboardIdentifier="HomeViewController" id="aOo-cD-Rz8" customClass="HomeViewController" customModule="SwagSwap" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GJv-xw-g9I">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sSH-04-zYC">
+                            <size key="itemSize" width="300" height="300"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Up6-vJ-9O4" customClass="ListingCell" customModule="SwagSwap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ysA-xg-nXO">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ysA-xg-nXO" secondAttribute="bottom" id="LtP-n6-DPg"/>
+                                    <constraint firstItem="ysA-xg-nXO" firstAttribute="leading" secondItem="Up6-vJ-9O4" secondAttribute="leading" id="M0j-xz-Psv"/>
+                                    <constraint firstItem="ysA-xg-nXO" firstAttribute="top" secondItem="Up6-vJ-9O4" secondAttribute="top" id="SfE-Rp-4wm"/>
+                                    <constraint firstAttribute="trailing" secondItem="ysA-xg-nXO" secondAttribute="trailing" id="ffp-cv-WSp"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="ysA-xg-nXO" id="Ltt-Nh-iid"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="aOo-cD-Rz8" id="Si0-EV-FMG"/>
+                            <outlet property="delegate" destination="aOo-cD-Rz8" id="dXT-sh-Bvd"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KKl-2A-UlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="261"/>
+        </scene>
+        <!--Browse View Controller-->
+        <scene sceneID="0xQ-2R-T2i">
+            <objects>
+                <viewController storyboardIdentifier="BrowseViewController" id="eaR-AW-uHl" customClass="BrowseViewController" customModule="SwagSwap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bo7-Tz-ILm"/>
+                        <viewControllerLayoutGuide type="bottom" id="SDq-SR-huM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AeT-fw-zcc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rhK-bu-uZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="1048"/>
+        </scene>
+        <!--Watch View Controller-->
+        <scene sceneID="13r-m7-4x3">
+            <objects>
+                <viewController storyboardIdentifier="WatchViewController" id="jLV-Ep-Ex3" customClass="WatchViewController" customModule="SwagSwap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bQC-z3-U6b"/>
+                        <viewControllerLayoutGuide type="bottom" id="WLu-TX-yh1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XK1-AD-2SQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ncz-mq-EN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="1832"/>
+        </scene>
+        <!--Account View Controller-->
+        <scene sceneID="wxY-jO-h1T">
+            <objects>
+                <viewController storyboardIdentifier="AccountViewController" id="RSc-0P-cpP" customClass="AccountViewController" customModule="SwagSwap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Shw-rA-fDk"/>
+                        <viewControllerLayoutGuide type="bottom" id="nPO-dr-qcK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V2Q-Il-NkJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="OhO-L3-Y9l">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="o0k-7A-ofw" style="IBUITableViewCellStyleDefault" id="TG5-wg-cNA">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TG5-wg-cNA" id="xVb-tN-aUW">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o0k-7A-ofw">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="22"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="RSc-0P-cpP" id="t58-pK-13b"/>
+                                    <outlet property="delegate" destination="RSc-0P-cpP" id="9g8-Mj-3Mf"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="OhO-L3-Y9l" id="Iq7-np-4Nb"/>
+                        <segue destination="2em-8l-6WT" kind="show" identifier="CreateListing" id="owq-yp-L76"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eNb-GB-55x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="2592"/>
+        </scene>
+        <!--Inbox View Controller-->
+        <scene sceneID="4kX-tT-C1f">
+            <objects>
+                <viewController storyboardIdentifier="InboxViewController" id="WoI-Va-rXs" customClass="InboxViewController" customModule="SwagSwap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OJA-6f-JmR"/>
+                        <viewControllerLayoutGuide type="bottom" id="uBL-Ka-hTN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gex-Q0-79b">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tJA-vd-K0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="3372"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="ymB-FW-4Qf">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="PsD-yT-NYD" customClass="SettingsViewController" customModule="SwagSwap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gcn-Vi-imF"/>
+                        <viewControllerLayoutGuide type="bottom" id="7GU-Ah-yyC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NRp-WK-iJZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M1n-hU-qok" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="4162"/>
+        </scene>
+        <!--Help View Controller-->
+        <scene sceneID="aBQ-Er-eqe">
+            <objects>
+                <viewController storyboardIdentifier="HelpViewController" id="w9k-yG-sJf" customClass="HelpViewController" customModule="SwagSwap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DgJ-3b-4eV"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Jl-52-JJc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DFw-et-e5t">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dnk-W0-FkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="4986"/>
+        </scene>
+        <!--Create Listing View Controller-->
+        <scene sceneID="KJ2-61-K0u">
+            <objects>
+                <viewController id="2em-8l-6WT" customClass="CreateListingViewController" customModule="SwagSwap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZsT-4s-wpe"/>
+                        <viewControllerLayoutGuide type="bottom" id="6k5-if-4fy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r4p-qb-spm">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b4c-rB-Oxy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2666" y="2592"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iMv-ej-6K4">
+            <objects>
+                <navigationController id="785-x8-gKg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="eWF-rb-QSD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="36"/>
+                        </textAttributes>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z01-WP-b8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="261"/>
         </scene>
     </scenes>
     <resources>
         <image name="background" width="320" height="568"/>
         <image name="emblem" width="251" height="278"/>
         <image name="facebookBtn" width="273" height="46"/>
+        <image name="inbox" width="58" height="52"/>
         <image name="loginInBtn" width="273" height="45"/>
         <image name="signUpBtn" width="273" height="45"/>
     </resources>
