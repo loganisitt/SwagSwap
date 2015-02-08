@@ -7,3 +7,6 @@
 [submodule "iOS/Snap"]
 	path = iOS/Snap
 	url = https://github.com/Masonry/Snap.git
+[submodule "iOS/Cartography"]
+	path = iOS/Cartography
+	url = git@github.com:robb/Cartography.git

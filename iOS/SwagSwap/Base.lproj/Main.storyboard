@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -7,6 +7,7 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
         </mutableArray>
@@ -177,55 +178,6 @@
             </objects>
             <point key="canvasLocation" x="1866" y="-510"/>
         </scene>
-        <!--Home View Controller-->
-        <scene sceneID="Mgv-3m-H4J">
-            <objects>
-                <collectionViewController storyboardIdentifier="HomeViewController" id="aOo-cD-Rz8" customClass="HomeViewController" customModule="SwagSwap" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GJv-xw-g9I">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sSH-04-zYC">
-                            <size key="itemSize" width="300" height="300"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="Up6-vJ-9O4" customClass="ListingCell" customModule="SwagSwap" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ysA-xg-nXO">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ysA-xg-nXO" secondAttribute="bottom" id="LtP-n6-DPg"/>
-                                    <constraint firstItem="ysA-xg-nXO" firstAttribute="leading" secondItem="Up6-vJ-9O4" secondAttribute="leading" id="M0j-xz-Psv"/>
-                                    <constraint firstItem="ysA-xg-nXO" firstAttribute="top" secondItem="Up6-vJ-9O4" secondAttribute="top" id="SfE-Rp-4wm"/>
-                                    <constraint firstAttribute="trailing" secondItem="ysA-xg-nXO" secondAttribute="trailing" id="ffp-cv-WSp"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="imageView" destination="ysA-xg-nXO" id="Ltt-Nh-iid"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="aOo-cD-Rz8" id="Si0-EV-FMG"/>
-                            <outlet property="delegate" destination="aOo-cD-Rz8" id="dXT-sh-Bvd"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KKl-2A-UlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1866" y="261"/>
-        </scene>
         <!--Browse View Controller-->
         <scene sceneID="0xQ-2R-T2i">
             <objects>
@@ -375,8 +327,123 @@
                     <view key="view" contentMode="scaleToFill" id="r4p-qb-spm">
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oN1-m2-2vu" customClass="MKTextField" customModule="SwagSwap" customModuleProvider="target">
+                                <rect key="frame" x="32" y="40" width="536" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="padding">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BcV-Vh-QGh" customClass="MKTextField" customModule="SwagSwap" customModuleProvider="target">
+                                <rect key="frame" x="32" y="184" width="536" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="padding">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-uj-7ZX" customClass="MKTextField" customModule="SwagSwap" customModuleProvider="target">
+                                <rect key="frame" x="32" y="112" width="536" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="padding">
+                                        <size key="value" width="0.0" height="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lnF-55-aWT" customClass="SSTextView" customModule="SwagSwap" customModuleProvider="target">
+                                <rect key="frame" x="32" y="244" width="536" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorderEnabled" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="bottomBorderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7v-pq-ohq" customClass="MKButton" customModule="SwagSwap" customModuleProvider="target">
+                                <rect key="frame" x="32" y="510" width="536" height="70"/>
+                                <color key="backgroundColor" red="0.80784313725490198" green="0.0" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="22"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addImage" destination="2em-8l-6WT" eventType="touchUpInside" id="PZj-44-70E"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MCr-bi-ncC">
+                                <rect key="frame" x="32" y="402" width="536" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ndx-2C-DcV">
+                                    <size key="itemSize" width="118" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="Cell" id="UwG-cQ-c1A" customClass="ImageCell" customModule="SwagSwap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="118" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yXm-ce-rx7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="118" height="100"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="yXm-ce-rx7" firstAttribute="leading" secondItem="UwG-cQ-c1A" secondAttribute="leading" id="FY2-It-jwD"/>
+                                            <constraint firstAttribute="bottom" secondItem="yXm-ce-rx7" secondAttribute="bottom" id="FYf-Cc-U55"/>
+                                            <constraint firstItem="yXm-ce-rx7" firstAttribute="top" secondItem="UwG-cQ-c1A" secondAttribute="top" id="eBq-f4-f9A"/>
+                                            <constraint firstAttribute="trailing" secondItem="yXm-ce-rx7" secondAttribute="trailing" id="vRR-cI-hY7"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="yXm-ce-rx7" id="qCH-xi-Mbo"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="2em-8l-6WT" id="uFU-0m-kBf"/>
+                                    <outlet property="delegate" destination="2em-8l-6WT" id="O0J-sw-M6d"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="addImgBtn" destination="w7v-pq-ohq" id="1I1-f5-BH5"/>
+                        <outlet property="categoryField" destination="b1d-uj-7ZX" id="KGD-bl-E9E"/>
+                        <outlet property="descView" destination="lnF-55-aWT" id="oah-Fm-llb"/>
+                        <outlet property="imgCollection" destination="MCr-bi-ncC" id="Md0-zg-Ic0"/>
+                        <outlet property="nameField" destination="oN1-m2-2vu" id="1lo-yz-acd"/>
+                        <outlet property="priceField" destination="BcV-Vh-QGh" id="kj8-Aw-oFl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4c-rB-Oxy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -398,6 +465,97 @@
             </objects>
             <point key="canvasLocation" x="1046" y="261"/>
         </scene>
+        <!--Home View Controller-->
+        <scene sceneID="GSd-RU-W4O">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="kVy-LR-Sh3" customClass="HomeViewController" customModule="SwagSwap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZVQ-3e-w7P"/>
+                        <viewControllerLayoutGuide type="bottom" id="fMq-DG-Je1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LoC-4Z-3I3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="y7k-y4-lKA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="G2x-lJ-NSE">
+                                    <size key="itemSize" width="300" height="300"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="qCi-dn-kLo" customClass="ListingCell" customModule="SwagSwap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hgk-I2-cfa">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="hgk-I2-cfa" secondAttribute="trailing" id="HPX-83-NLw"/>
+                                            <constraint firstItem="hgk-I2-cfa" firstAttribute="top" secondItem="qCi-dn-kLo" secondAttribute="top" id="h4m-XW-pK2"/>
+                                            <constraint firstAttribute="bottom" secondItem="hgk-I2-cfa" secondAttribute="bottom" id="r2O-eN-PBF"/>
+                                            <constraint firstItem="hgk-I2-cfa" firstAttribute="leading" secondItem="qCi-dn-kLo" secondAttribute="leading" id="xqm-uy-PqB"/>
+                                        </constraints>
+                                        <size key="customSize" width="300" height="300"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="hgk-I2-cfa" id="izu-zZ-uD9"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="kVy-LR-Sh3" id="VdW-4n-bv0"/>
+                                    <outlet property="delegate" destination="kVy-LR-Sh3" id="DmL-No-6uM"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SaM-DB-daF" customClass="MKButton" customModule="SwagSwap" customModuleProvider="target">
+                                <rect key="frame" x="524" y="520" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.80784313730000001" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="fDV-L4-rfb"/>
+                                    <constraint firstAttribute="width" secondItem="SaM-DB-daF" secondAttribute="height" multiplier="1:1" id="lI4-Am-3NT"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundLayerColor">
+                                        <color key="value" red="0.80784313730000001" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="2em-8l-6WT" kind="show" id="vCF-kh-cN3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="y7k-y4-lKA" firstAttribute="leading" secondItem="LoC-4Z-3I3" secondAttribute="leading" id="P9n-o7-xgM"/>
+                            <constraint firstItem="SaM-DB-daF" firstAttribute="leading" secondItem="y7k-y4-lKA" secondAttribute="trailing" constant="-76" id="WSV-3B-3ZR"/>
+                            <constraint firstAttribute="trailing" secondItem="y7k-y4-lKA" secondAttribute="trailing" id="dam-na-3mn"/>
+                            <constraint firstItem="y7k-y4-lKA" firstAttribute="top" secondItem="LoC-4Z-3I3" secondAttribute="top" id="jjg-uT-krl"/>
+                            <constraint firstItem="y7k-y4-lKA" firstAttribute="bottom" secondItem="fMq-DG-Je1" secondAttribute="top" id="tMH-BP-Agr"/>
+                            <constraint firstItem="SaM-DB-daF" firstAttribute="top" secondItem="y7k-y4-lKA" secondAttribute="bottom" constant="-80" id="zrC-KI-NzD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="SaM-DB-daF" id="Rse-AV-BWc"/>
+                        <outlet property="collectionView" destination="y7k-y4-lKA" id="90F-tm-Pfy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hag-9i-UAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866" y="261"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="320" height="568"/>
@@ -407,4 +565,7 @@
         <image name="loginInBtn" width="273" height="45"/>
         <image name="signUpBtn" width="273" height="45"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="vCF-kh-cN3"/>
+    </inferredMetricsTieBreakers>
 </document>

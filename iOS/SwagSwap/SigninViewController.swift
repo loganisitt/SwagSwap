@@ -16,8 +16,8 @@ class SigninViewController: UIViewController, FBLoginViewDelegate, SocketIODeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        socketio = SocketIO(delegate: self)
-        socketio.connectToHost("localhost", onPort: 8080)
+//        socketio = SocketIO(delegate: self)
+//        socketio.connectToHost("localhost", onPort: 8080)
     }
     
     @IBAction func facebookLoginAction(sender: UIButton) {

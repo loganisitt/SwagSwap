@@ -10,9 +10,10 @@ import UIKit
 
 import Alamofire
 
-class HomeViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-//    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var addButton: MKButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,20 +30,30 @@ class HomeViewController: UICollectionViewController, UICollectionViewDelegateFl
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Montserrat-Regular", size: 32)!]
+        
+        addButton.layer.shadowOpacity = 0.55
+        addButton.layer.shadowRadius = 5.0
+        addButton.layer.shadowColor = UIColor.grayColor().CGColor
+        addButton.layer.shadowOffset = CGSize(width: 0, height: 2.5)
+        addButton.cornerRadius = addButton.bounds.size.width / 2.0
+        
+        addButton.titleLabel?.font = UIFont.fontAwesomeOfSize(30)
+        addButton.titleLabel?.textAlignment = NSTextAlignment.Center
+        addButton.setTitle(String.fontAwesomeIconWithName("fa-plus"), forState: UIControlState.Normal)
     }
     
     // MARK: - Collection View Data Source
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         
         var cell: ListingCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as ListingCell
         

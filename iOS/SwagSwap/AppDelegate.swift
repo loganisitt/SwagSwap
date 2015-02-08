@@ -11,6 +11,8 @@ import CoreData
 import Alamofire
 import SwiftyJSON
 
+import Snap
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
