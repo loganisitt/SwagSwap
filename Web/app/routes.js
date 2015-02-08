@@ -25,7 +25,8 @@ module.exports = function(app, passport) {
 
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
-        passport.authenticate('facebook'),
+        passport.authenticate('facebook', { successRedirect: '/',
+                                      failureRedirect: '/login' }),
         function(req, res) {
             var another = res;
             another.send(200)
