@@ -38,5 +38,8 @@
     "passport-twitter": "~1.0.2",
     "path": "^0.4.9",
     "socket.io": "~0.9"
+  },
+  "devDependencies": {
+    "grunt-contrib-sass": "^0.8.1"
   }
 }
