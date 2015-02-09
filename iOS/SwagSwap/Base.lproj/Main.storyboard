@@ -4,6 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Montserrat-Regular.ttf">
@@ -328,8 +329,13 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oN1-m2-2vu" customClass="MKTextField" customModule="SwagSwap" customModuleProvider="target">
-                                <rect key="frame" x="32" y="40" width="536" height="52"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oN1-m2-2vu" customClass="MKTextField" customModule="SwagSwap" customModuleProvider="target">
+                                <rect key="frame" x="32" y="36" width="536" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="TRc-u2-OG1"/>
+                                    <constraint firstAttribute="height" constant="60" id="ZMt-hO-Hwk"/>
+                                    <constraint firstAttribute="width" secondItem="oN1-m2-2vu" secondAttribute="height" multiplier="134:15" id="dXK-vL-dgH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -340,9 +346,17 @@
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ZMt-hO-Hwk"/>
+                                    </mask>
+                                </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BcV-Vh-QGh" customClass="MKTextField" customModule="SwagSwap" customModuleProvider="target">
-                                <rect key="frame" x="32" y="184" width="536" height="52"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BcV-Vh-QGh" customClass="MKTextField" customModule="SwagSwap" customModuleProvider="target">
+                                <rect key="frame" x="32" y="172" width="536" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="vYZ-Sa-YQQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -353,9 +367,17 @@
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="vYZ-Sa-YQQ"/>
+                                    </mask>
+                                </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-uj-7ZX" customClass="MKTextField" customModule="SwagSwap" customModuleProvider="target">
-                                <rect key="frame" x="32" y="112" width="536" height="52"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-uj-7ZX" customClass="MKTextField" customModule="SwagSwap" customModuleProvider="target">
+                                <rect key="frame" x="32" y="104" width="536" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Rt0-pT-wEV"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -366,9 +388,14 @@
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Rt0-pT-wEV"/>
+                                    </mask>
+                                </variation>
                             </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lnF-55-aWT" customClass="SSTextView" customModule="SwagSwap" customModuleProvider="target">
-                                <rect key="frame" x="32" y="244" width="536" height="150"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lnF-55-aWT" customClass="SSTextView" customModule="SwagSwap" customModuleProvider="target">
+                                <rect key="frame" x="32" y="240" width="536" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorderEnabled" value="YES"/>
@@ -377,25 +404,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7v-pq-ohq" customClass="MKButton" customModule="SwagSwap" customModuleProvider="target">
-                                <rect key="frame" x="32" y="510" width="536" height="70"/>
-                                <color key="backgroundColor" red="0.80784313725490198" green="0.0" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="22"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="addImage" destination="2em-8l-6WT" eventType="touchUpInside" id="PZj-44-70E"/>
-                                </connections>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MCr-bi-ncC">
-                                <rect key="frame" x="32" y="402" width="536" height="100"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="MCr-bi-ncC">
+                                <rect key="frame" x="32" y="368" width="536" height="144"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ndx-2C-DcV">
                                     <size key="itemSize" width="118" height="100"/>
@@ -418,10 +428,10 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="yXm-ce-rx7" firstAttribute="leading" secondItem="UwG-cQ-c1A" secondAttribute="leading" id="FY2-It-jwD"/>
-                                            <constraint firstAttribute="bottom" secondItem="yXm-ce-rx7" secondAttribute="bottom" id="FYf-Cc-U55"/>
-                                            <constraint firstItem="yXm-ce-rx7" firstAttribute="top" secondItem="UwG-cQ-c1A" secondAttribute="top" id="eBq-f4-f9A"/>
-                                            <constraint firstAttribute="trailing" secondItem="yXm-ce-rx7" secondAttribute="trailing" id="vRR-cI-hY7"/>
+                                            <constraint firstAttribute="bottom" secondItem="yXm-ce-rx7" secondAttribute="bottom" id="Cam-69-yO0"/>
+                                            <constraint firstItem="yXm-ce-rx7" firstAttribute="leading" secondItem="UwG-cQ-c1A" secondAttribute="leading" id="Vo9-8F-Exl"/>
+                                            <constraint firstItem="yXm-ce-rx7" firstAttribute="top" secondItem="UwG-cQ-c1A" secondAttribute="top" id="eJd-ZT-F4p"/>
+                                            <constraint firstAttribute="trailing" secondItem="yXm-ce-rx7" secondAttribute="trailing" id="ggS-TK-y86"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="yXm-ce-rx7" id="qCH-xi-Mbo"/>
@@ -433,8 +443,50 @@
                                     <outlet property="delegate" destination="2em-8l-6WT" id="O0J-sw-M6d"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7v-pq-ohq" customClass="MKButton" customModule="SwagSwap" customModuleProvider="target">
+                                <rect key="frame" x="32" y="520" width="536" height="60"/>
+                                <color key="backgroundColor" red="0.80784313725490198" green="0.0" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="22"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addImage" destination="2em-8l-6WT" eventType="touchUpInside" id="PZj-44-70E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BcV-Vh-QGh" firstAttribute="top" secondItem="b1d-uj-7ZX" secondAttribute="bottom" constant="8" id="0wc-bW-OSF"/>
+                            <constraint firstItem="oN1-m2-2vu" firstAttribute="leading" secondItem="r4p-qb-spm" secondAttribute="leadingMargin" constant="16" id="2Ye-z9-rHP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w7v-pq-ohq" secondAttribute="trailing" constant="16" id="4Vv-lr-uSH"/>
+                            <constraint firstItem="b1d-uj-7ZX" firstAttribute="top" secondItem="oN1-m2-2vu" secondAttribute="bottom" constant="8" id="7AM-ID-5F2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b1d-uj-7ZX" secondAttribute="trailing" constant="16" id="AE9-MK-icH"/>
+                            <constraint firstItem="lnF-55-aWT" firstAttribute="height" secondItem="BcV-Vh-QGh" secondAttribute="height" multiplier="2" id="FXi-nv-VOf"/>
+                            <constraint firstItem="oN1-m2-2vu" firstAttribute="height" secondItem="w7v-pq-ohq" secondAttribute="height" id="K5z-gB-G9K"/>
+                            <constraint firstItem="MCr-bi-ncC" firstAttribute="top" secondItem="lnF-55-aWT" secondAttribute="bottom" constant="8" id="O80-B7-JhK"/>
+                            <constraint firstItem="lnF-55-aWT" firstAttribute="top" secondItem="BcV-Vh-QGh" secondAttribute="bottom" constant="8" id="RA4-cz-lkJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oN1-m2-2vu" secondAttribute="trailing" constant="16" id="RfE-lv-v2s"/>
+                            <constraint firstItem="oN1-m2-2vu" firstAttribute="top" secondItem="ZsT-4s-wpe" secondAttribute="bottom" constant="16" id="VDA-9H-22e"/>
+                            <constraint firstItem="6k5-if-4fy" firstAttribute="top" secondItem="w7v-pq-ohq" secondAttribute="bottom" constant="20" id="Vk7-DV-qE4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lnF-55-aWT" secondAttribute="trailing" constant="16" id="W73-St-Cqn"/>
+                            <constraint firstItem="lnF-55-aWT" firstAttribute="leading" secondItem="r4p-qb-spm" secondAttribute="leadingMargin" constant="16" id="aeS-HB-96k"/>
+                            <constraint firstItem="BcV-Vh-QGh" firstAttribute="height" secondItem="b1d-uj-7ZX" secondAttribute="height" id="dGh-Ik-g84"/>
+                            <constraint firstItem="BcV-Vh-QGh" firstAttribute="leading" secondItem="r4p-qb-spm" secondAttribute="leadingMargin" constant="16" id="dwI-Kl-BLv"/>
+                            <constraint firstItem="oN1-m2-2vu" firstAttribute="height" secondItem="b1d-uj-7ZX" secondAttribute="height" id="ebc-5c-SrD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MCr-bi-ncC" secondAttribute="trailing" constant="16" id="gWM-pg-JGm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BcV-Vh-QGh" secondAttribute="trailing" constant="16" id="kF5-Iw-NAC"/>
+                            <constraint firstItem="w7v-pq-ohq" firstAttribute="leading" secondItem="r4p-qb-spm" secondAttribute="leadingMargin" constant="16" id="oOV-vV-6Yo"/>
+                            <constraint firstItem="b1d-uj-7ZX" firstAttribute="leading" secondItem="r4p-qb-spm" secondAttribute="leadingMargin" constant="16" id="xRW-80-uI3"/>
+                            <constraint firstItem="MCr-bi-ncC" firstAttribute="leading" secondItem="r4p-qb-spm" secondAttribute="leadingMargin" constant="16" id="xxL-6W-SMT"/>
+                            <constraint firstItem="w7v-pq-ohq" firstAttribute="top" secondItem="MCr-bi-ncC" secondAttribute="bottom" constant="8" id="zaT-XT-rDm"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="addImgBtn" destination="w7v-pq-ohq" id="1I1-f5-BH5"/>

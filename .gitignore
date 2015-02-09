@@ -97,3 +97,5 @@ build/Release
 node_modules
 
 Web/public/dist/
+
+Web/uploads

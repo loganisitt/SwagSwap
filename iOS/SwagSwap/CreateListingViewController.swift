@@ -9,8 +9,6 @@
 import UIKit
 import Alamofire
 
-import Cartography
-
 class CreateListingViewController: UIViewController, UIImagePickerControllerDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout
 {
     
@@ -85,18 +83,6 @@ class CreateListingViewController: UIViewController, UIImagePickerControllerDele
         
         var tapDismiss = UITapGestureRecognizer(target: self, action: "findAndResignFirstResponder")
         self.view.addGestureRecognizer(tapDismiss)
-        
-        layout()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        layout()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        layout()
     }
     
     func findAndResignFirstResponder() {
@@ -110,53 +96,6 @@ class CreateListingViewController: UIViewController, UIImagePickerControllerDele
         }
     }
     
-    func layout() {
-        
-        println("Laying out views")
-        
-        let padding = UIEdgeInsetsMake(20, 20, 20, 20)
-        let space = 8
-        
-        let blockHeight = (self.view.bounds.height - ( (padding.top + padding.bottom) + (5 * 8) ) ) / 10
-        println("\tHEIGHT: \(blockHeight)")
-        let blockWidth = self.view.bounds.width - (2 * padding.top)
-        println("\tWIDTH: \(blockWidth)")
-        
-        println("VIEW: \(NSStringFromCGRect(self.view.frame))")
-        
-        var y = padding.top
-        
-        nameField.frame     = CGRectMake(padding.left, y, blockWidth, blockHeight)
-        println("nameField: \(NSStringFromCGRect(self.nameField.frame))")
-        
-        y = CGRectGetMaxY(nameField.frame) + CGFloat(space)
-        categoryField.frame = CGRectMake(padding.left, y, blockWidth, blockHeight)
-        println("categoryField: \(NSStringFromCGRect(self.categoryField.frame))")
-        
-        y = CGRectGetMaxY(categoryField.frame) + CGFloat(space)
-        priceField.frame    = CGRectMake(padding.left, y, blockWidth, blockHeight)
-        println("priceField: \(NSStringFromCGRect(self.priceField.frame))")
-        
-        y = CGRectGetMaxY(priceField.frame) + CGFloat(space)
-        descView.frame      = CGRectMake(padding.left, y, blockWidth, blockHeight)
-        println("descView: \(NSStringFromCGRect(self.descView.frame))")
-        
-        y = CGRectGetMaxY(descView.frame) + CGFloat(space)
-        imgCollection.frame = CGRectMake(padding.left, y, blockWidth, blockHeight)
-        println("imgCollection: \(NSStringFromCGRect(self.imgCollection.frame))")
-        
-        y = imgCollection.frame.origin.y + imgCollection.frame.size.height + CGFloat(space)
-        println("Y: \(y)")
-        self.addImgBtn.frame     = CGRectMake(padding.left, y, blockWidth, blockHeight)
-        println("addImgBtn: \(NSStringFromCGRect(self.addImgBtn.frame))")
-        
-        constrain(priceField) { priceField in
-            priceField.width  == 100
-            priceField.height == 100
-            priceField.center == priceField.superview!.center
-        }
-
-    }
     
     @IBAction func addImage() {
         
@@ -174,7 +113,41 @@ class CreateListingViewController: UIViewController, UIImagePickerControllerDele
     }
     
     @IBAction func done() {
+        
+        var imgLocations = saveLocally(imgArray)
+        
+        for img in imgArray {
+            
+            Client.sharedInstance.uploadImage(img)
+        }
+        
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func saveLocally(images: [UIImage]) -> [String] {
+    
+        let fileManager = NSFileManager.defaultManager()
+        
+        var paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        
+        var urls = [] as [String]
+
+        for var i = 0; i < images.count; i++ {
+            
+            var filePathToWrite = "\(paths)/image\(i).png"
+
+            var imageData = UIImagePNGRepresentation(images[i])
+            
+            NSFileManager.defaultManager().createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
+            
+            fileManager.createFileAtPath(filePathToWrite, contents: imageData, attributes: nil)
+            
+            var getImagePath = paths.stringByAppendingPathComponent("image\(i).png") as String
+            
+            urls.append(getImagePath)
+        }
+        
+        return urls
     }
     
     // MARK: - UIImagePickerController Delegate

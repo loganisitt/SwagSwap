@@ -31,8 +31,6 @@
 		028BAAF31A3E202C009D3DF9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 028BAAF11A3E202C009D3DF9 /* LaunchScreen.xib */; };
 		028BAAFF1A3E202C009D3DF9 /* SwagSwapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028BAAFE1A3E202C009D3DF9 /* SwagSwapTests.swift */; };
 		028D1AFC1A78255E0004B5D7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028D1AFB1A78255E0004B5D7 /* HomeViewController.swift */; };
-		02985F6F1A851642005FB05F /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02985F661A851638005FB05F /* Cartography.framework */; };
-		02985F701A851642005FB05F /* Cartography.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02985F661A851638005FB05F /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		029BCE141A826FC80013073D /* MKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029BCE0D1A826FC80013073D /* MKButton.swift */; };
 		029BCE151A826FC80013073D /* MKColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029BCE0E1A826FC80013073D /* MKColor.swift */; };
 		029BCE161A826FC80013073D /* MKImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029BCE0F1A826FC80013073D /* MKImageView.swift */; };
@@ -104,41 +102,6 @@
 			remoteGlobalIDString = 028BAADF1A3E202C009D3DF9;
 			remoteInfo = SwagSwap;
 		};
-		02985F651A851638005FB05F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02985F5D1A851638005FB05F /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54C96A11195063CD000CDD27;
-			remoteInfo = "Cartography-iOS";
-		};
-		02985F671A851638005FB05F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02985F5D1A851638005FB05F /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54C96A1C195063CD000CDD27;
-			remoteInfo = "Cartography-iOS-Tests";
-		};
-		02985F691A851638005FB05F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02985F5D1A851638005FB05F /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54F6A838195C20C100313D24;
-			remoteInfo = "Cartography-Mac";
-		};
-		02985F6B1A851638005FB05F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02985F5D1A851638005FB05F /* Cartography.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54F6A842195C20C200313D24;
-			remoteInfo = "Cartography-Mac-Tests";
-		};
-		02985F711A851642005FB05F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 02985F5D1A851638005FB05F /* Cartography.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 54C96A10195063CD000CDD27;
-			remoteInfo = "Cartography-iOS";
-		};
 		02F232701A4A05E500C3EEDB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 02F2326B1A4A05E500C3EEDB /* Alamofire.xcodeproj */;
@@ -170,7 +133,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0273F13C1A7B4F7200BD78D4 /* SwiftyJSON.framework in Embed Frameworks */,
-				02985F701A851642005FB05F /* Cartography.framework in Embed Frameworks */,
 				02F232751A4A05ED00C3EEDB /* Alamofire.framework in Embed Frameworks */,
 				0273F1401A7B4F7700BD78D4 /* Snap.framework in Embed Frameworks */,
 			);
@@ -206,7 +168,6 @@
 		028BAAFD1A3E202C009D3DF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		028BAAFE1A3E202C009D3DF9 /* SwagSwapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwagSwapTests.swift; sourceTree = "<group>"; };
 		028D1AFB1A78255E0004B5D7 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		02985F5D1A851638005FB05F /* Cartography.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cartography.xcodeproj; path = Cartography/Cartography.xcodeproj; sourceTree = "<group>"; };
 		029BCE0D1A826FC80013073D /* MKButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKButton.swift; sourceTree = "<group>"; };
 		029BCE0E1A826FC80013073D /* MKColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKColor.swift; sourceTree = "<group>"; };
 		029BCE0F1A826FC80013073D /* MKImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKImageView.swift; sourceTree = "<group>"; };
@@ -237,7 +198,6 @@
 			files = (
 				0273F13F1A7B4F7700BD78D4 /* Snap.framework in Frameworks */,
 				02F232741A4A05ED00C3EEDB /* Alamofire.framework in Frameworks */,
-				02985F6F1A851642005FB05F /* Cartography.framework in Frameworks */,
 				8487BA433DED1CB74A5282DE /* libPods.a in Frameworks */,
 				0273F13B1A7B4F7200BD78D4 /* SwiftyJSON.framework in Frameworks */,
 			);
@@ -296,7 +256,6 @@
 		028BAAD71A3E202C009D3DF9 = {
 			isa = PBXGroup;
 			children = (
-				02985F5D1A851638005FB05F /* Cartography.xcodeproj */,
 				0273F1241A7B4F0800BD78D4 /* SwiftyJSON.xcodeproj */,
 				0273F1141A7B4EFD00BD78D4 /* Snap.xcodeproj */,
 				02F2326B1A4A05E500C3EEDB /* Alamofire.xcodeproj */,
@@ -381,17 +340,6 @@
 			name = "Additional Files";
 			sourceTree = "<group>";
 		};
-		02985F5E1A851638005FB05F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				02985F661A851638005FB05F /* Cartography.framework */,
-				02985F681A851638005FB05F /* Cartography-iOS-Tests.xctest */,
-				02985F6A1A851638005FB05F /* Cartography.framework */,
-				02985F6C1A851638005FB05F /* Cartography-Mac-Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		029BCE0C1A826FC80013073D /* MaterialKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,7 +410,6 @@
 				02F232771A4A05ED00C3EEDB /* PBXTargetDependency */,
 				0273F13E1A7B4F7200BD78D4 /* PBXTargetDependency */,
 				0273F1421A7B4F7700BD78D4 /* PBXTargetDependency */,
-				02985F721A851642005FB05F /* PBXTargetDependency */,
 			);
 			name = SwagSwap;
 			productName = SwagSwap;
@@ -498,6 +445,7 @@
 				TargetAttributes = {
 					028BAADF1A3E202C009D3DF9 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = S39ED6M3WP;
 					};
 					028BAAF71A3E202C009D3DF9 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -520,10 +468,6 @@
 				{
 					ProductGroup = 02F2326C1A4A05E500C3EEDB /* Products */;
 					ProjectRef = 02F2326B1A4A05E500C3EEDB /* Alamofire.xcodeproj */;
-				},
-				{
-					ProductGroup = 02985F5E1A851638005FB05F /* Products */;
-					ProjectRef = 02985F5D1A851638005FB05F /* Cartography.xcodeproj */;
 				},
 				{
 					ProductGroup = 0273F1151A7B4EFD00BD78D4 /* Products */;
@@ -569,34 +513,6 @@
 			fileType = wrapper.cfbundle;
 			path = SwiftyJSONTests.xctest;
 			remoteRef = 0273F12D1A7B4F0800BD78D4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		02985F661A851638005FB05F /* Cartography.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Cartography.framework;
-			remoteRef = 02985F651A851638005FB05F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		02985F681A851638005FB05F /* Cartography-iOS-Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Cartography-iOS-Tests.xctest";
-			remoteRef = 02985F671A851638005FB05F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		02985F6A1A851638005FB05F /* Cartography.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Cartography.framework;
-			remoteRef = 02985F691A851638005FB05F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		02985F6C1A851638005FB05F /* Cartography-Mac-Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "Cartography-Mac-Tests.xctest";
-			remoteRef = 02985F6B1A851638005FB05F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		02F232711A4A05E500C3EEDB /* Alamofire.framework */ = {
@@ -734,11 +650,6 @@
 			target = 028BAADF1A3E202C009D3DF9 /* SwagSwap */;
 			targetProxy = 028BAAF91A3E202C009D3DF9 /* PBXContainerItemProxy */;
 		};
-		02985F721A851642005FB05F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Cartography-iOS";
-			targetProxy = 02985F711A851642005FB05F /* PBXContainerItemProxy */;
-		};
 		02F232771A4A05ED00C3EEDB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
@@ -851,6 +762,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SwagSwap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -866,6 +778,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = SwagSwap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
