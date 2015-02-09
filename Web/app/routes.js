@@ -3,7 +3,7 @@ var formidable = require('formidable'),
   http = require('http'),
   util = require('util'),
   fs = require('fs-extra');
-  
+
 module.exports = function(app, passport) {
 
   // process the login form
