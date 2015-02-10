@@ -27,6 +27,10 @@ mongoose.connect(configDB.url);
 
 require('./config/passport')(passport); // pass passport for configuration
 
+app.set('views', __dirname + '/public/views');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)

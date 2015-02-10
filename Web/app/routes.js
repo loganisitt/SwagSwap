@@ -6,6 +6,56 @@ var formidable = require('formidable'),
 
 module.exports = function(app, passport) {
 
+  app.get('/', function(req, res) {
+    res.status(200);
+    res.render('../index.html', {
+      locals: {
+        title: 'Your Page Title',
+        description: 'Your Page Description',
+        author: 'Your Name',
+        analyticssiteid: 'XXXXXXX'
+      }
+    });
+  });
+
+  app.get('/login', function(req, res) {
+    res.status(200);
+    res.render('../index.html', {
+      locals: {
+        title: 'Your Page Title',
+        description: 'Your Page Description',
+        author: 'Your Name',
+        analyticssiteid: 'XXXXXXX'
+      }
+    });
+  });
+
+  app.get('/signup', function(req, res) {
+    res.status(200);
+    res.render('../index.html', {
+      locals: {
+        title: 'Your Page Title',
+        description: 'Your Page Description',
+        author: 'Your Name',
+        analyticssiteid: 'XXXXXXX'
+      }
+    });
+  });
+
+  app.get('/home', function(req, res) {
+    res.status(200);
+    res.render('../index.html', {
+      locals: {
+        title: 'Your Page Title',
+        description: 'Your Page Description',
+        author: 'Your Name',
+        analyticssiteid: 'XXXXXXX'
+      }
+    });
+  });
+
+
+
   // process the login form
   app.post('/login', passport.authenticate('local-login', {
     failureFlash: true // allow flash messages
@@ -22,19 +72,32 @@ module.exports = function(app, passport) {
 
   // facebook -------------------------------
 
-  app.get('/auth/facebook', passport.authenticate('facebook', {
-    scope: 'email',
-    session: true
-  }));
+  // route for facebook authentication and login
+  app.get('/auth/facebook',
+    passport.authenticate('facebook', {
+      session: false,
+      scope: ['email']
+    })
+  );
 
   // handle the callback after facebook has authenticated the user
   app.get('/auth/facebook/callback',
-    passport.authenticate('facebook'),
+    passport.authenticate('facebook', {
+      session: false
+    }),
     function(req, res) {
-      var another = res;
-      another.send(200)
-      res.redirect('/login');
-    });
+      console.log(req);
+      console.log(res);
+      res.render('../index.html');
+      res.redirect('/home');
+    },
+    function(err, req, res, next) {
+      if (err) {
+        res.render('..index.html');
+        res.redirect('/login');
+      }
+    }
+  );
 
 
   app.post('/auth/facebook',
@@ -157,6 +220,7 @@ module.exports = function(app, passport) {
           console.error(err);
         } else {
           console.log("success!")
+          console.log(new_location + file_name)
         }
       });
     });

@@ -7,10 +7,6 @@ angular.module('SwagSwap', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 
     templateUrl: 'views/home.html',
     controller: 'MainCtrl'
   })
-  .when('/shows/:id', {
-    templateUrl: 'views/detail.html',
-    controller: 'DetailCtrl'
-  })
   .when('/login', {
     templateUrl: 'views/login.html',
     controller: 'LoginCtrl'
@@ -18,10 +14,6 @@ angular.module('SwagSwap', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 
   .when('/signup', {
     templateUrl: 'views/signup.html',
     controller: 'SignupCtrl'
-  })
-  .when('/add', {
-    templateUrl: 'views/add.html',
-    controller: 'AddCtrl'
   })
   .otherwise({
     redirectTo: '/'
