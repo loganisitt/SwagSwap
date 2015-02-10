@@ -1,0 +1,1 @@
+./starter.sh: line 6: forever: command not found
