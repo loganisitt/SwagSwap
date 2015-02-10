@@ -1,4 +1,5 @@
 var Listing = require('./models/listing');
+var User = require('./models/user');
 var formidable = require('formidable'),
   http = require('http'),
   util = require('util'),
@@ -54,6 +55,17 @@ module.exports = function(app, passport) {
     });
   });
 
+  app.get('/users', function(req, res) {
+    res.status(200);
+    res.render('../index.html', {
+      locals: {
+        title: 'Your Page Title',
+        description: 'Your Page Description',
+        author: 'Your Name',
+        analyticssiteid: 'XXXXXXX'
+      }
+    });
+  });
 
 
   // process the login form
@@ -188,9 +200,6 @@ module.exports = function(app, passport) {
     });
   });
 
-  var controller = require('./controllers/images.js');
-
-
   app.post('/api/listing/image', function(req, res) {
     // creates a new incoming form.
     var form = new formidable.IncomingForm();
@@ -227,18 +236,17 @@ module.exports = function(app, passport) {
     return;
   });
 
-  // CREATE
-  // app.post('/api/listing/image', controller.upload);
-  // app.post('/upload', controller.upload);
 
-  // RETRIEVE
-  // app.get('/images/:_id', controller.detail);
+  // Returns all of the events that have active dates after or on our current day.
+  app.get('/api/users', function(req, res) {
+    User.find(function(err, users) {
+      if (err)
+        res.send(err);
 
-  // UPDATE
-  // app.put('/images/:_id', controller.update);
+      res.json(users);
+    });
+  });
 
-  // DELETE
-  // app.delete('/images/:_id', controller.delete);
 };
 
 // route middleware to ensure user is logged in
