@@ -1,10 +1,12 @@
-// Setup basic express server
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 
-var port     = process.env.PORT || 13179;
+var env = require('node-env-file');
+env(__dirname + '/.env');
+
+var port = process.env.NODE_ENV == "production" ? process.env.PRO_PORT : process.env.DEV_PORT;
 
 server.listen(port, function () {
   console.log('Server listening at port %d', port);

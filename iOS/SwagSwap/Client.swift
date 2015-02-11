@@ -13,7 +13,8 @@ import SwiftyJSON
 
 class Client {
     
-    var baseUrl = "http://localhost:8080"
+//    var baseUrl = "http://localhost:8080" // Dev
+    var baseUrl = "http://swagswap.me" // Pro
     
     var userID: String!
     

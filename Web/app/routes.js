@@ -98,8 +98,6 @@ module.exports = function(app, passport) {
       session: false
     }),
     function(req, res) {
-      console.log(req);
-      console.log(res);
       res.render('../index.html');
       res.redirect('/home');
     },
