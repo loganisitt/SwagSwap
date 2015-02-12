@@ -9,7 +9,8 @@ var listingSchema = mongoose.Schema({
     description: String,
     price: Number,
     bids: [String],
-    comments: [String]
+    comments: [String],
+    image_paths: [String]
 });
 
 listingSchema.pre('save', function(next) {

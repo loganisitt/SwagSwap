@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020D22B01A8C521900A997DA /* NSMutableDataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D22AF1A8C521900A997DA /* NSMutableDataExtension.swift */; };
+		020D22B51A8C52CD00A997DA /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 020D22B41A8C52CD00A997DA /* MobileCoreServices.framework */; };
 		021359701A782FA500959930 /* CreateListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0213596F1A782FA500959930 /* CreateListingViewController.swift */; };
 		021359731A78392100959930 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021359721A78392100959930 /* Client.swift */; };
 		022C971E1A7933AC00DCB1E1 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022C971D1A7933AC00DCB1E1 /* FontAwesome.swift */; };
@@ -142,6 +144,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		020D22AF1A8C521900A997DA /* NSMutableDataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableDataExtension.swift; sourceTree = "<group>"; };
+		020D22B41A8C52CD00A997DA /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		0213596F1A782FA500959930 /* CreateListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateListingViewController.swift; sourceTree = "<group>"; };
 		021359721A78392100959930 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		022C971D1A7933AC00DCB1E1 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesome.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020D22B51A8C52CD00A997DA /* MobileCoreServices.framework in Frameworks */,
 				0273F13F1A7B4F7700BD78D4 /* Snap.framework in Frameworks */,
 				02F232741A4A05ED00C3EEDB /* Alamofire.framework in Frameworks */,
 				8487BA433DED1CB74A5282DE /* libPods.a in Frameworks */,
@@ -328,6 +333,7 @@
 		028D1AFD1A7829390004B5D7 /* Additional Files */ = {
 			isa = PBXGroup;
 			children = (
+				020D22AF1A8C521900A997DA /* NSMutableDataExtension.swift */,
 				029BCE1D1A8294C50013073D /* SSColor.swift */,
 				029BCE1F1A8299B80013073D /* SSTextView.swift */,
 				029BCE0C1A826FC80013073D /* MaterialKit */,
@@ -385,6 +391,7 @@
 		E6E5C42CADFB6F42662C0747 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				020D22B41A8C52CD00A997DA /* MobileCoreServices.framework */,
 				DDE93B735B0FBEE18661B95C /* libPods.a */,
 			);
 			name = Frameworks;
@@ -617,6 +624,7 @@
 				02F65CCB1A7AA37E003790BE /* HelpViewController.swift in Sources */,
 				02F65CC51A7AA33E003790BE /* AccountViewController.swift in Sources */,
 				029BCE171A826FC80013073D /* MKLabel.swift in Sources */,
+				020D22B01A8C521900A997DA /* NSMutableDataExtension.swift in Sources */,
 				022C97251A793B0800DCB1E1 /* SlideMenuController.swift in Sources */,
 				028D1AFC1A78255E0004B5D7 /* HomeViewController.swift in Sources */,
 				02F65CC11A7AA326003790BE /* BrowseViewController.swift in Sources */,

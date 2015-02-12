@@ -5,6 +5,8 @@ var formidable = require('formidable'),
   util = require('util'),
   fs = require('fs-extra');
 
+var uuid = require('node-uuid');
+
 module.exports = function(app, passport) {
 
   app.get('/', function(req, res) {
@@ -177,60 +179,99 @@ module.exports = function(app, passport) {
   //////////////
 
   // Create new listing, sends back packet
+  // app.post('/api/listing', function(req, res) {
+  //
+  //   Listing.create({
+  //     userId: req.body.userID,
+  //     category: req.body.category,
+  //     name: req.body.name,
+  //     description: req.body.description,
+  //     price: req.body.price
+  //   }, function(err, event) {
+  //     if (err)
+  //       res.send(err);
+  //
+  //     Listing.find(function(err, listings) {
+  //       if (err)
+  //         res.send(err);
+  //
+  //       res.json(listings);
+  //     });
+  //   });
+  // });
+
   app.post('/api/listing', function(req, res) {
-
-    Listing.create({
-      userId: req.body.userID,
-      category: req.body.category,
-      name: req.body.name,
-      description: req.body.description,
-      price: req.body.price
-    }, function(err, event) {
-      if (err)
-        res.send(err);
-
-      Listing.find(function(err, listings) {
-        if (err)
-          res.send(err);
-
-        res.json(listings);
-      });
-    });
-  });
-
-  app.post('/api/listing/image', function(req, res) {
     // creates a new incoming form.
     var form = new formidable.IncomingForm();
 
-    // parse a file upload
-    form.parse(req, function(err, fields, files) {
-      res.writeHead(200, {
-        'content-type': 'text/plain'
-      });
-      res.write('Upload received :\n');
-      res.end(util.inspect({
-        fields: fields,
-        files: files
-      }));
-    });
-    form.on('end', function(fields, files) {
-      /* Temporary location of our uploaded file */
-      console.log(this.openedFiles[0]);
+    var d = new Date();
+    var m = d.getUTCMilliseconds() + 1;
+    var n = m
+    var str = n + ''
 
-      var temp_path = this.openedFiles[0].path;
-      /* The file name of the uploaded file */
-      var file_name = this.openedFiles[0].name;
-      /* Location where we want to copy the uploaded file */
-      var new_location = 'uploads/';
-      fs.copy(temp_path, new_location + file_name, function(err) {
-        if (err) {
-          console.error(err);
-        } else {
-          console.log("success!")
-          console.log(new_location + file_name)
-        }
-      });
+    while (str.length < 12) {
+      n *= m;
+      str = n + '';
+    }
+    var new_location = './public/static/uploads/' + str.substr(0, 12) + '/';
+
+    var passFields;
+
+    form.parse(req, function(err, fields, files) {
+      passFields = fields;
     });
+
+    form.on('progress', function(byteReceived, byteExpected) {
+      // console.log('Uploaded: ' + Math.round(byteReceived / byteExpected * 100) + '%');
+    });
+
+    form.on('end', function(fields, files) {
+      var filepaths = new Array();
+
+      for (var i = 0; i < this.openedFiles.length; i++) {
+        filepaths.push(new_location + uuid.v4() + '.png');
+      }
+
+      for (var i = 0; i < this.openedFiles.length; i++) {
+
+        var temp_path = this.openedFiles[i].path;
+
+        /* Location where we want to copy the uploaded file */
+        fs.copy(temp_path, filepaths[i], function(err) {
+          if (err) {
+            console.error(err);
+          } else {
+            console.log('Success!')
+          }
+        });
+
+        Listing.create({
+          userId: passFields.userID,
+          category: passFields.category,
+          name: passFields.name,
+          description: passFields.description,
+          price: passFields.price,
+          image_paths: filepaths
+        }, function(err, event) {
+          if (err)
+            res.send(err);
+
+          Listing.find(function(err, listings) {
+            if (err)
+              res.send(err);
+
+            console.log('Listing Success!')
+
+            res.json(listings);
+
+          });
+        });
+      }
+    });
+
+
+
+
     return;
   });
 

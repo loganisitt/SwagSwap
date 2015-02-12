@@ -114,12 +114,14 @@ class CreateListingViewController: UIViewController, UIImagePickerControllerDele
     
     @IBAction func done() {
         
-        var imgLocations = saveLocally(imgArray)
+        let param = [
+            "userID"  : Client.sharedInstance.userID as String,
+            "category"    : self.categoryField.text,
+            "name"    : self.nameField.text,
+            "description"    : "#workinprogress",
+            "price" : NSNumber(double: 19.99)]  // build your dictionary however appropriate
         
-        for img in imgArray {
-            
-            Client.sharedInstance.uploadImage(img)
-        }
+        Client.sharedInstance.createNewListing(param, imgPaths: saveLocally(imgArray))
         
         self.navigationController?.popViewControllerAnimated(true)
     }
