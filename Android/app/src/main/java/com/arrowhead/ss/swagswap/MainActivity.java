@@ -1,11 +1,13 @@
 package com.arrowhead.ss.swagswap;
 
+
+//  Created by Miguel Morales on 1/19/15.
+//  Copyright (c) 2014 MiguelMorales. All rights reserved.
+
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import com.facebook.LoginActivity;
-import com.facebook.widget.LoginButton;
 public class MainActivity extends FragmentActivity {
     private MainFragment mainFragment;
     @Override
