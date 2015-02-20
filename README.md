@@ -1,4 +1,5 @@
-# SWAGSWAP
+#SWAGSWAP  
+[![forthebadge](http://forthebadge.com/images/badges/built-with-swag.svg)](http://forthebadge.com)
 
 Swagswap is a community-based local commerce application that intends to be used by students and faculty of universities and colleges to promote and simplifiy the exchange of items.
 
