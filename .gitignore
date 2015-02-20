@@ -96,6 +96,6 @@ build/Release
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
 node_modules
 
-Web/public/dist/
-
+Web/public/dist
 Web/public/static
+Web/public/.cache

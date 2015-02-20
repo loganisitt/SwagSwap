@@ -13,12 +13,13 @@ import Alamofire
 import SwiftyJSON
 
 class Client {
-    
+        
     var baseUrl = "http://localhost:8080" // Dev
 //    var baseUrl = "http://swagswap.me" // Pro
 //    var baseUrl = "144.174.134.180:8080" // Pro
     
     var userID: String!
+    var listings = [JSON]()
     
     class var sharedInstance: Client {
         struct Singleton {
@@ -42,15 +43,25 @@ class Client {
                 self.userID = json["facebook"]["id"].string
             }
         }
-        
-        println("UserID: \(self.userID)")
-        
         return true
     }
     
-    func createNewListing(packet: Dictionary<String, AnyObject>, imgPaths: [String]) -> String{
+    func getAllListings(){
         
-        var str = "displayImage"
+        var urlString = baseUrl + "/api/listing"
+        
+        Alamofire.request(.GET, urlString).validate().responseJSON() {
+            (_, _, data, error) in
+            
+            if (error != nil) {
+                println(error)
+            }
+            
+            self.listings = JSON(data!).array!
+        }
+    }
+    
+    func createNewListing(packet: Dictionary<String, AnyObject>, imgPaths: [String]) -> Bool{
         
         var urlString = baseUrl + "/api/listing"
         
@@ -82,22 +93,18 @@ class Client {
                     println(error)
                 }
                 println(data)
-        }
-        
-        return "Hello"
-    }
-    
-    func createNewListing(packet: Dictionary<String, AnyObject>) -> Bool {
-        
-        var url = baseUrl + "/api/listing"
-        
-        Alamofire.request(.POST, url, parameters: packet).responseJSON() {
-            (_, _, data, error) in
-            println(data)
-            println(error)
+                
+                for path in imgPaths {
+                    if fileManager.fileExistsAtPath(path) {
+                        fileManager.removeItemAtPath(path, error: nil)
+                        println("Removed file at path: \(path)")
+                    }
+                }
         }
         return true
     }
+    
+    
     
     // Credit: http://stackoverflow.com/questions/26162616/upload-image-with-parameters-in-swift
     

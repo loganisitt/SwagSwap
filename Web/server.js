@@ -2,15 +2,14 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
+var qt = require('quickthumb');
 
 var env = require('node-env-file');
 env(__dirname + '/.env');
 
 var port = process.env.NODE_ENV == "production" ? process.env.PRO_PORT : process.env.DEV_PORT;
 
-server.listen(port, function () {
-  console.log('Server listening at port %d', port);
-});
+server.listen(port); //, '192.168.2.4');
 
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -45,7 +44,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
-app.use(express.static(__dirname + '/public'));
+app.use(qt.static(__dirname + '/public'));
 
 require('./app/routes.js')(app, passport);
 require('./app/socketio.js')(app, io);

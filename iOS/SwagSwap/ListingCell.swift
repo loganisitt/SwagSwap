@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Haneke
+
 class ListingCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!

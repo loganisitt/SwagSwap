@@ -200,6 +200,18 @@ module.exports = function(app, passport) {
   //   });
   // });
 
+  // Returns all of the listings
+  app.get('/api/listing', function(req, res) {
+    Listing.find(function(err, listings) {
+      if (err)
+        res.send(err);
+
+      res.status(200);
+      res.json(listings);
+    });
+  });
+
+  // Creates a new listing
   app.post('/api/listing', function(req, res) {
     // creates a new incoming form.
     var form = new formidable.IncomingForm();
@@ -268,9 +280,6 @@ module.exports = function(app, passport) {
         });
       }
     });
-
-
-
 
     return;
   });

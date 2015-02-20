@@ -9,6 +9,8 @@
 import UIKit
 
 import Alamofire
+import SwiftyJSON
+import Haneke
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -40,6 +42,17 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         addButton.titleLabel?.font = UIFont.fontAwesomeOfSize(30)
         addButton.titleLabel?.textAlignment = NSTextAlignment.Center
         addButton.setTitle(String.fontAwesomeIconWithName("fa-plus"), forState: UIControlState.Normal)
+        
+        
+        Client.sharedInstance.getAllListings()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        Client.sharedInstance.getAllListings()
+        
+        collectionView.reloadData()
     }
     
     // MARK: - Collection View Data Source
@@ -49,15 +62,33 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        
+        println("COUNT: \(Client.sharedInstance.listings.count)")
+        
+        return Client.sharedInstance.listings.count > 0 ? Client.sharedInstance.listings.count : 0
     }
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         
         var cell: ListingCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as ListingCell
+
+        if var path = Client.sharedInstance.listings[indexPath.row]["image_paths"][0].string {
+            
+            path = path.substringFromIndex(advance(path.startIndex, 8))
+            
+            let url = NSURL(string: Client.sharedInstance.baseUrl + path + "?dim=\(cell.imageView.bounds.width)")!
+            
+//            CIImage(contentsOfURL: url)
+            cell.imageView.image = UIImage(CIImage: CIImage(contentsOfURL: url), scale: 1, orientation: UIImageOrientation.Up)
+            
+//            cell.imageView.hnk_setImageFromURL(url)
+            println(cell.imageView.image?.imageOrientation)
+        }
+        else {
+            cell.imageView.image = nil
+        }
         
-        cell.imageView.image = UIImage(named: "background")
         cell.label.text = "\(indexPath.row)"
         
         return cell
