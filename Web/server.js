@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
 var qt = require('quickthumb');
 
 var env = require('node-env-file');
@@ -9,7 +8,7 @@ env(__dirname + '/.env');
 
 var port = process.env.NODE_ENV == "production" ? process.env.PRO_PORT : process.env.DEV_PORT;
 
-server.listen(port); //, '192.168.2.4');
+server.listen(port, '192.168.2.8');
 
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -23,8 +22,7 @@ var session      = require('express-session');
 
 var configDB = require('./config/database.js');
 
-// connect to our database
-mongoose.connect(configDB.url);
+mongoose.connect(configDB.url); // connect to our database
 
 require('./config/passport')(passport); // pass passport for configuration
 
@@ -46,5 +44,4 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 app.use(qt.static(__dirname + '/public'));
 
-require('./app/routes.js')(app, passport);
-require('./app/socketio.js')(app, io);
+require('./app/routes.js')(app);

@@ -14,9 +14,8 @@ import SwiftyJSON
 
 class Client {
         
-    var baseUrl = "http://localhost:8080" // Dev
+    var baseUrl = "http://192.168.2.8:8080" // Dev
 //    var baseUrl = "http://swagswap.me" // Pro
-//    var baseUrl = "144.174.134.180:8080" // Pro
     
     var userID: String!
     var listings = [JSON]()
@@ -43,6 +42,25 @@ class Client {
                 self.userID = json["facebook"]["id"].string
             }
         }
+        return true
+    }
+    
+    func basicSearchFor(query: String) -> Bool {
+        
+        var url = baseUrl + "/api/listing/search"
+        
+        var parameters = ["name": query]
+        Alamofire.request(.GET, url, parameters: parameters ).validate().responseJSON() {
+            (_, _, data, error) in
+            
+            if (data != nil) {
+                var json = JSON(data!)
+                
+                println(json)
+            }
+
+        }
+    
         return true
     }
     
@@ -103,47 +121,6 @@ class Client {
         }
         return true
     }
-    
-    
-    
-    // Credit: http://stackoverflow.com/questions/26162616/upload-image-with-parameters-in-swift
-    
-//    /// Create request
-//    ///
-//    /// :param: userid   The userid to be passed to web service
-//    /// :param: password The password to be passed to web service
-//    /// :param: email    The email address to be passed to web service
-//    ///
-//    /// :returns:         The NSURLRequest that was created
-//    
-//    func createRequest (#userid: String, password: String, email: String) -> NSURLRequest {
-//        let param = [
-//            "user_id"  : userid,
-//            "email"    : email,
-//            "password" : password]  // build your dictionary however appropriate
-//        
-//        let boundary = generateBoundaryString()
-//        
-//        let url = NSURL(string: "https://example.com/imageupload.php")
-//        let request = NSMutableURLRequest(URL: url!)
-//        request.HTTPMethod = "POST"
-//        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-//        
-//        let path1 = NSBundle.mainBundle().pathForResource("image1", ofType: "png") as String!
-//        let path2 = NSBundle.mainBundle().pathForResource("image2", ofType: "jpg") as String!
-//        request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", paths: [path1, path2], boundary: boundary)
-//        
-//        return request
-//    }
-    
-    /// Create body of the multipart/form-data request
-    ///
-    /// :param: parameters   The optional dictionary containing keys and values to be passed to web service
-    /// :param: filePathKey  The optional field name to be used when uploading files. If you supply paths, you must supply filePathKey, too.
-    /// :param: paths        The optional array of file paths of the files to be uploaded
-    /// :param: boundary     The multipart/form-data boundary
-    ///
-    /// :returns:            The NSData of the body of the request
     
     func createBodyWithParameters(parameters: [String: AnyObject]?, filePathKey: String?, paths: [String]?, boundary: String) -> NSData {
         let body = NSMutableData()

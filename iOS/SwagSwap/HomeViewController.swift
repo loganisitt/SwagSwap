@@ -43,8 +43,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         addButton.titleLabel?.textAlignment = NSTextAlignment.Center
         addButton.setTitle(String.fontAwesomeIconWithName("fa-plus"), forState: UIControlState.Normal)
         
-        
         Client.sharedInstance.getAllListings()
+        Client.sharedInstance.basicSearchFor("patio")
     }
     
     override func viewWillAppear(animated: Bool) {

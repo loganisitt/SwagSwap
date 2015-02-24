@@ -6,12 +6,31 @@ angular.module('SwagSwap')
 
       return {
         facebookLogin: function() {
+          return $http.get('/auth/facebook')
+            .success(function(data) {
+              $rootScope.currentUser = data;
+              $location.path('/');
 
-          $window.location.href = '/auth/facebook';
-
+              $alert({
+                title: 'Cheers!',
+                content: 'You have successfully logged in.',
+                placement: 'top-right',
+                type: 'success',
+                duration: 3
+              });
+            })
+            .error(function() {
+              $alert({
+                title: 'Error!',
+                content: 'Invalid username or password.',
+                placement: 'top-right',
+                type: 'danger',
+                duration: 3
+              });
+            });
         },
         login: function(user) {
-          return $http.post('/api/login', user)
+          return $http.post('/auth/login', user)
             .success(function(data) {
               $rootScope.currentUser = data;
               $location.path('/');
@@ -35,7 +54,7 @@ angular.module('SwagSwap')
             });
         },
         signup: function(user) {
-          return $http.post('/api/signup', user)
+          return $http.post('/auth/signup', user)
             .success(function() {
               $location.path('/login');
 
@@ -58,7 +77,7 @@ angular.module('SwagSwap')
             });
         },
         logout: function() {
-          return $http.get('/api/logout').success(function() {
+          return $http.get('/auth/logout').success(function() {
             $rootScope.currentUser = null;
             $cookieStore.remove('user');
             $alert({
