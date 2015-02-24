@@ -31,6 +31,37 @@ Swagswap is a community-based local commerce application that intends to be used
 ##### ~ For Android
 - To be determined
 
+## API
+
+#### Login / Signup / Delete Account Calls
+###### Basic Account Login `POST /login`
+###### Basic Account Signup `POST /signup`
+###### Basic Account Delete `GET /unlink/local`
+
+###### Facebook Web Login `GET /auth/facebook`
+###### Facebook Web Callback `GET /auth/facebook/callback`
+###### Facebook Account Delete `GET /unlink/facebook`
+
+###### Facebook Mobile Login `POST /auth/facebook`
+
+#### User Calls
+###### Get all users `GET /api/users`
+
+#### Listing Calls
+###### Get all Listings `GET /api/listing`
+###### Create Listing `POST /api/listing`
+>Parameters:
+
+>userID: String
+
+>category: String
+
+>name: String
+
+>description: String
+
+>price: Double
+
 ## Resources
 SwagSwap uses a number of open source projects to work properly:
 * [AngularJS] - HTML enhanced for web apps!
