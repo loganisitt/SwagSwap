@@ -5,6 +5,9 @@ angular.module('SwagSwap')
       $cookieStore.remove('user');
 
       return {
+        user: function() {
+          return $rootScope.currentUser;
+        },
         facebookLogin: function() {
           return $http.get('/auth/facebook')
             .success(function(data) {
