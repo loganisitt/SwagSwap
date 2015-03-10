@@ -34,9 +34,12 @@
 
 /**
  
+ 
+ 
  @return
  */
 - (UIImage *)og_imageWithAlpha;
+- (UIImage *)og_imageWithColor:(UIColor *)color;
 
 /**
  

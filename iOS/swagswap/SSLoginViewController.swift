@@ -94,8 +94,6 @@ class SSLoginViewController: PFLogInViewController, PFLogInViewControllerDelegat
     func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
         // TODO:
         self.performSegueWithIdentifier("gotoDash", sender: self)
-        
-        println("You signed in!")
     }
     
     func logInViewController(logInController: PFLogInViewController!, didFailToLogInWithError error: NSError!) {
@@ -105,6 +103,11 @@ class SSLoginViewController: PFLogInViewController, PFLogInViewControllerDelegat
     
     func logInViewControllerDidCancelLogIn(logInController: PFLogInViewController!) {
         // TODO:
+    }
+    
+    // MARK: - Style
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
     }
 }
 

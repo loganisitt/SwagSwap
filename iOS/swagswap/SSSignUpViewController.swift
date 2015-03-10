@@ -82,4 +82,9 @@ class SSSignUpViewController: PFSignUpViewController, PFSignUpViewControllerDele
     func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // MARK: - Style
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
 }

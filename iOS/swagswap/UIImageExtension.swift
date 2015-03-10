@@ -7,9 +7,7 @@
 //  Free for personal or commercial use, with or without modification
 //  No warranty is expressed or implied
 
-import Foundation
 import UIKit
-import CoreGraphics
 
 extension UIImage {
 

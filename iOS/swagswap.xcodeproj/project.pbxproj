@@ -14,6 +14,13 @@
 		0237A9BC1A9ED8A300221F5E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0237A9BA1A9ED8A300221F5E /* LaunchScreen.xib */; };
 		0237A9C81A9ED8A300221F5E /* swagswapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237A9C71A9ED8A300221F5E /* swagswapTests.swift */; };
 		02594F7E1AA2B25C001E5B7F /* SSCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02594F7D1AA2B25C001E5B7F /* SSCreateViewController.swift */; };
+		026CF7931AA3A418009A1FE2 /* RGPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF7921AA3A418009A1FE2 /* RGPageViewController.swift */; };
+		026CF7951AA3A991009A1FE2 /* SSFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF7941AA3A991009A1FE2 /* SSFeedViewController.swift */; };
+		026CF7971AA3B4A5009A1FE2 /* SSProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF7961AA3B4A5009A1FE2 /* SSProfileViewController.swift */; };
+		026CF7991AA3B932009A1FE2 /* SSAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF7981AA3B932009A1FE2 /* SSAddButton.swift */; };
+		026CF79B1AA3C373009A1FE2 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 026CF79A1AA3C373009A1FE2 /* FontAwesome.otf */; };
+		026CF79D1AA3C381009A1FE2 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF79C1AA3C381009A1FE2 /* FontAwesome.swift */; };
+		027B92CE1AA63DA400CB2D31 /* SSSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027B92CD1AA63DA400CB2D31 /* SSSearchViewController.swift */; };
 		027E40401A9F9E6A0072CBF4 /* SSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E403F1A9F9E6A0072CBF4 /* SSColor.swift */; };
 		027E40421A9FBE400072CBF4 /* SSSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E40411A9FBE400072CBF4 /* SSSignUpViewController.swift */; };
 		027E40451A9FC1590072CBF4 /* SSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E40441A9FC1590072CBF4 /* SSFont.swift */; };
@@ -28,6 +35,9 @@
 		029F2A4B1AA052C9008D9E0B /* UIImage+OGImageExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F2A481AA052C9008D9E0B /* UIImage+OGImageExtensions.m */; };
 		02A0E5831AA2CB3B0076449C /* SSListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0E5821AA2CB3B0076449C /* SSListingCell.swift */; };
 		02A0E5861AA2DBCC0076449C /* SSImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A0E5851AA2DBCC0076449C /* SSImageCell.swift */; };
+		02AA31771AA8E9CB00C58268 /* SSMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AA31761AA8E9CB00C58268 /* SSMenuCell.swift */; };
+		02AA31791AA933CB00C58268 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AA31781AA933CB00C58268 /* UINavigationControllerExtension.swift */; };
+		02AA317F1AA93EF900C58268 /* UINavigationBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AA317E1AA93EF900C58268 /* UINavigationBarExtension.swift */; };
 		AE67F9F0383A2A7E36FBBA45 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AE0D436DAE9555A265BE23 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +64,13 @@
 		0237A9C61A9ED8A300221F5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0237A9C71A9ED8A300221F5E /* swagswapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swagswapTests.swift; sourceTree = "<group>"; };
 		02594F7D1AA2B25C001E5B7F /* SSCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSCreateViewController.swift; sourceTree = "<group>"; };
+		026CF7921AA3A418009A1FE2 /* RGPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGPageViewController.swift; sourceTree = "<group>"; };
+		026CF7941AA3A991009A1FE2 /* SSFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFeedViewController.swift; sourceTree = "<group>"; };
+		026CF7961AA3B4A5009A1FE2 /* SSProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSProfileViewController.swift; sourceTree = "<group>"; };
+		026CF7981AA3B932009A1FE2 /* SSAddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSAddButton.swift; sourceTree = "<group>"; };
+		026CF79A1AA3C373009A1FE2 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		026CF79C1AA3C381009A1FE2 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesome.swift; sourceTree = "<group>"; };
+		027B92CD1AA63DA400CB2D31 /* SSSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSearchViewController.swift; sourceTree = "<group>"; };
 		027E403F1A9F9E6A0072CBF4 /* SSColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSColor.swift; sourceTree = "<group>"; };
 		027E40411A9FBE400072CBF4 /* SSSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSignUpViewController.swift; sourceTree = "<group>"; };
 		027E40441A9FC1590072CBF4 /* SSFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFont.swift; sourceTree = "<group>"; };
@@ -73,6 +90,9 @@
 		029F2A481AA052C9008D9E0B /* UIImage+OGImageExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+OGImageExtensions.m"; sourceTree = "<group>"; };
 		02A0E5821AA2CB3B0076449C /* SSListingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSListingCell.swift; sourceTree = "<group>"; };
 		02A0E5851AA2DBCC0076449C /* SSImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSImageCell.swift; sourceTree = "<group>"; };
+		02AA31761AA8E9CB00C58268 /* SSMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSMenuCell.swift; sourceTree = "<group>"; };
+		02AA31781AA933CB00C58268 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
+		02AA317E1AA93EF900C58268 /* UINavigationBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtension.swift; sourceTree = "<group>"; };
 		2D0C0C8D726B0A7E9A9C09D0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B1AE0D436DAE9555A265BE23 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F92150AF068211FCFD969 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,7 +146,10 @@
 				0237A9B31A9ED8A300221F5E /* SSLoginViewController.swift */,
 				027E40411A9FBE400072CBF4 /* SSSignUpViewController.swift */,
 				027E404C1A9FCA0F0072CBF4 /* SSDashViewController.swift */,
+				026CF7961AA3B4A5009A1FE2 /* SSProfileViewController.swift */,
+				026CF7941AA3A991009A1FE2 /* SSFeedViewController.swift */,
 				02594F7D1AA2B25C001E5B7F /* SSCreateViewController.swift */,
+				027B92CD1AA63DA400CB2D31 /* SSSearchViewController.swift */,
 				02A0E5841AA2CBAE0076449C /* View */,
 				027E40431A9FBECF0072CBF4 /* Style */,
 				0237A9AF1A9ED8A300221F5E /* Supporting Files */,
@@ -137,6 +160,8 @@
 		0237A9AF1A9ED8A300221F5E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				026CF79C1AA3C381009A1FE2 /* FontAwesome.swift */,
+				026CF7921AA3A418009A1FE2 /* RGPageViewController.swift */,
 				029F2A401AA052C9008D9E0B /* OGImageExtensions */,
 				0237A9BA1A9ED8A300221F5E /* LaunchScreen.xib */,
 				0237A9B81A9ED8A300221F5E /* Images.xcassets */,
@@ -167,7 +192,9 @@
 		027E40431A9FBECF0072CBF4 /* Style */ = {
 			isa = PBXGroup;
 			children = (
+				02AA317E1AA93EF900C58268 /* UINavigationBarExtension.swift */,
 				027E404A1A9FC8400072CBF4 /* UIViewControllerExtension.swift */,
+				02AA31781AA933CB00C58268 /* UINavigationControllerExtension.swift */,
 				029F2A391AA04448008D9E0B /* UIImageExtension.swift */,
 				027E403F1A9F9E6A0072CBF4 /* SSColor.swift */,
 				027E40441A9FC1590072CBF4 /* SSFont.swift */,
@@ -178,6 +205,7 @@
 		027E404E1A9FCB0E0072CBF4 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				026CF79A1AA3C373009A1FE2 /* FontAwesome.otf */,
 				027E40461A9FC46F0072CBF4 /* Montserrat-Bold.ttf */,
 				027E40471A9FC46F0072CBF4 /* Montserrat-Regular.ttf */,
 			);
@@ -202,8 +230,10 @@
 		02A0E5841AA2CBAE0076449C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				02AA31761AA8E9CB00C58268 /* SSMenuCell.swift */,
 				02A0E5821AA2CB3B0076449C /* SSListingCell.swift */,
 				02A0E5851AA2DBCC0076449C /* SSImageCell.swift */,
+				026CF7981AA3B932009A1FE2 /* SSAddButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -311,6 +341,7 @@
 			files = (
 				027E40481A9FC46F0072CBF4 /* Montserrat-Bold.ttf in Resources */,
 				0237A9B71A9ED8A300221F5E /* Main.storyboard in Resources */,
+				026CF79B1AA3C373009A1FE2 /* FontAwesome.otf in Resources */,
 				0237A9BC1A9ED8A300221F5E /* LaunchScreen.xib in Resources */,
 				027E40491A9FC46F0072CBF4 /* Montserrat-Regular.ttf in Resources */,
 				0237A9B91A9ED8A300221F5E /* Images.xcassets in Resources */,
@@ -365,18 +396,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				027E40401A9F9E6A0072CBF4 /* SSColor.swift in Sources */,
+				026CF7991AA3B932009A1FE2 /* SSAddButton.swift in Sources */,
+				026CF7931AA3A418009A1FE2 /* RGPageViewController.swift in Sources */,
 				029F2A4A1AA052C9008D9E0B /* OGImageExtensionsPersistor.m in Sources */,
 				0237A9B41A9ED8A300221F5E /* SSLoginViewController.swift in Sources */,
+				026CF7971AA3B4A5009A1FE2 /* SSProfileViewController.swift in Sources */,
 				027E404D1A9FCA0F0072CBF4 /* SSDashViewController.swift in Sources */,
+				02AA31791AA933CB00C58268 /* UINavigationControllerExtension.swift in Sources */,
 				02594F7E1AA2B25C001E5B7F /* SSCreateViewController.swift in Sources */,
 				027E404B1A9FC8400072CBF4 /* UIViewControllerExtension.swift in Sources */,
 				02A0E5831AA2CB3B0076449C /* SSListingCell.swift in Sources */,
 				027E40421A9FBE400072CBF4 /* SSSignUpViewController.swift in Sources */,
 				029F2A491AA052C9008D9E0B /* NSData+OGImageExtensions.m in Sources */,
 				02A0E5861AA2DBCC0076449C /* SSImageCell.swift in Sources */,
+				02AA31771AA8E9CB00C58268 /* SSMenuCell.swift in Sources */,
 				0237A9B21A9ED8A300221F5E /* AppDelegate.swift in Sources */,
+				02AA317F1AA93EF900C58268 /* UINavigationBarExtension.swift in Sources */,
+				027B92CE1AA63DA400CB2D31 /* SSSearchViewController.swift in Sources */,
 				027E40451A9FC1590072CBF4 /* SSFont.swift in Sources */,
+				026CF79D1AA3C381009A1FE2 /* FontAwesome.swift in Sources */,
 				029F2A4B1AA052C9008D9E0B /* UIImage+OGImageExtensions.m in Sources */,
+				026CF7951AA3A991009A1FE2 /* SSFeedViewController.swift in Sources */,
 				029F2A3A1AA04448008D9E0B /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

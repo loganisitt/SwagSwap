@@ -8,48 +8,54 @@
 
 import UIKit
 
-class SSDashViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class SSDashViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIToolbarDelegate {
     
     var objects: [PFObject]!
     
-    // MARK: - View
+    @IBOutlet var tableview: UITableView!
+    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var optToolbar: UIToolbar!
+    @IBOutlet var optionBar: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Load 
         objects = [];
-        
-        // Style
-        self.navigationController?.navigationBar.barTintColor = UIColor.SSColor.Red
-        self.navigationController?.navigationBar.tintColor = UIColor.SSColor.White
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.SSFont.H4!, NSForegroundColorAttributeName: UIColor.SSColor.White]
-                
-        self.navigationItem.title = "Dash"
-        
-        self.collectionView?.backgroundColor = UIColor.SSColor.White
-        
         self.loadObjects()
         
-        var plusBtn: UIButton = UIButton.buttonWithType(UIButtonType.InfoDark) as UIButton
-        plusBtn.addTarget(self, action: "addButtonPressed", forControlEvents: UIControlEvents.TouchUpInside)
-        plusBtn.frame = CGRectMake(self.view.bounds.width - 60, self.view.bounds.height - 60, 40, 40)
-        self.view.addSubview(plusBtn)
-        self.view.bringSubviewToFront(plusBtn)
+        // Style
+        self.navigationController?.navigationBar.hideHairline()
+        self.navigationController?.navigationBar.translucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor.SSColor.Red
+        self.navigationController?.navigationBar.tintColor = UIColor.SSColor.White
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.SSFont.H3!, NSForegroundColorAttributeName: UIColor.SSColor.White]
         
-        self.collectionView?.superview?.addSubview(plusBtn)
+        optToolbar.barTintColor = self.navigationController?.navigationBar.barTintColor
+        optToolbar.translucent = false
         
-        self.navigationController?.view.addSubview(plusBtn)
+        optionBar.tintColor = UIColor.SSColor.White
+        optionBar.setTitleTextAttributes([NSFontAttributeName: UIFont.SSFont.P!], forState: UIControlState.Normal)
+        optionBar.setTitleTextAttributes([NSFontAttributeName: UIFont.SSFont.P!], forState: UIControlState.Highlighted)
+        
+        self.navigationItem.title = "SWAGSWAP"
+        
+        var searchBtn: UIBarButtonItem = UIBarButtonItem(title: String.fontAwesomeIconWithName("fa-search"), style: UIBarButtonItemStyle.Done, target: self, action: "searchButtonPressed")
+        
+        searchBtn.setTitleTextAttributes([NSFontAttributeName: UIFont.fontAwesomeOfSize(20)], forState: UIControlState.Normal)
+        
+        self.navigationItem.rightBarButtonItem  = searchBtn
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.loadObjects()
     }
     
     // MARK: - Loading & Recieving
     
     func loadObjects() {
-
+        
         self.objectsWillLoad()
         
         var query = PFQuery(className: "Listing")
@@ -66,11 +72,11 @@ class SSDashViewController: UICollectionViewController, UICollectionViewDelegate
     }
     
     func objectsWillLoad() {
-        println("Just cause")
+        //
     }
     
     func objectsDidLoad(error: NSError?) {
-        self.collectionView?.reloadData()
+        self.collectionView.reloadData()
     }
     
     // MARK: - Actions
@@ -79,63 +85,85 @@ class SSDashViewController: UICollectionViewController, UICollectionViewDelegate
         self.performSegueWithIdentifier("gotoCreate", sender: self)
     }
     
-    // MARK: - Collection
+    @IBAction func searchButtonPressed() {
+        self.performSegueWithIdentifier("gotoSearch", sender: self)
+    }
     
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    // MARK: - TableView Data Source
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return objects.count
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> SSListingCell {
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 1
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: SSListingCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as SSListingCell
+        var cell: SSMenuCell = tableView.dequeueReusableCellWithIdentifier("Cell") as SSMenuCell
         
-        var object = objects[indexPath.row]
-        var price = object.valueForKey("price") as Double
-        
-        cell.titleText.text = object.valueForKey("name") as String!
-        cell.priceText.text = "$\(price)"
-        
-        cell.imageView.file = (object.valueForKey("images") as [PFFile])[0]
-        
-        cell.imageView.loadInBackground()
-        
-        cell.backgroundColor = UIColor.SSColor.White
+        cell.menuItem = SSMenuCell.MenuItem(rawValue: indexPath.row)
         
         return cell
     }
     
-    // MARK: - UICollectionViewDelegateFlowLayout
+    // MARK: - UICollectionView Data Source
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return objects.count
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 5
+    // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        var cell: SSListingCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as SSListingCell
+        
+        let obj = objects[indexPath.row]
+        cell.imageView.file = obj.objectForKey("images")[0] as PFFile
+        cell.titleText.text = obj.objectForKey("name") as? String
+        let p = obj.objectForKey("price") as Double
+        cell.priceText.text = "$\(p)"
+        
+        cell.imageView.loadInBackground()
+        
+        return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 5
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: 0, height: 0)
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: 0, height: 0)
-    }
+    // MARK: - UIColectionView Flow Layout Delegate
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        var width = ((UIScreen.mainScreen().bounds.size.width - 10) / 2.0) - 2.5
-        
-        // Hard coded
-        return CGSize(width: width, height: width)
+        let height = collectionView.bounds.height - 20.0
+        return CGSizeMake(height, height)
     }
-
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10.0, left: 0, bottom: 10.0, right: 0)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0.0
+    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSizeZero
+        
+    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSizeZero
+    }
+    
+    // MARK: - UIToolbar Delegate 
+    func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
+        return UIBarPosition.TopAttached
+    }
 }

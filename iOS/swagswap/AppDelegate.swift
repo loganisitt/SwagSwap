@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
             application.registerForRemoteNotificationTypes(types)
         }
         
-        application.statusBarStyle = UIStatusBarStyle.LightContent
+        UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
         return true
     }
