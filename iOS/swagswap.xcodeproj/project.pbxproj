@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		022704CC1ABE5591000D47DA /* SSListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022704CB1ABE5591000D47DA /* SSListingViewController.swift */; };
 		0237A9B21A9ED8A300221F5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237A9B11A9ED8A300221F5E /* AppDelegate.swift */; };
 		0237A9B41A9ED8A300221F5E /* SSLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237A9B31A9ED8A300221F5E /* SSLoginViewController.swift */; };
 		0237A9B71A9ED8A300221F5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0237A9B51A9ED8A300221F5E /* Main.storyboard */; };
@@ -14,12 +15,12 @@
 		0237A9BC1A9ED8A300221F5E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0237A9BA1A9ED8A300221F5E /* LaunchScreen.xib */; };
 		0237A9C81A9ED8A300221F5E /* swagswapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237A9C71A9ED8A300221F5E /* swagswapTests.swift */; };
 		02594F7E1AA2B25C001E5B7F /* SSCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02594F7D1AA2B25C001E5B7F /* SSCreateViewController.swift */; };
+		026298481ABE8FD20009734E /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026298471ABE8FD20009734E /* Faker.swift */; };
 		026CF7931AA3A418009A1FE2 /* RGPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF7921AA3A418009A1FE2 /* RGPageViewController.swift */; };
-		026CF7951AA3A991009A1FE2 /* SSFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF7941AA3A991009A1FE2 /* SSFeedViewController.swift */; };
-		026CF7971AA3B4A5009A1FE2 /* SSProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF7961AA3B4A5009A1FE2 /* SSProfileViewController.swift */; };
 		026CF7991AA3B932009A1FE2 /* SSAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF7981AA3B932009A1FE2 /* SSAddButton.swift */; };
 		026CF79B1AA3C373009A1FE2 /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 026CF79A1AA3C373009A1FE2 /* FontAwesome.otf */; };
 		026CF79D1AA3C381009A1FE2 /* FontAwesome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF79C1AA3C381009A1FE2 /* FontAwesome.swift */; };
+		027B841D1AC129460037CF3E /* SSListingImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027B841C1AC129460037CF3E /* SSListingImageCell.swift */; };
 		027B92CE1AA63DA400CB2D31 /* SSSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027B92CD1AA63DA400CB2D31 /* SSSearchViewController.swift */; };
 		027E40401A9F9E6A0072CBF4 /* SSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E403F1A9F9E6A0072CBF4 /* SSColor.swift */; };
 		027E40421A9FBE400072CBF4 /* SSSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E40411A9FBE400072CBF4 /* SSSignUpViewController.swift */; };
@@ -28,6 +29,10 @@
 		027E40491A9FC46F0072CBF4 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 027E40471A9FC46F0072CBF4 /* Montserrat-Regular.ttf */; };
 		027E404B1A9FC8400072CBF4 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E404A1A9FC8400072CBF4 /* UIViewControllerExtension.swift */; };
 		027E404D1A9FCA0F0072CBF4 /* SSDashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E404C1A9FCA0F0072CBF4 /* SSDashViewController.swift */; };
+		02902CF81AAFDC3900338983 /* SSBuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02902CF71AAFDC3900338983 /* SSBuyViewController.swift */; };
+		02902CFA1AAFDDE100338983 /* SSSellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02902CF91AAFDDE100338983 /* SSSellViewController.swift */; };
+		02902CFC1AAFDDF800338983 /* SSWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02902CFB1AAFDDF800338983 /* SSWatchViewController.swift */; };
+		02902CFE1AAFE0EE00338983 /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02902CFD1AAFE0EE00338983 /* UIBarButtonItemExtension.swift */; };
 		029F2A3A1AA04448008D9E0B /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F2A391AA04448008D9E0B /* UIImageExtension.swift */; };
 		029F2A3C1AA0489F008D9E0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029F2A3B1AA0489F008D9E0B /* CoreGraphics.framework */; };
 		029F2A491AA052C9008D9E0B /* NSData+OGImageExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 029F2A421AA052C9008D9E0B /* NSData+OGImageExtensions.m */; };
@@ -38,6 +43,8 @@
 		02AA31771AA8E9CB00C58268 /* SSMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AA31761AA8E9CB00C58268 /* SSMenuCell.swift */; };
 		02AA31791AA933CB00C58268 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AA31781AA933CB00C58268 /* UINavigationControllerExtension.swift */; };
 		02AA317F1AA93EF900C58268 /* UINavigationBarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AA317E1AA93EF900C58268 /* UINavigationBarExtension.swift */; };
+		02DFBCA41AAFF7B70004F4AF /* SSExploreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFBCA31AAFF7B70004F4AF /* SSExploreCell.swift */; };
+		02DFBCA61AB0AB080004F4AF /* SSExploreHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DFBCA51AB0AB080004F4AF /* SSExploreHeaderView.swift */; };
 		AE67F9F0383A2A7E36FBBA45 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1AE0D436DAE9555A265BE23 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		020A1FB81A9EE42A00D7D02E /* swagswap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swagswap-Bridging-Header.h"; sourceTree = "<group>"; };
+		022704CB1ABE5591000D47DA /* SSListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSListingViewController.swift; sourceTree = "<group>"; };
 		0237A9AC1A9ED8A300221F5E /* swagswap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swagswap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0237A9B01A9ED8A300221F5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0237A9B11A9ED8A300221F5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,12 +72,12 @@
 		0237A9C61A9ED8A300221F5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0237A9C71A9ED8A300221F5E /* swagswapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swagswapTests.swift; sourceTree = "<group>"; };
 		02594F7D1AA2B25C001E5B7F /* SSCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSCreateViewController.swift; sourceTree = "<group>"; };
+		026298471ABE8FD20009734E /* Faker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
 		026CF7921AA3A418009A1FE2 /* RGPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGPageViewController.swift; sourceTree = "<group>"; };
-		026CF7941AA3A991009A1FE2 /* SSFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSFeedViewController.swift; sourceTree = "<group>"; };
-		026CF7961AA3B4A5009A1FE2 /* SSProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSProfileViewController.swift; sourceTree = "<group>"; };
 		026CF7981AA3B932009A1FE2 /* SSAddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSAddButton.swift; sourceTree = "<group>"; };
 		026CF79A1AA3C373009A1FE2 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		026CF79C1AA3C381009A1FE2 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesome.swift; sourceTree = "<group>"; };
+		027B841C1AC129460037CF3E /* SSListingImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSListingImageCell.swift; sourceTree = "<group>"; };
 		027B92CD1AA63DA400CB2D31 /* SSSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSearchViewController.swift; sourceTree = "<group>"; };
 		027E403F1A9F9E6A0072CBF4 /* SSColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSColor.swift; sourceTree = "<group>"; };
 		027E40411A9FBE400072CBF4 /* SSSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSignUpViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +86,10 @@
 		027E40471A9FC46F0072CBF4 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		027E404A1A9FC8400072CBF4 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		027E404C1A9FCA0F0072CBF4 /* SSDashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDashViewController.swift; sourceTree = "<group>"; };
+		02902CF71AAFDC3900338983 /* SSBuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSBuyViewController.swift; sourceTree = "<group>"; };
+		02902CF91AAFDDE100338983 /* SSSellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSellViewController.swift; sourceTree = "<group>"; };
+		02902CFB1AAFDDF800338983 /* SSWatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSWatchViewController.swift; sourceTree = "<group>"; };
+		02902CFD1AAFE0EE00338983 /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
 		029F2A391AA04448008D9E0B /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		029F2A3B1AA0489F008D9E0B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		029F2A411AA052C9008D9E0B /* NSData+OGImageExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+OGImageExtensions.h"; sourceTree = "<group>"; };
@@ -93,6 +105,8 @@
 		02AA31761AA8E9CB00C58268 /* SSMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSMenuCell.swift; sourceTree = "<group>"; };
 		02AA31781AA933CB00C58268 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		02AA317E1AA93EF900C58268 /* UINavigationBarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtension.swift; sourceTree = "<group>"; };
+		02DFBCA31AAFF7B70004F4AF /* SSExploreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSExploreCell.swift; sourceTree = "<group>"; };
+		02DFBCA51AB0AB080004F4AF /* SSExploreHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSExploreHeaderView.swift; sourceTree = "<group>"; };
 		2D0C0C8D726B0A7E9A9C09D0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B1AE0D436DAE9555A265BE23 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6F92150AF068211FCFD969 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,10 +160,12 @@
 				0237A9B31A9ED8A300221F5E /* SSLoginViewController.swift */,
 				027E40411A9FBE400072CBF4 /* SSSignUpViewController.swift */,
 				027E404C1A9FCA0F0072CBF4 /* SSDashViewController.swift */,
-				026CF7961AA3B4A5009A1FE2 /* SSProfileViewController.swift */,
-				026CF7941AA3A991009A1FE2 /* SSFeedViewController.swift */,
-				02594F7D1AA2B25C001E5B7F /* SSCreateViewController.swift */,
 				027B92CD1AA63DA400CB2D31 /* SSSearchViewController.swift */,
+				02902CF71AAFDC3900338983 /* SSBuyViewController.swift */,
+				02902CF91AAFDDE100338983 /* SSSellViewController.swift */,
+				02902CFB1AAFDDF800338983 /* SSWatchViewController.swift */,
+				02594F7D1AA2B25C001E5B7F /* SSCreateViewController.swift */,
+				022704CB1ABE5591000D47DA /* SSListingViewController.swift */,
 				02A0E5841AA2CBAE0076449C /* View */,
 				027E40431A9FBECF0072CBF4 /* Style */,
 				0237A9AF1A9ED8A300221F5E /* Supporting Files */,
@@ -160,6 +176,7 @@
 		0237A9AF1A9ED8A300221F5E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				026298471ABE8FD20009734E /* Faker.swift */,
 				026CF79C1AA3C381009A1FE2 /* FontAwesome.swift */,
 				026CF7921AA3A418009A1FE2 /* RGPageViewController.swift */,
 				029F2A401AA052C9008D9E0B /* OGImageExtensions */,
@@ -195,6 +212,7 @@
 				02AA317E1AA93EF900C58268 /* UINavigationBarExtension.swift */,
 				027E404A1A9FC8400072CBF4 /* UIViewControllerExtension.swift */,
 				02AA31781AA933CB00C58268 /* UINavigationControllerExtension.swift */,
+				02902CFD1AAFE0EE00338983 /* UIBarButtonItemExtension.swift */,
 				029F2A391AA04448008D9E0B /* UIImageExtension.swift */,
 				027E403F1A9F9E6A0072CBF4 /* SSColor.swift */,
 				027E40441A9FC1590072CBF4 /* SSFont.swift */,
@@ -231,8 +249,11 @@
 			isa = PBXGroup;
 			children = (
 				02AA31761AA8E9CB00C58268 /* SSMenuCell.swift */,
+				02DFBCA51AB0AB080004F4AF /* SSExploreHeaderView.swift */,
+				02DFBCA31AAFF7B70004F4AF /* SSExploreCell.swift */,
 				02A0E5821AA2CB3B0076449C /* SSListingCell.swift */,
 				02A0E5851AA2DBCC0076449C /* SSImageCell.swift */,
+				027B841C1AC129460037CF3E /* SSListingImageCell.swift */,
 				026CF7981AA3B932009A1FE2 /* SSAddButton.swift */,
 			);
 			name = View;
@@ -396,11 +417,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				027E40401A9F9E6A0072CBF4 /* SSColor.swift in Sources */,
+				02DFBCA41AAFF7B70004F4AF /* SSExploreCell.swift in Sources */,
+				02902CF81AAFDC3900338983 /* SSBuyViewController.swift in Sources */,
+				022704CC1ABE5591000D47DA /* SSListingViewController.swift in Sources */,
 				026CF7991AA3B932009A1FE2 /* SSAddButton.swift in Sources */,
 				026CF7931AA3A418009A1FE2 /* RGPageViewController.swift in Sources */,
 				029F2A4A1AA052C9008D9E0B /* OGImageExtensionsPersistor.m in Sources */,
 				0237A9B41A9ED8A300221F5E /* SSLoginViewController.swift in Sources */,
-				026CF7971AA3B4A5009A1FE2 /* SSProfileViewController.swift in Sources */,
 				027E404D1A9FCA0F0072CBF4 /* SSDashViewController.swift in Sources */,
 				02AA31791AA933CB00C58268 /* UINavigationControllerExtension.swift in Sources */,
 				02594F7E1AA2B25C001E5B7F /* SSCreateViewController.swift in Sources */,
@@ -408,15 +431,20 @@
 				02A0E5831AA2CB3B0076449C /* SSListingCell.swift in Sources */,
 				027E40421A9FBE400072CBF4 /* SSSignUpViewController.swift in Sources */,
 				029F2A491AA052C9008D9E0B /* NSData+OGImageExtensions.m in Sources */,
+				02902CFC1AAFDDF800338983 /* SSWatchViewController.swift in Sources */,
 				02A0E5861AA2DBCC0076449C /* SSImageCell.swift in Sources */,
+				02902CFA1AAFDDE100338983 /* SSSellViewController.swift in Sources */,
 				02AA31771AA8E9CB00C58268 /* SSMenuCell.swift in Sources */,
 				0237A9B21A9ED8A300221F5E /* AppDelegate.swift in Sources */,
 				02AA317F1AA93EF900C58268 /* UINavigationBarExtension.swift in Sources */,
+				02902CFE1AAFE0EE00338983 /* UIBarButtonItemExtension.swift in Sources */,
 				027B92CE1AA63DA400CB2D31 /* SSSearchViewController.swift in Sources */,
 				027E40451A9FC1590072CBF4 /* SSFont.swift in Sources */,
 				026CF79D1AA3C381009A1FE2 /* FontAwesome.swift in Sources */,
+				027B841D1AC129460037CF3E /* SSListingImageCell.swift in Sources */,
+				026298481ABE8FD20009734E /* Faker.swift in Sources */,
+				02DFBCA61AB0AB080004F4AF /* SSExploreHeaderView.swift in Sources */,
 				029F2A4B1AA052C9008D9E0B /* UIImage+OGImageExtensions.m in Sources */,
-				026CF7951AA3A991009A1FE2 /* SSFeedViewController.swift in Sources */,
 				029F2A3A1AA04448008D9E0B /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

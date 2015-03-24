@@ -8,52 +8,84 @@
 
 import UIKit
 
-class SSSearchViewController: UIViewController, UISearchControllerDelegate, UITableViewDataSource, UITableViewDelegate {
+class SSSearchViewController: UIViewController, UISearchControllerDelegate, UITableViewDataSource, UITableViewDelegate, SSExploreHeaderViewDelegate {
     
     @IBOutlet var tableview: UITableView!
+    
+    var selectedSection: Int = -1
+    
+    // MARK: - General
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.searchDisplayController?.searchBar.barTintColor = UIColor.SSColor.Red
+        navigationItem.title = "Search"
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
         
         var img = UIImage().og_imageWithColor(UIColor.SSColor.Red)
-        self.searchDisplayController?.searchBar.setBackgroundImage(img, forBarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
+        searchDisplayController?.searchBar.setBackgroundImage(img, forBarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         
-        self.tableview.sectionFooterHeight = 0
+        tableview.registerClass(SSExploreHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
+        
+        tableview.rowHeight = 40
+        tableview.sectionHeaderHeight = 60
+        tableview.sectionFooterHeight = 0
         tableview.tableFooterView = UIView(frame: CGRectZero)
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+    // MARK: - Actions
+    
+    @IBAction func backButtonPressed() {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    // MARK: UITableView Data Source
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 6
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Categories"
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return section == selectedSection ? 3 : 0
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let header: SSExploreHeaderView = tableview.dequeueReusableHeaderFooterViewWithIdentifier("Header") as SSExploreHeaderView
+        header.delegate = self
+        header.exploreItem = SSExploreHeaderView.ExploreItem(rawValue: section)
+        header.isExpanded = selectedSection == section
+        header.contentView.backgroundColor = UIColor.whiteColor()
+        
+        return header
     }
-    
+
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
         
-        switch indexPath.row {
-        case 0: cell.textLabel?.text = "Cars"
-        case 1: cell.textLabel?.text = "Animals"
-        case 2: cell.textLabel?.text = "Food"
-        case 3: cell.textLabel?.text = "Clothes"
-        case 4: cell.textLabel?.text = "Furniture"
-        case 5: cell.textLabel?.text = "Tech"
-        default: cell.textLabel?.text = ""
-        }
-        
-        
+        var cell: SSExploreCell = tableView.dequeueReusableCellWithIdentifier("Cell") as SSExploreCell
+        cell.exploreItem = SSExploreCell.ExploreItem(rawValue: indexPath.section)
+        cell.title.text = "Item \(indexPath.row)"
         return cell
+    }
+    
+    // SSExploreView Delegate
+    func expandOrContractSection(section: Int) {
+        
+        if selectedSection == section { // Selected the same one, collapse
+            selectedSection = -1
+            self.tableview.reloadSections(NSIndexSet(index: section), withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+        else {
+            let lastSection = selectedSection
+            selectedSection = section
+            
+            let set = NSMutableIndexSet(index: selectedSection)
+            if lastSection != -1 {
+                set.addIndex(lastSection)
+            }
+            
+            self.tableview.reloadSections(set, withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
     }
 }

@@ -30,7 +30,7 @@ class SSLoginViewController: PFLogInViewController, PFLogInViewControllerDelegat
     func setup() {
         
         self.delegate = self
-        self.facebookPermissions = ["friends_about_me"]
+        self.facebookPermissions = []
         self.fields = PFLogInFields.Facebook | PFLogInFields.LogInButton | PFLogInFields.PasswordForgotten | PFLogInFields.UsernameAndPassword | PFLogInFields.SignUpButton
         
         var ssSignupViewController = SSSignUpViewController()
@@ -74,6 +74,10 @@ class SSLoginViewController: PFLogInViewController, PFLogInViewControllerDelegat
         self.logInView.passwordForgottenButton.titleLabel?.font = UIFont.SSFont.P
         self.logInView.passwordForgottenButton.titleLabel?.shadowOffset = CGSizeMake(0, 4)
         self.logInView.passwordForgottenButton.titleLabel?.shadowColor = UIColor.blackColor()
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: "fake")
+        doubleTap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(doubleTap)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -82,6 +86,10 @@ class SSLoginViewController: PFLogInViewController, PFLogInViewControllerDelegat
         var img = UIImage(named: "background")?.og_imageAspectScaledToAtLeastWidth(self.view.frame.width).og_imageWithAlpha().og_grayscaleImage()
         
         self.logInView.backgroundColor = UIColor(patternImage: img!).colorWithAlphaComponent(0.6)
+        
+        if PFUser.currentUser() != nil && PFFacebookUtils.isLinkedWithUser(PFUser.currentUser()) {
+            self.performSegueWithIdentifier("gotoDash", sender: self)
+        }
     }
     
     // MARK: - Delegate
@@ -103,6 +111,28 @@ class SSLoginViewController: PFLogInViewController, PFLogInViewControllerDelegat
     
     func logInViewControllerDidCancelLogIn(logInController: PFLogInViewController!) {
         // TODO:
+    }
+    
+    // MARK: - Fake
+    
+    func fake() {
+        var userQuery: PFQuery = PFUser.query()
+        userQuery.whereKeyExists("email")
+        userQuery.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                if objects.count > 0 {
+                    println("Randomly selecting from \(objects.count)")
+                    
+                    var limit: UInt32 = UInt32(objects.count)
+                    var rand = Int(arc4random_uniform(limit))
+                    
+                    let user = objects[rand] as PFObject
+                    
+                    self.logInView.usernameField.text = user.valueForKey("email") as String
+                    self.logInView.passwordField.text = "password"
+                }
+            }
+        }
     }
     
     // MARK: - Style

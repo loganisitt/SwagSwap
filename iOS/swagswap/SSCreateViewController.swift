@@ -25,6 +25,10 @@ class SSCreateViewController: UIViewController,UIImagePickerControllerDelegate, 
         self.navigationItem.title = "Create"
 
         imgArray = []
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: "fake")
+        doubleTap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(doubleTap)
     }
     
     // MARK: - Actions
@@ -51,7 +55,8 @@ class SSCreateViewController: UIViewController,UIImagePickerControllerDelegate, 
             listing.setValue(nameField.text, forKey: "name")
             listing.setValue(categoryField.text, forKey: "category")
             listing.setValue((priceField.text as NSString).doubleValue, forKey: "price")
-            listing.setValue(descView.text, forKey: "description")
+            listing.setValue(descView.text, forKey: "desc")
+            listing.setValue(PFUser.currentUser(), forKey: "seller")
             
             var imageFiles: [PFFile] = []
             for img in imgArray {
@@ -71,6 +76,24 @@ class SSCreateViewController: UIViewController,UIImagePickerControllerDelegate, 
         else {
             println("poop")
         }
+    }
+    
+    // MARK: - Fake 
+    func fake() {
+        let fakker = Faker()
+        nameField.text = "\(fakker.company) \(fakker.state)"
+        categoryField.text = "Testing"
+        let rand = arc4random_uniform(10000)
+        let price = Double(rand) / 100.0
+        priceField.text = "\(price)"
+        descView.text = fakker.fullDescription
+        
+        let data = NSData(contentsOfURL: NSURL(string: "http://lorempixel.com/500/500")!)
+        let img1 = UIImage(data: data!)
+        
+        imgArray.append(img1!)
+        
+        imgCollection.reloadData()
     }
     
     // MARK: - UIImagePickerController Delegate

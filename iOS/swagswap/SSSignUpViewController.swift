@@ -58,6 +58,10 @@ class SSSignUpViewController: PFSignUpViewController, PFSignUpViewControllerDele
         
         self.signUpView.dismissButton.tintColor = UIColor.SSColor.White
         self.signUpView.dismissButton.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
+        
+        let fakeIt: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "fake")
+        fakeIt.numberOfTapsRequired = 2
+        view.addGestureRecognizer(fakeIt)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -81,6 +85,15 @@ class SSSignUpViewController: PFSignUpViewController, PFSignUpViewControllerDele
     
     func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: - FAKER
+    
+    func fake() {
+        let fakker = Faker()
+        
+        signUpView.usernameField.text = fakker.email
+        signUpView.passwordField.text = "password"
     }
     
     // MARK: - Style

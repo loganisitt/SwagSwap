@@ -24,6 +24,19 @@ class SSDashViewController: UIViewController, UITableViewDelegate, UITableViewDa
         objects = [];
         self.loadObjects()
         
+        // Installation
+        var installation: PFInstallation = PFInstallation.currentInstallation()
+        installation.setValue(PFUser.currentUser().objectId, forKey: "userId")
+        installation.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
+            if success == true {
+                println("Sucess")
+            }
+            else {
+                println("wtf")
+            }
+        }
+        
+        
         // Style
         self.navigationController?.navigationBar.hideHairline()
         self.navigationController?.navigationBar.translucent = false
@@ -101,6 +114,7 @@ class SSDashViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 1
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell: SSMenuCell = tableView.dequeueReusableCellWithIdentifier("Cell") as SSMenuCell
@@ -108,6 +122,17 @@ class SSDashViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.menuItem = SSMenuCell.MenuItem(rawValue: indexPath.row)
         
         return cell
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.row {
+        case 0: performSegueWithIdentifier("gotoBuy", sender: self); break
+        case 1: performSegueWithIdentifier("gotoSell", sender: self); break
+        case 2: performSegueWithIdentifier("gotoWatch", sender: self); break
+        default: break
+        }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     // MARK: - UICollectionView Data Source
@@ -133,6 +158,12 @@ class SSDashViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.imageView.loadInBackground()
         
         return cell
+    }
+    
+    // MARK: - UICollectionView Delegate 
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("gotoListing", sender: self)
     }
     
     // MARK: - UIColectionView Flow Layout Delegate
@@ -165,5 +196,14 @@ class SSDashViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: - UIToolbar Delegate 
     func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
         return UIBarPosition.TopAttached
+    }
+    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "gotoListing" {
+            let vc = segue.destinationViewController as SSListingViewController
+            let index = collectionView.indexPathsForSelectedItems()[0].row
+            vc.listing = objects[index!]   
+        }
     }
 }

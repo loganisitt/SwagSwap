@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "SWAGSWAP": {
+            "applicationId": "FYYc6l6Fi8XTNiH0lybpzsob6tZcTd8luLDiZR1l", 
+            "masterKey": "UPhpZUbndjT0SmdQIBkYMZXw6aFjLgTLZd4yyroI"
+        }, 
+        "_default": {
+            "link": "SWAGSWAP"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.5"
+    }
+}
