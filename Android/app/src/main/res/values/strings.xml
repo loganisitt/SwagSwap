@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ParseSwagSwap</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_id">742900129109809</string>
+    <string name="parse_app_id">FYYc6l6Fi8XTNiH0lybpzsob6tZcTd8luLDiZR1l</string>
+    <string name="parse_client_key">smiuvnfGa8CW8H5radVT8TZcy7OOU3HR4PrWIOgF</string>
+    <string name="facebook_app_id">742900129109809</string>
+    <string name="facebook_secret">a36db94e433328f66f2b7737539daccc</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
