@@ -10,8 +10,26 @@ import UIKit
 
 class SSListingViewController: UITableViewController {
     
-    var listing: PFObject!
+    var listing: PFObject! {
+        willSet(newListing) {
+            
+        }
+        didSet {
+            
+            var userQuery = PFUser.query()
+            
+            println(listing.objectForKey("seller"))
+            
+            userQuery.whereKey("objectId", equalTo: listing.objectForKey("seller").objectId)
+            
+            userQuery.getFirstObjectInBackgroundWithBlock { (user: PFObject!, error: NSError!) -> Void in
+                println(user)
+                self.seller = user as PFUser
+            }
+        }
+    }
     
+    var seller: PFUser!
     var imgIndex = 0
     
     // MARK: - Initialization
@@ -32,7 +50,7 @@ class SSListingViewController: UITableViewController {
     
     // MARK: - Setup
     func setup() {
-        
+    
     }
     
     // MARK: - General
@@ -44,6 +62,7 @@ class SSListingViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
         
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
     
     // MARK: - Actions
@@ -55,7 +74,6 @@ class SSListingViewController: UITableViewController {
     @IBAction func nextImageSwipe() {
         let preChange = imgIndex
         let imageCount = listing.objectForKey("images").count
-        println("Listing only has \(imageCount) images")
         
         imgIndex++
         
@@ -73,7 +91,6 @@ class SSListingViewController: UITableViewController {
     @IBAction func prevImageSwipe() {
         let preChange = imgIndex
         let imageCount = listing.objectForKey("images").count
-        println("Listing only has \(imageCount) images")
         
         imgIndex--
         
@@ -91,19 +108,22 @@ class SSListingViewController: UITableViewController {
     // MARK: UITableView Data Source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 1 : section == 1 ? 3 : 2
+        return section == 0 ? 1 : section == 1 ? 3 : section == 2 ? 2 : 5
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
             let cell: SSListingImageCell = tableView.dequeueReusableCellWithIdentifier("ImageCell") as SSListingImageCell
-            cell.listingImageView.file = listing.objectForKey("images")[imgIndex] as PFFile
             
+            cell.backgroundColor = UIColor.clearColor()
+            
+
+            cell.listingImageView.file = listing.objectForKey("images")[imgIndex] as PFFile
             
             let leftSwipe: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "nextImageSwipe")
             leftSwipe.direction = UISwipeGestureRecognizerDirection.Left
@@ -119,12 +139,11 @@ class SSListingViewController: UITableViewController {
             
             cell.imagesCount.currentPage = imgIndex
             cell.imagesCount.numberOfPages = listing.objectForKey("images").count
-            cell.imagesCount.currentPageIndicatorTintColor = UIColor.SSColor.Blue
-            cell.imagesCount.tintColor = UIColor.SSColor.LightBlue
+            
             return cell
         }
         
-        if indexPath.section == 1 {
+        else if indexPath.section == 1 {
             
             let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
 
@@ -141,7 +160,7 @@ class SSListingViewController: UITableViewController {
             
             return cell
         }
-        else { //if indexPath.section == 2 {
+        else if indexPath.section == 2 {
             
             let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
 
@@ -153,14 +172,28 @@ class SSListingViewController: UITableViewController {
             
             return cell
         }
+        else {
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+            
+            switch indexPath.row {
+            case 0: cell.textLabel?.text = seller.valueForKey("name") as? String
+            case 1: cell.textLabel?.text = "Seller Rating"
+            case 2: cell.textLabel?.text = "Mutual Friends"
+            case 3: cell.textLabel?.text = "Message Seller"
+            case 4: cell.textLabel?.text = "More from seller"
+            default: cell.textLabel?.text = ""
+            }
+            
+            return cell
+        }
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "Details" : ""
+        return section == 1 ? "Details" : section == 3 ? "Seller" : ""
     }
     
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return section == 0 ? "" : "1231 Views"
+        return section == 1 ? "42 views" : ""
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -174,8 +207,60 @@ class SSListingViewController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return indexPath.section == 0 ? view.frame.width : 44
     }
+    
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+        return section == 0 ? 0 : section == 1 ? 50 : 20
+    }
+    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 20
+    }
+    
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if (section != 1) {
+            return nil
+        }
+        
+        let height = CGFloat(50)
+        let buffer = CGFloat(8)
+        
+        let h = height - (2 * buffer)
+        let w = view.bounds.width - (2 * buffer)
+        
+        var v = UIView(frame: CGRectMake(0, 0, view.bounds.width, height))
+        var seg = UISegmentedControl(frame: CGRectMake(buffer, buffer, w, h))
+        
+        v.addSubview(seg)
+        
+        seg.insertSegmentWithTitle("Info", atIndex: 0, animated: false)
+        seg.insertSegmentWithTitle("Comments", atIndex: 1, animated: false)
+        seg.selectedSegmentIndex = 0
+        
+        seg.tintColor = UIColor.SSColor.Blue
+        
+        return v
+    }
+    
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if (section != 1) {
+            return nil
+        }
+        
+        let height = CGFloat(20)
+        let buffer = CGFloat(0)
+        
+        let h = height - (2 * buffer)
+        let w = view.bounds.width - (2 * buffer)
+        
+        var v = UIView(frame: CGRectMake(0, 0, view.bounds.width, height))
+        var text = UILabel(frame: CGRectMake(buffer, buffer, w, h))
+        
+        v.addSubview(text)
+        text.text = "36 views"
+        text.textColor = UIColor.grayColor()
+        text.textAlignment = NSTextAlignment.Center
+        text.font = UIFont.SSFont.P
+        
+        return v
     }
     
     // MARK: - UITableView Delegate
@@ -207,6 +292,17 @@ class SSListingViewController: UITableViewController {
             offer.setValue(Double(19.99), forKey: "Value")
             
             offer.saveInBackgroundWithBlock({ (success:Bool, error:NSError!) -> Void in
+                
+            })
+        }
+        if indexPath.section == 3 && indexPath.row == 3 {
+            var message: PFObject = PFObject(className: "Message")
+            
+            message.setValue(PFUser.currentUser(), forKey: "sender")
+            message.setValue(listing.objectForKey("seller"), forKey: "recipient")
+            message.setValue("Hello", forKey: "content")
+            
+            message.saveInBackgroundWithBlock({ (success:Bool, error:NSError!) -> Void in
                 
             })
         }

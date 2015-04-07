@@ -18,9 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         Parse.enableLocalDatastore()
+        
+        
+        
         Parse.setApplicationId("FYYc6l6Fi8XTNiH0lybpzsob6tZcTd8luLDiZR1l", clientKey: "smiuvnfGa8CW8H5radVT8TZcy7OOU3HR4PrWIOgF")
 
-        PFFacebookUtils.initializeFacebook()
+        PFFacebookUtils.initializeFacebook() // WithApplicationLaunchOptions(launchOptions)
         PFUser.enableAutomaticUser()
         
         let userNotificationTypes = (UIUserNotificationType.Alert |
@@ -33,7 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
         
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
-        return true
+        return true //FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    func applicationDidBecomeActive(application: UIApplication) {
+        FBAppCall.handleDidBecomeActiveWithSession(PFFacebookUtils.session())
+    }
+    
+    func applicationWillTerminate(application: UIApplication) {
+        PFFacebookUtils.session().close()
     }
     
     // MARK: - Push Notifications
@@ -75,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     
     // MARK: - Facebook SDK Integration
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        return FBAppCall.handleOpenURL(url, sourceApplication:sourceApplication, withSession:PFFacebookUtils.session())
+        return FBAppCall.handleOpenURL(url, sourceApplication: sourceApplication, withSession: PFFacebookUtils.session())
     }
 }
 

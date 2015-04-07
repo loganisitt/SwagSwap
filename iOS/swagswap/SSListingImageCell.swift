@@ -9,7 +9,14 @@
 import UIKit
 
 class SSListingImageCell: PFTableViewCell {
+    
     @IBOutlet var listingImageView: PFImageView!
     @IBOutlet var imagesCount: UIPageControl!
-
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        imagesCount.currentPageIndicatorTintColor = UIColor.SSColor.Blue
+        imagesCount.pageIndicatorTintColor = UIColor.SSColor.LightBlue
+    }
 }

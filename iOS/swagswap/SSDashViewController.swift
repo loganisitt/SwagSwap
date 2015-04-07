@@ -129,6 +129,7 @@ class SSDashViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 0: performSegueWithIdentifier("gotoBuy", sender: self); break
         case 1: performSegueWithIdentifier("gotoSell", sender: self); break
         case 2: performSegueWithIdentifier("gotoWatch", sender: self); break
+        case 3: performSegueWithIdentifier("gotoInbox", sender: self); break
         default: break
         }
         

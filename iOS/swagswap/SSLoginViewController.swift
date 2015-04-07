@@ -94,13 +94,41 @@ class SSLoginViewController: PFLogInViewController, PFLogInViewControllerDelegat
     
     // MARK: - Delegate
     func logInViewController(logInController: PFLogInViewController!, shouldBeginLogInWithUsername username: String!, password: String!) -> Bool {
-        // TODO:
-        // Can be used to require password of length 8 or something
         return true
     }
     
     func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
-        // TODO:
+
+        if PFFacebookUtils.isLinkedWithUser(user) {
+            let req = FBRequest.requestForMe()
+            req.startWithCompletionHandler({ (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
+                if error == nil {
+                    let userData: NSDictionary = result as NSDictionary
+                    
+                    PFUser.currentUser().setValue(userData["id"], forKey:"facebookId")
+                    PFUser.currentUser().setValue(userData["name"], forKey:"name")
+                    
+                    let id: String =  userData["id"] as String
+                    let picUrl = NSURL(string: "https://graph.facebook.com/\(id)/picture?type=large&return_ssl_resources=1")
+                    let urlRequest = NSURLRequest(URL: picUrl!)
+                    
+                    NSURLConnection.sendAsynchronousRequest(urlRequest, queue: NSOperationQueue.mainQueue(), completionHandler: {
+                        (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+                        
+                        if error == nil && data != nil {
+                            let file: PFFile = PFFile(data: data)
+                            
+                            PFUser.currentUser().setValue(file, forKey:"picture")
+                            PFUser.currentUser().saveInBackgroundWithBlock({ (success: Bool, error: NSError!) -> Void in
+                                //
+                                
+                            })
+                        }
+                    })
+                    
+                }
+            })
+        }
         self.performSegueWithIdentifier("gotoDash", sender: self)
     }
     
