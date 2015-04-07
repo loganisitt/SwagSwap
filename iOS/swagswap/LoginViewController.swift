@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SSLoginViewController: PFLogInViewController, PFLogInViewControllerDelegate {
+class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate {
     
     // MARK: - Initialization
     override init() {
@@ -33,9 +33,9 @@ class SSLoginViewController: PFLogInViewController, PFLogInViewControllerDelegat
         self.facebookPermissions = []
         self.fields = PFLogInFields.Facebook | PFLogInFields.LogInButton | PFLogInFields.PasswordForgotten | PFLogInFields.UsernameAndPassword | PFLogInFields.SignUpButton
         
-        var ssSignupViewController = SSSignUpViewController()
+        var signupViewController = SignUpViewController()
         
-        self.signUpController = ssSignupViewController
+        self.signUpController = signupViewController
     }
     
     override func viewDidLoad() {

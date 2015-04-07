@@ -8,11 +8,14 @@
 
 import UIKit
 
-class SSInboxViewController: UITableViewController {
+class InboxViewController: UITableViewController {
     
     var parseClassName: String!
     
     var uniqueUsers = [PFUser]()
+    var firstMessage = [Message]()
+    
+    var dateFormatter: NSDateFormatter!
     
     // MARK: - Initialization
     
@@ -47,6 +50,10 @@ class SSInboxViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
         
         loadObjects()
+        
+        dateFormatter = NSDateFormatter()
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.dateStyle = NSDateFormatterStyle.NoStyle
     }
     
     // MARK: - Actions
@@ -90,6 +97,21 @@ class SSInboxViewController: UITableViewController {
                 
                 self.uniqueUsers = objects as [PFUser]
                 
+                for uU in self.uniqueUsers {
+                    
+                    let me = PFUser.currentUser()
+                    let them = uU
+                    let predicate = NSPredicate(format: "(sender==%@ AND recipient==%@) OR (sender==%@ AND recipient==%@)", me, uU, uU, me)
+                    
+                    let uUMessages = (messages as NSArray).filteredArrayUsingPredicate(predicate!)
+                    
+                    let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: true)
+                    
+                    let fMesseage: Message? = (uUMessages as NSArray).sortedArrayUsingDescriptors([sortDescriptor]).first as? Message
+                    
+                    self.firstMessage.append(fMesseage!)
+                }
+                
                 if (error != nil) {
                     self.objectsDidLoad(nil)
                 }
@@ -124,7 +146,8 @@ class SSInboxViewController: UITableViewController {
         }
         
         cell.userNameLbl.text = uniqueUsers[indexPath.row].valueForKey("name") as? String
-        cell.lastMessage.text = "Hey..."
+        cell.lastMessage.text = firstMessage[indexPath.row].content as String
+        cell.timestamp.text = dateFormatter.stringFromDate(firstMessage[indexPath.row].time())
         
         return cell
     }

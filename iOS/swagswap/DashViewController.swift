@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SSDashViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIToolbarDelegate {
+class DashViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIToolbarDelegate {
     
     var objects: [PFObject]!
     
@@ -202,7 +202,7 @@ class SSDashViewController: UIViewController, UITableViewDelegate, UITableViewDa
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "gotoListing" {
-            let vc = segue.destinationViewController as SSListingViewController
+            let vc = segue.destinationViewController as ListingViewController
             let index = collectionView.indexPathsForSelectedItems()[0].row
             vc.listing = objects[index!]   
         }

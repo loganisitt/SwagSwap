@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SSBuyViewController: PFQueryTableViewController {
+class BuyViewController: PFQueryTableViewController {
     
     // MARK: - Initialization
     

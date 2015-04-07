@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SSSearchViewController: UIViewController, UISearchControllerDelegate, UITableViewDataSource, UITableViewDelegate, SSExploreHeaderViewDelegate {
+class SearchViewController: UIViewController, UISearchControllerDelegate, UITableViewDataSource, UITableViewDelegate, SSExploreHeaderViewDelegate {
     
     @IBOutlet var tableview: UITableView!
     

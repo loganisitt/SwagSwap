@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SSListingViewController: UITableViewController {
+class ListingViewController: UITableViewController {
     
     var listing: PFObject! {
         willSet(newListing) {

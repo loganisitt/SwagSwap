@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SSCreateViewController: UIViewController,UIImagePickerControllerDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout {
+class CreateViewController: UIViewController,UIImagePickerControllerDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet var nameField:    UITextField!
     @IBOutlet var priceField:   UITextField!

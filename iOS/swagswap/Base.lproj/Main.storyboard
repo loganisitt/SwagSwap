@@ -14,13 +14,14 @@
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="SSLoginViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -61,7 +62,7 @@
         <!--Dash View Controller-->
         <scene sceneID="uMA-2M-vWJ">
             <objects>
-                <viewController id="0Ho-Lw-v9n" customClass="SSDashViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0Ho-Lw-v9n" customClass="DashViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CTH-yQ-n5X"/>
                         <viewControllerLayoutGuide type="bottom" id="jMI-Y5-6t4"/>
@@ -286,7 +287,7 @@
         <!--Buy View Controller-->
         <scene sceneID="yjT-Ol-dkc">
             <objects>
-                <tableViewController id="Fly-8W-0sG" customClass="SSBuyViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Fly-8W-0sG" customClass="BuyViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WwG-te-RJl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -326,7 +327,7 @@
         <!--Sell View Controller-->
         <scene sceneID="NGs-g8-eeT">
             <objects>
-                <tableViewController id="5kg-bd-0du" customClass="SSSellViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="5kg-bd-0du" customClass="SellViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sIx-n3-uAa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -374,7 +375,7 @@
         <!--Watch View Controller-->
         <scene sceneID="HYs-3z-D3F">
             <objects>
-                <tableViewController id="ndA-S3-mX2" customClass="SSWatchViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ndA-S3-mX2" customClass="WatchViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="B2g-SD-6n5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -400,7 +401,7 @@
         <!--Inbox View Controller-->
         <scene sceneID="F6l-vW-XhI">
             <objects>
-                <tableViewController id="h7W-LH-6Fd" customClass="SSInboxViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="h7W-LH-6Fd" customClass="InboxViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="WnJ-fg-Twa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -417,7 +418,7 @@
                                                 <constraint firstAttribute="width" secondItem="QjZ-j2-Sqg" secondAttribute="height" multiplier="1:1" id="TdE-ub-awx"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQd-ra-nL9">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQd-ra-nL9">
                                             <rect key="frame" x="67" y="8" width="438" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="iQd-ra-nL9" secondAttribute="height" multiplier="43:2" id="L5c-Kc-Fou"/>
@@ -431,18 +432,18 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wet-Md-WxD">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wet-Md-WxD">
                                             <rect key="frame" x="67" y="34" width="438" height="18"/>
                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GW-MO-VR8">
-                                            <rect key="frame" x="517" y="7" width="75" height="21"/>
+                                            <rect key="frame" x="517" y="9" width="75" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="75" id="p0o-W7-zYr"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -459,7 +460,7 @@
                                         <constraint firstItem="wet-Md-WxD" firstAttribute="leading" secondItem="QjZ-j2-Sqg" secondAttribute="trailing" constant="8" id="UBa-dQ-DUs"/>
                                         <constraint firstItem="iQd-ra-nL9" firstAttribute="centerY" secondItem="7GW-MO-VR8" secondAttribute="centerY" id="cUY-nF-GOu"/>
                                         <constraint firstItem="iQd-ra-nL9" firstAttribute="top" secondItem="24B-Td-iFr" secondAttribute="topMargin" id="erp-0G-2x5"/>
-                                        <constraint firstItem="7GW-MO-VR8" firstAttribute="top" secondItem="24B-Td-iFr" secondAttribute="topMargin" constant="-1" id="hwg-Xh-U3F"/>
+                                        <constraint firstItem="7GW-MO-VR8" firstAttribute="top" secondItem="24B-Td-iFr" secondAttribute="topMargin" constant="1" id="hwg-Xh-U3F"/>
                                         <constraint firstItem="iQd-ra-nL9" firstAttribute="leading" secondItem="QjZ-j2-Sqg" secondAttribute="trailing" constant="8" id="icd-gN-wAi"/>
                                         <constraint firstItem="7GW-MO-VR8" firstAttribute="leading" secondItem="wet-Md-WxD" secondAttribute="trailing" constant="12" id="jAt-4e-wzZ"/>
                                         <constraint firstItem="QjZ-j2-Sqg" firstAttribute="top" secondItem="24B-Td-iFr" secondAttribute="topMargin" constant="-4" id="km9-Ys-Eg1"/>
@@ -485,6 +486,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="lastMessage" destination="wet-Md-WxD" id="gMu-d2-Nma"/>
+                                    <outlet property="timestamp" destination="7GW-MO-VR8" id="WIc-xt-d6c"/>
                                     <outlet property="userImgView" destination="QjZ-j2-Sqg" id="tox-fL-cvL"/>
                                     <outlet property="userNameLbl" destination="iQd-ra-nL9" id="KiN-Up-P1U"/>
                                 </connections>
@@ -503,7 +505,7 @@
         <!--Listing View Controller-->
         <scene sceneID="nSO-l8-1Rk">
             <objects>
-                <tableViewController id="ac0-Q9-oiI" customClass="SSListingViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ac0-Q9-oiI" customClass="ListingViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="QTA-xa-R7g">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -581,7 +583,7 @@
         <!--Create View Controller-->
         <scene sceneID="TAw-gc-J0q">
             <objects>
-                <viewController id="gWy-3x-Uxt" customClass="SSCreateViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gWy-3x-Uxt" customClass="CreateViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LWW-LP-taD"/>
                         <viewControllerLayoutGuide type="bottom" id="nAm-3b-bXQ"/>
@@ -721,7 +723,7 @@
         <!--Search View Controller-->
         <scene sceneID="lUC-QP-tnf">
             <objects>
-                <viewController id="AB9-VJ-ebE" customClass="SSSearchViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AB9-VJ-ebE" customClass="SearchViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MD7-lW-K8d"/>
                         <viewControllerLayoutGuide type="bottom" id="WEJ-3V-P5O"/>

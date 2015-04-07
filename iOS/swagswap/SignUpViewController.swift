@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SSSignUpViewController: PFSignUpViewController, PFSignUpViewControllerDelegate {
+class SignUpViewController: PFSignUpViewController, PFSignUpViewControllerDelegate {
    
     // MARK: - Initialization
     override init() {

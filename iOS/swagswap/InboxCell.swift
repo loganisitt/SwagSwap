@@ -13,6 +13,8 @@ class InboxCell: UITableViewCell {
     
     @IBOutlet var userNameLbl: UILabel!
     @IBOutlet var lastMessage: UILabel!
+
+    @IBOutlet var timestamp: UILabel!
     
     var file: PFFile! {
         willSet(newFile) {

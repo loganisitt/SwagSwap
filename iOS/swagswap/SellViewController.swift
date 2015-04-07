@@ -1,5 +1,5 @@
 //
-//  SSWatchViewController.swift
+//  SSSellViewController.swift
 //  swagswap
 //
 //  Created by Logan Isitt on 3/10/15.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class SSWatchViewController: PFQueryTableViewController {
-    
+class SellViewController: PFQueryTableViewController {
+   
     // MARK: - Initialization
     
     override init!(style: UITableViewStyle, className: String!) {
@@ -25,7 +25,7 @@ class SSWatchViewController: PFQueryTableViewController {
     // MARK: - Setup
     
     func setup() {
-        self.parseClassName = "Watch"
+        self.parseClassName = "Listing"
     }
     
     // MARK: - General
@@ -33,7 +33,7 @@ class SSWatchViewController: PFQueryTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Watching"
+        self.navigationItem.title = "Selling"
         
         navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
     }
@@ -47,8 +47,8 @@ class SSWatchViewController: PFQueryTableViewController {
     // MARK: - Parse
     
     override func queryForTable() -> PFQuery! {
-        var query = PFQuery(className: parseClassName)
-        query.whereKey("watcher", equalTo: PFUser.currentUser())
+        var query = PFQuery(className: "Listing")
+        query.whereKey("seller", equalTo: PFUser.currentUser())
         return query
     }
     
@@ -58,10 +58,6 @@ class SSWatchViewController: PFQueryTableViewController {
         let cell: PFTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as PFTableViewCell
         
         cell.textLabel?.text = object.valueForKey("name") as? String
-        
-        let listing = object.objectForKey("listing") as PFObject
-        
-        cell.textLabel?.text = (object.objectForKey("listing") as PFObject).objectForKey("name") as? String
         
         return cell
     }

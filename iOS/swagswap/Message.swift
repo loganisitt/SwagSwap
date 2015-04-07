@@ -22,4 +22,8 @@ class Message : PFObject, PFSubclassing {
     class func parseClassName() -> String! {
         return "Message"
     }
+    
+    func time() -> NSDate {
+        return self.valueForKey("createdAt") as NSDate
+    }
 }
