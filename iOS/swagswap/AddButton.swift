@@ -7,7 +7,7 @@
 //
 
 @IBDesignable
-class SSAddButton: UIButton {
+class AddButton: UIButton {
     
     @IBInspectable var fillColor: UIColor = UIColor.SSColor.Red
     @IBInspectable var isAddButton: Bool = true

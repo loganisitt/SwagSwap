@@ -11,10 +11,6 @@ import UIKit
 class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate {
     
     // MARK: - Initialization
-    override init() {
-        super.init()
-        setup()
-    }
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -51,29 +47,29 @@ class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate 
         sLogo.shadowOffset = CGSizeMake(1, 1)
         sLogo.shadowColor = UIColor.blackColor()
         
-        self.logInView.logo = sLogo
+        self.logInView!.logo = sLogo
 
-        self.logInView.facebookButton.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
-        self.logInView.facebookButton.titleLabel?.font = UIFont.SSFont.H4
+        self.logInView!.facebookButton!.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
+        self.logInView!.facebookButton!.titleLabel?.font = UIFont.SSFont.H4
 
-        self.logInView.logInButton.backgroundColor = UIColor.SSColor.Red
-        self.logInView.logInButton.setBackgroundImage(nil, forState: UIControlState.Normal)
-        self.logInView.logInButton.setBackgroundImage(nil, forState: UIControlState.Highlighted)
-        self.logInView.logInButton.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
-        self.logInView.logInButton.titleLabel?.font = UIFont.SSFont.H4
+        self.logInView!.logInButton!.backgroundColor = UIColor.SSColor.Red
+        self.logInView!.logInButton!.setBackgroundImage(nil, forState: UIControlState.Normal)
+        self.logInView!.logInButton!.setBackgroundImage(nil, forState: UIControlState.Highlighted)
+        self.logInView!.logInButton!.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
+        self.logInView!.logInButton!.titleLabel?.font = UIFont.SSFont.H4
         
-        self.logInView.signUpButton.setBackgroundImage(nil, forState: UIControlState.Normal)
-        self.logInView.signUpButton.setBackgroundImage(nil, forState: UIControlState.Highlighted)
-        self.logInView.signUpButton.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
-        self.logInView.signUpButton.titleLabel?.font = UIFont.SSFont.H4
-        self.logInView.signUpButton.layer.borderColor = UIColor.SSColor.White.CGColor
-        self.logInView.signUpButton.layer.borderWidth = 4.0
-        self.logInView.signUpButton.layer.cornerRadius = 4.0
+        self.logInView!.signUpButton!.setBackgroundImage(nil, forState: UIControlState.Normal)
+        self.logInView!.signUpButton!.setBackgroundImage(nil, forState: UIControlState.Highlighted)
+        self.logInView!.signUpButton!.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
+        self.logInView!.signUpButton!.titleLabel?.font = UIFont.SSFont.H4
+        self.logInView!.signUpButton!.layer.borderColor = UIColor.SSColor.White.CGColor
+        self.logInView!.signUpButton!.layer.borderWidth = 4.0
+        self.logInView!.signUpButton!.layer.cornerRadius = 4.0
         
-        self.logInView.passwordForgottenButton.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
-        self.logInView.passwordForgottenButton.titleLabel?.font = UIFont.SSFont.P
-        self.logInView.passwordForgottenButton.titleLabel?.shadowOffset = CGSizeMake(0, 4)
-        self.logInView.passwordForgottenButton.titleLabel?.shadowColor = UIColor.blackColor()
+        self.logInView!.passwordForgottenButton!.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
+        self.logInView!.passwordForgottenButton!.titleLabel?.font = UIFont.SSFont.P
+        self.logInView!.passwordForgottenButton!.titleLabel?.shadowOffset = CGSizeMake(0, 4)
+        self.logInView!.passwordForgottenButton!.titleLabel?.shadowColor = UIColor.blackColor()
         
         let doubleTap = UITapGestureRecognizer(target: self, action: "fake")
         doubleTap.numberOfTapsRequired = 2
@@ -85,30 +81,37 @@ class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate 
         
         var img = UIImage(named: "background")?.og_imageAspectScaledToAtLeastWidth(self.view.frame.width).og_imageWithAlpha().og_grayscaleImage()
         
-        self.logInView.backgroundColor = UIColor(patternImage: img!).colorWithAlphaComponent(0.6)
+        self.logInView!.backgroundColor = UIColor(patternImage: img!).colorWithAlphaComponent(0.6)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
-        if PFUser.currentUser() != nil && PFFacebookUtils.isLinkedWithUser(PFUser.currentUser()) {
+        if PFUser.currentUser() != nil && PFFacebookUtils.isLinkedWithUser(PFUser.currentUser()!) {
+//            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+//            let dashVC: DashViewController = storyboard.instantiateViewControllerWithIdentifier("DashViewController") as DashViewController
+//            self.presentViewController(dashVC, animated: false, completion: nil)
             self.performSegueWithIdentifier("gotoDash", sender: self)
         }
     }
     
     // MARK: - Delegate
-    func logInViewController(logInController: PFLogInViewController!, shouldBeginLogInWithUsername username: String!, password: String!) -> Bool {
+    func logInViewController(logInController: PFLogInViewController, shouldBeginLogInWithUsername username: String, password: String) -> Bool {
         return true
     }
     
-    func logInViewController(logInController: PFLogInViewController!, didLogInUser user: PFUser!) {
+    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
 
-        if PFFacebookUtils.isLinkedWithUser(user) {
+       if PFFacebookUtils.isLinkedWithUser(user) {
             let req = FBRequest.requestForMe()
             req.startWithCompletionHandler({ (connection: FBRequestConnection!, result: AnyObject!, error: NSError!) -> Void in
                 if error == nil {
-                    let userData: NSDictionary = result as NSDictionary
+                    let userData: NSDictionary = result as! NSDictionary
                     
-                    PFUser.currentUser().setValue(userData["id"], forKey:"facebookId")
-                    PFUser.currentUser().setValue(userData["name"], forKey:"name")
+                    PFUser.currentUser()!.setValue(userData["id"], forKey:"facebookId")
+                    PFUser.currentUser()!.setValue(userData["name"], forKey:"name")
                     
-                    let id: String =  userData["id"] as String
+                    let id: String =  userData["id"] as! String
                     let picUrl = NSURL(string: "https://graph.facebook.com/\(id)/picture?type=large&return_ssl_resources=1")
                     let urlRequest = NSURLRequest(URL: picUrl!)
                     
@@ -118,9 +121,8 @@ class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate 
                         if error == nil && data != nil {
                             let file: PFFile = PFFile(data: data)
                             
-                            PFUser.currentUser().setValue(file, forKey:"picture")
-                            PFUser.currentUser().saveInBackgroundWithBlock({ (success: Bool, error: NSError!) -> Void in
-                                //
+                            PFUser.currentUser()!.setValue(file, forKey:"picture")
+                            PFUser.currentUser()!.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
                                 
                             })
                         }
@@ -132,22 +134,23 @@ class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate 
         self.performSegueWithIdentifier("gotoDash", sender: self)
     }
     
-    func logInViewController(logInController: PFLogInViewController!, didFailToLogInWithError error: NSError!) {
+    func logInViewController(logInController: PFLogInViewController, didFailToLogInWithError error: NSError?) {
         // TODO:
         println("Error: \(error)")
     }
     
-    func logInViewControllerDidCancelLogIn(logInController: PFLogInViewController!) {
+    func logInViewControllerDidCancelLogIn(logInController: PFLogInViewController) {
         // TODO:
     }
     
     // MARK: - Fake
     
     func fake() {
-        var userQuery: PFQuery = PFUser.query()
+        var userQuery: PFQuery = PFUser.query()!
         userQuery.whereKeyExists("email")
-        userQuery.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+        userQuery.findObjectsInBackgroundWithBlock { (objs: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
+                var objects = objs as! [PFObject]
                 if objects.count > 0 {
                     println("Randomly selecting from \(objects.count)")
                     
@@ -156,8 +159,8 @@ class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate 
                     
                     let user = objects[rand] as PFObject
                     
-                    self.logInView.usernameField.text = user.valueForKey("email") as String
-                    self.logInView.passwordField.text = "password"
+                    self.logInView!.usernameField!.text = user.valueForKey("email") as! String
+                    self.logInView!.passwordField!.text = "password"
                 }
             }
         }

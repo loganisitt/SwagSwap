@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UISearchControllerDelegate, UITableViewDataSource, UITableViewDelegate, SSExploreHeaderViewDelegate {
+class SearchViewController: UIViewController, UISearchControllerDelegate, UITableViewDataSource, UITableViewDelegate, ExploreHeaderViewDelegate {
     
     @IBOutlet var tableview: UITableView!
     
@@ -26,7 +26,7 @@ class SearchViewController: UIViewController, UISearchControllerDelegate, UITabl
         var img = UIImage().og_imageWithColor(UIColor.SSColor.Red)
         searchDisplayController?.searchBar.setBackgroundImage(img, forBarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         
-        tableview.registerClass(SSExploreHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
+        tableview.registerClass(ExploreHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
         
         tableview.rowHeight = 40
         tableview.sectionHeaderHeight = 60
@@ -52,9 +52,9 @@ class SearchViewController: UIViewController, UISearchControllerDelegate, UITabl
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let header: SSExploreHeaderView = tableview.dequeueReusableHeaderFooterViewWithIdentifier("Header") as SSExploreHeaderView
+        let header: ExploreHeaderView = tableview.dequeueReusableHeaderFooterViewWithIdentifier("Header") as! ExploreHeaderView
         header.delegate = self
-        header.exploreItem = SSExploreHeaderView.ExploreItem(rawValue: section)
+        header.exploreItem = ExploreHeaderView.ExploreItem(rawValue: section)
         header.isExpanded = selectedSection == section
         header.contentView.backgroundColor = UIColor.whiteColor()
         
@@ -63,8 +63,8 @@ class SearchViewController: UIViewController, UISearchControllerDelegate, UITabl
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: SSExploreCell = tableView.dequeueReusableCellWithIdentifier("Cell") as SSExploreCell
-        cell.exploreItem = SSExploreCell.ExploreItem(rawValue: indexPath.section)
+        var cell: ExploreCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! ExploreCell
+        cell.exploreItem = ExploreCell.ExploreItem(rawValue: indexPath.section)
         cell.title.text = "Item \(indexPath.row)"
         return cell
     }

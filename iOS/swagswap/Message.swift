@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Logan Isitt. All rights reserved.
 //
 
+import Parse
+
 class Message : PFObject, PFSubclassing {
     
     @NSManaged var sender: PFUser!
@@ -13,17 +15,16 @@ class Message : PFObject, PFSubclassing {
     @NSManaged var content: String!
     
     override class func initialize() {
-        var onceToken : dispatch_once_t = 0;
-        dispatch_once(&onceToken) {
-            self.registerSubclass()
-        }
+        super.initialize()
+        
+        self.registerSubclass()
     }
     
-    class func parseClassName() -> String! {
+    class func parseClassName() -> String {
         return "Message"
     }
     
     func time() -> NSDate {
-        return self.valueForKey("createdAt") as NSDate
+        return self.valueForKey("createdAt") as! NSDate
     }
 }

@@ -12,11 +12,10 @@ class SellViewController: PFQueryTableViewController {
    
     // MARK: - Initialization
     
-    override init!(style: UITableViewStyle, className: String!) {
+    override init(style: UITableViewStyle, className: String?) {
         super.init(style: style, className: className)
         setup()
     }
-    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
@@ -46,16 +45,16 @@ class SellViewController: PFQueryTableViewController {
     
     // MARK: - Parse
     
-    override func queryForTable() -> PFQuery! {
+    override func queryForTable() -> PFQuery {
         var query = PFQuery(className: "Listing")
-        query.whereKey("seller", equalTo: PFUser.currentUser())
+        query.whereKey("seller", equalTo: PFUser.currentUser()!)
         return query
     }
     
     // MARK: - UITableView Data Source
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!, object: PFObject!) -> PFTableViewCell! {
-        let cell: PFTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as PFTableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject!) -> PFTableViewCell? {
+        let cell: PFTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! PFTableViewCell
         
         cell.textLabel?.text = object.valueForKey("name") as? String
         

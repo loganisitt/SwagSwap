@@ -12,7 +12,7 @@ class WatchViewController: PFQueryTableViewController {
     
     // MARK: - Initialization
     
-    override init!(style: UITableViewStyle, className: String!) {
+    override init(style: UITableViewStyle, className: String?) {
         super.init(style: style, className: className)
         setup()
     }
@@ -46,22 +46,22 @@ class WatchViewController: PFQueryTableViewController {
     
     // MARK: - Parse
     
-    override func queryForTable() -> PFQuery! {
-        var query = PFQuery(className: parseClassName)
-        query.whereKey("watcher", equalTo: PFUser.currentUser())
+    override func queryForTable() -> PFQuery {
+        var query = PFQuery(className: parseClassName!)
+        query.whereKey("watcher", equalTo: PFUser.currentUser()!)
         return query
     }
     
     // MARK: - UITableView Data Source
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!, object: PFObject!) -> PFTableViewCell! {
-        let cell: PFTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as PFTableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject!) -> PFTableViewCell? {
+        let cell: PFTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! PFTableViewCell
         
         cell.textLabel?.text = object.valueForKey("name") as? String
         
-        let listing = object.objectForKey("listing") as PFObject
+        let listing = object.objectForKey("listing") as! PFObject
         
-        cell.textLabel?.text = (object.objectForKey("listing") as PFObject).objectForKey("name") as? String
+        cell.textLabel?.text = (object.objectForKey("listing") as! PFObject).objectForKey("name") as? String
         
         return cell
     }

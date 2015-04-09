@@ -1,14 +1,18 @@
 //
-//  SSExploreCell.swift
+//  SSExploreHeaderView.swift
 //  swagswap
 //
-//  Created by Logan Isitt on 3/10/15.
+//  Created by Logan Isitt on 3/11/15.
 //  Copyright (c) 2015 Logan Isitt. All rights reserved.
 //
 
 import UIKit
 
-class SSExploreCell: UITableViewCell {
+protocol ExploreHeaderViewDelegate {
+    func expandOrContractSection(section: Int)
+}
+
+class ExploreHeaderView: UITableViewHeaderFooterView {
     
     enum ExploreItem:Int {
         case Pets = 0, Vehicle, Tech, Furniture, Jewelry, Tickets, Default
@@ -16,26 +20,28 @@ class SSExploreCell: UITableViewCell {
     
     @IBOutlet var title: UILabel!
     @IBOutlet var icon: UILabel!
+    @IBOutlet var accessory: UILabel!
     
     var exploreItem: ExploreItem!
+    var isExpanded: Bool!
+    
+    let indentationWidth = CGFloat(10)
     var indentationLayer: CALayer!
     
+    var delegate: ExploreHeaderViewDelegate!
+    
     // MARK: - Initialization
-    override init() {
-        super.init()
-        setup()
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         setup()
     }
-    
+
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
@@ -44,42 +50,67 @@ class SSExploreCell: UITableViewCell {
     // MARK: - Setup
     func setup() {
         
-        defaults()
+        contentView.backgroundColor = UIColor.clearColor()
         
-        indentationWidth = 10.0
-        indentationLevel = 1
+        title = UILabel()
+        addSubview(title)
+
+        icon = UILabel()
+        addSubview(icon)
+        
+        accessory = UILabel()
+        addSubview(accessory)
         
         indentationLayer = CALayer()
         indentationLayer.backgroundColor = UIColor.SSColor.Blue.CGColor
         layer.addSublayer(indentationLayer)
+        
+        isExpanded = false
     }
+    
+    // MARK: - Layout
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        let size = contentView.bounds.size
+        
+        icon.frame = CGRectMake(20, 0, size.height, size.height)
+        accessory.frame = CGRectMake(size.width - size.height, 0, size.height, size.height)
+        
+        let tWidth = CGRectGetMinX(accessory.frame) - CGRectGetMaxX(icon.frame) - 16
+        
+        title.frame = CGRectMake(CGRectGetMaxX(icon.frame) + 8, 0, tWidth, size.height)
         
         if exploreItem == nil {
             exploreItem = .Default
         }
         
-//        title.text = getTitle(exploreItem).uppercaseString
+        title.text = getTitle(exploreItem).uppercaseString
         title.textColor = UIColor.SSColor.Black
         title.textAlignment = NSTextAlignment.Left
-        title.font = UIFont.SSFont.H4
+        title.font = UIFont.SSFont.H3
         
-//        accessory.text = String.fontAwesomeIconWithName("fa-angle-right")
-//        accessory.textColor = UIColor.SSColor.Black
-//        accessory.textAlignment = NSTextAlignment.Right
-//        accessory.font = UIFont.fontAwesomeOfSize(30)
+        accessory.textColor = UIColor.SSColor.Black
+        accessory.textAlignment = NSTextAlignment.Center
+        accessory.font = UIFont.fontAwesomeOfSize(30)
         
-//        icon.text = getIcon(exploreItem)
-//        icon.textColor = UIColor.SSColor.Black
-//        icon.textAlignment = NSTextAlignment.Center
-//        icon.font = UIFont.fontAwesomeOfSize(30)
+        icon.text = getIcon(exploreItem)
+        icon.textColor = UIColor.SSColor.Black
+        icon.textAlignment = NSTextAlignment.Center
+        icon.font = UIFont.fontAwesomeOfSize(30)
         
         indentationLayer.backgroundColor = getColor(exploreItem).CGColor
+        
+        if isExpanded == true {
+            accessory.text = String.fontAwesomeIconWithName("fa-angle-down")
+        }
+        else {
+            accessory.text = String.fontAwesomeIconWithName("fa-angle-right")
+        }
     }
     
-    // MARK: - Menu Item
+    // MARK: - Explore Item
     private func getTitle(mi: ExploreItem) -> String {
         switch mi {
         case .Furniture:    return "Furniture"
@@ -122,20 +153,16 @@ class SSExploreCell: UITableViewCell {
         indentationLayer.frame = CGRectMake(0, 0, indentationWidth, rect.height)
     }
     
-    // MARK: - Defaults
-    func defaults() {
-        
-        // Remove seperator inset
-        if respondsToSelector("setSeparatorInset:") {
-            separatorInset = UIEdgeInsetsZero
+    // MARK: - Touches
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if (accessory.text == String.fontAwesomeIconWithName("fa-angle-right")) {
+            
+            accessory.text = String.fontAwesomeIconWithName("fa-angle-down")
         }
-        // Prevent the cell from inheriting the Table View's margin settings
-        if respondsToSelector("setPreservesSuperviewLayoutMargins:") {
-            preservesSuperviewLayoutMargins = false
+        else {
+            accessory.text = String.fontAwesomeIconWithName("fa-angle-right")
         }
-        // Explictly set your cell's layout margins
-        if respondsToSelector("setLayoutMargins:") {
-            layoutMargins = UIEdgeInsetsZero
-        }
+        delegate.expandOrContractSection(exploreItem.rawValue)
+
     }
 }

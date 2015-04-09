@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SSMenuCell: UITableViewCell {
+class MenuCell: UITableViewCell {
     
     enum MenuItem:Int {
         case Buy = 0, Sell, Watch, Inbox, Notification, Account, Default
@@ -23,15 +23,6 @@ class SSMenuCell: UITableViewCell {
     var indentationLayer: CALayer!
     
     // MARK: - Initialization
-    override init() {
-        super.init()
-        setup()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

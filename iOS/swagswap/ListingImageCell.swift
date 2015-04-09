@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SSListingImageCell: PFTableViewCell {
+class ListingImageCell: PFTableViewCell {
     
     @IBOutlet var listingImageView: PFImageView!
     @IBOutlet var imagesCount: UIPageControl!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SSListingCell: UICollectionViewCell {
+class ListingCell: UICollectionViewCell {
     
     @IBOutlet var imageView: PFImageView!
     @IBOutlet var titleText: UILabel!

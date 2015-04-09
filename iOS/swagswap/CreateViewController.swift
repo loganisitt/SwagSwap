@@ -65,7 +65,7 @@ class CreateViewController: UIViewController,UIImagePickerControllerDelegate, UI
             
             listing.setValue(imageFiles, forKey: "images")
             
-            listing.saveInBackgroundWithBlock({ (success:Bool, error:NSError!) -> Void in
+            listing.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
                 
                 println("Saved!")
                 if (success) {
@@ -100,7 +100,7 @@ class CreateViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
-        let tempImage = info[UIImagePickerControllerOriginalImage] as UIImage
+        let tempImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         imgArray.append(tempImage)
         
@@ -126,7 +126,7 @@ class CreateViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         
-        var cell: SSImageCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as SSImageCell
+        var cell: ImageCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ImageCell
         
         cell.imageView.image = imgArray[indexPath.row]
         

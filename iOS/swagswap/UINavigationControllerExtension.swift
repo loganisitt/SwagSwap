@@ -13,7 +13,7 @@ extension UINavigationController {
         return UIBarPosition.TopAttached
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    override public func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
     }
 }

@@ -16,15 +16,15 @@ class ListingViewController: UITableViewController {
         }
         didSet {
             
-            var userQuery = PFUser.query()
+            var userQuery = PFUser.query()!
             
             println(listing.objectForKey("seller"))
             
-            userQuery.whereKey("objectId", equalTo: listing.objectForKey("seller").objectId)
-            
-            userQuery.getFirstObjectInBackgroundWithBlock { (user: PFObject!, error: NSError!) -> Void in
+            let objId = (listing.objectForKey("seller") as! PFObject).objectId!
+            userQuery.whereKey("objectId", equalTo: objId)
+            userQuery.getFirstObjectInBackgroundWithBlock { (user: PFObject?, error: NSError?) -> Void in
                 println(user)
-                self.seller = user as PFUser
+                self.seller = user as? PFUser
             }
         }
     }
@@ -33,9 +33,8 @@ class ListingViewController: UITableViewController {
     var imgIndex = 0
     
     // MARK: - Initialization
-    override init() {
-        super.init()
-        setup()
+    override init(style: UITableViewStyle) {
+        super.init(style: style)
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -73,11 +72,11 @@ class ListingViewController: UITableViewController {
     
     @IBAction func nextImageSwipe() {
         let preChange = imgIndex
-        let imageCount = listing.objectForKey("images").count
+        let imageCount = listing.objectForKey("images")!.count
         
         imgIndex++
         
-        if imgIndex >= listing.objectForKey("images").count {
+        if imgIndex >= listing.objectForKey("images")!.count {
             imgIndex = 0
         }
         
@@ -90,7 +89,7 @@ class ListingViewController: UITableViewController {
     
     @IBAction func prevImageSwipe() {
         let preChange = imgIndex
-        let imageCount = listing.objectForKey("images").count
+        let imageCount = listing.objectForKey("images")!.count
         
         imgIndex--
         
@@ -118,12 +117,12 @@ class ListingViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
-            let cell: SSListingImageCell = tableView.dequeueReusableCellWithIdentifier("ImageCell") as SSListingImageCell
+            let cell: ListingImageCell = tableView.dequeueReusableCellWithIdentifier("ImageCell") as! ListingImageCell
             
             cell.backgroundColor = UIColor.clearColor()
             
-
-            cell.listingImageView.file = listing.objectForKey("images")[imgIndex] as PFFile
+            let file: PFFile = (listing.objectForKey("images") as! [PFFile])[imgIndex]
+            cell.listingImageView.file = file
             
             let leftSwipe: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "nextImageSwipe")
             leftSwipe.direction = UISwipeGestureRecognizerDirection.Left
@@ -138,14 +137,14 @@ class ListingViewController: UITableViewController {
             cell.listingImageView.loadInBackground()
             
             cell.imagesCount.currentPage = imgIndex
-            cell.imagesCount.numberOfPages = listing.objectForKey("images").count
+            cell.imagesCount.numberOfPages = listing.objectForKey("images")!.count
             
             return cell
         }
         
         else if indexPath.section == 1 {
             
-            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
 
             switch indexPath.row {
             case 0: cell.textLabel?.text = "Title"
@@ -162,7 +161,7 @@ class ListingViewController: UITableViewController {
         }
         else if indexPath.section == 2 {
             
-            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
 
             switch indexPath.row {
             case 0: cell.textLabel?.text = "Watch"
@@ -173,7 +172,7 @@ class ListingViewController: UITableViewController {
             return cell
         }
         else {
-            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
             
             switch indexPath.row {
             case 0: cell.textLabel?.text = seller.valueForKey("name") as? String
@@ -266,8 +265,9 @@ class ListingViewController: UITableViewController {
     // MARK: - UITableView Delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.section == 1 && indexPath.row == 0 {
-            if listing.valueForKey("seller") as PFUser == PFUser.currentUser() {
+        if indexPath.section == 2 && indexPath.row == 0 {
+            let lUser: PFUser = listing.valueForKey("seller") as! PFUser
+            if lUser == PFUser.currentUser() {
                 return
             }
             
@@ -276,14 +276,16 @@ class ListingViewController: UITableViewController {
             watch.setValue(PFUser.currentUser(), forKey: "watcher")
             watch.setValue(listing, forKey: "listing")
             
-            watch.saveInBackgroundWithBlock({ (success:Bool, error:NSError!) -> Void in
+            watch.saveInBackgroundWithBlock({ (success: Bool, error:NSError?) -> Void in
                 
             })
         }
-        if indexPath.section == 1 && indexPath.row == 1 {
-            if listing.valueForKey("seller") as PFUser == PFUser.currentUser() {
+        if indexPath.section == 2 && indexPath.row == 1 {
+            let lUser: PFUser = listing.valueForKey("seller") as! PFUser
+            if lUser == PFUser.currentUser() {
                 return
             }
+
             
             var offer: PFObject = PFObject(className: "Offer")
             
@@ -291,7 +293,7 @@ class ListingViewController: UITableViewController {
             offer.setValue(listing, forKey: "listing")
             offer.setValue(Double(19.99), forKey: "Value")
             
-            offer.saveInBackgroundWithBlock({ (success:Bool, error:NSError!) -> Void in
+            offer.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
                 
             })
         }
@@ -302,7 +304,7 @@ class ListingViewController: UITableViewController {
             message.setValue(listing.objectForKey("seller"), forKey: "recipient")
             message.setValue("Hello", forKey: "content")
             
-            message.saveInBackgroundWithBlock({ (success:Bool, error:NSError!) -> Void in
+            message.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
                 
             })
         }

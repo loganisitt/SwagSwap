@@ -11,11 +11,7 @@ import UIKit
 class SignUpViewController: PFSignUpViewController, PFSignUpViewControllerDelegate {
    
     // MARK: - Initialization
-    override init() {
-        super.init()
-        setup()
-    }
-    
+
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
@@ -48,16 +44,16 @@ class SignUpViewController: PFSignUpViewController, PFSignUpViewControllerDelega
         sLogo.shadowOffset = CGSizeMake(1, 1)
         sLogo.shadowColor = UIColor.blackColor()
         
-        self.signUpView.logo = sLogo
+        self.signUpView!.logo = sLogo
         
-        self.signUpView.signUpButton.backgroundColor = UIColor.SSColor.Black
-        self.signUpView.signUpButton.setBackgroundImage(nil, forState: UIControlState.Normal)
-        self.signUpView.signUpButton.setBackgroundImage(nil, forState: UIControlState.Highlighted)
-        self.signUpView.signUpButton.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
-        self.signUpView.signUpButton.titleLabel?.font = UIFont.SSFont.H4
+        self.signUpView!.signUpButton!.backgroundColor = UIColor.SSColor.Black
+        self.signUpView!.signUpButton!.setBackgroundImage(nil, forState: UIControlState.Normal)
+        self.signUpView!.signUpButton!.setBackgroundImage(nil, forState: UIControlState.Highlighted)
+        self.signUpView!.signUpButton!.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
+        self.signUpView!.signUpButton!.titleLabel?.font = UIFont.SSFont.H4
         
-        self.signUpView.dismissButton.tintColor = UIColor.SSColor.White
-        self.signUpView.dismissButton.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
+        self.signUpView!.dismissButton!.tintColor = UIColor.SSColor.White
+        self.signUpView!.dismissButton!.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
         
         let fakeIt: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "fake")
         fakeIt.numberOfTapsRequired = 2
@@ -67,23 +63,23 @@ class SignUpViewController: PFSignUpViewController, PFSignUpViewControllerDelega
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.view.bringSubviewToFront(self.signUpView)
+        self.view.bringSubviewToFront(self.signUpView!)
     }
     
     // MARK: - Delegate
-    func signUpViewController(signUpController: PFSignUpViewController!, shouldBeginSignUp info: [NSObject : AnyObject]!) -> Bool {
+    func signUpViewController(signUpController: PFSignUpViewController, shouldBeginSignUp info: [NSObject : AnyObject]) -> Bool {
         return true
     }
     
-    func signUpViewController(signUpController: PFSignUpViewController!, didSignUpUser user: PFUser!) {
+    func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func signUpViewController(signUpController: PFSignUpViewController!, didFailToSignUpWithError error: NSError!) {
+    func signUpViewController(signUpController: PFSignUpViewController, didFailToSignUpWithError error: NSError?) {
 //        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController!) {
+    func signUpViewControllerDidCancelSignUp(signUpController: PFSignUpViewController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -92,8 +88,8 @@ class SignUpViewController: PFSignUpViewController, PFSignUpViewControllerDelega
     func fake() {
         let fakker = Faker()
         
-        signUpView.usernameField.text = fakker.email
-        signUpView.passwordField.text = "password"
+        signUpView!.usernameField!.text = fakker.email
+        signUpView!.passwordField!.text = "password"
     }
     
     // MARK: - Style

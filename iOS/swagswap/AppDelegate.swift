@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         Parse.enableLocalDatastore()
+        
+        Message.registerSubclass()
+        Message()
+        
         Parse.setApplicationId("FYYc6l6Fi8XTNiH0lybpzsob6tZcTd8luLDiZR1l", clientKey: "smiuvnfGa8CW8H5radVT8TZcy7OOU3HR4PrWIOgF")
 
         PFFacebookUtils.initializeFacebook() // WithApplicationLaunchOptions(launchOptions)
@@ -39,12 +43,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     }
     
     func applicationWillTerminate(application: UIApplication) {
-        PFFacebookUtils.session().close()
+        PFFacebookUtils.session()!.close()
     }
     
     // MARK: - Push Notifications
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        
         let installation = PFInstallation.currentInstallation()
         installation.setDeviceTokenFromData(deviceToken)
         installation.saveInBackground()
@@ -60,8 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         
-        println("RECIEVED: \(userInfo)")
-        
         PFPush.handlePush(userInfo)
         if application.applicationState == UIApplicationState.Inactive {
             PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
@@ -70,13 +73,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         
-        PFPush.handlePush(userInfo)
-        
-        completionHandler(UIBackgroundFetchResult.NewData)
-        
         if application.applicationState == UIApplicationState.Inactive {
+
+            PFPush.handlePush(userInfo)
+
             PFAnalytics.trackAppOpenedWithRemoteNotificationPayload(userInfo)
         }
+        
+        if application.applicationState == UIApplicationState.Active {
+            
+            let notificationCenter = NSNotificationCenter.defaultCenter()
+            notificationCenter.postNotificationName("SSMessageReceivedNotification", object: nil, userInfo: userInfo)
+        }
+        
+        completionHandler(UIBackgroundFetchResult.NewData)
     }
     
     // MARK: - Facebook SDK Integration

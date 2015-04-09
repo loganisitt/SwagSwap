@@ -21,7 +21,7 @@ extension UINavigationBar {
         }
         
         for subview in view.subviews {
-            if let imageView: UIImageView = self.findHairlineImageView(containedIn: subview as UIView) {
+            if let imageView: UIImageView = self.findHairlineImageView(containedIn: subview as! UIView) {
                 return imageView
             }
         }

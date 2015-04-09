@@ -26,8 +26,8 @@ class DashViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Installation
         var installation: PFInstallation = PFInstallation.currentInstallation()
-        installation.setValue(PFUser.currentUser().objectId, forKey: "userId")
-        installation.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
+        installation.setValue(PFUser.currentUser()!.objectId, forKey: "userId")
+        installation.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if success == true {
                 println("Sucess")
             }
@@ -72,9 +72,9 @@ class DashViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.objectsWillLoad()
         
         var query = PFQuery(className: "Listing")
-        query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]!, error:NSError!) -> Void in
+        query.findObjectsInBackgroundWithBlock { (objects:[AnyObject]?, error:NSError?) -> Void in
             
-            self.objects = objects as [PFObject]
+            self.objects = objects as! [PFObject]
             if (error != nil) {
                 self.objectsDidLoad(nil)
             }
@@ -117,9 +117,9 @@ class DashViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell: SSMenuCell = tableView.dequeueReusableCellWithIdentifier("Cell") as SSMenuCell
+        var cell: MenuCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! MenuCell
         
-        cell.menuItem = SSMenuCell.MenuItem(rawValue: indexPath.row)
+        cell.menuItem = MenuCell.MenuItem(rawValue: indexPath.row)
         
         return cell
     }
@@ -148,12 +148,12 @@ class DashViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell: SSListingCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as SSListingCell
+        var cell: ListingCell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ListingCell
         
         let obj = objects[indexPath.row]
-        cell.imageView.file = obj.objectForKey("images")[0] as PFFile
+        cell.imageView.file = (obj.objectForKey("images") as! [PFFile])[0] as PFFile
         cell.titleText.text = obj.objectForKey("name") as? String
-        let p = obj.objectForKey("price") as Double
+        let p = obj.objectForKey("price") as! Double
         cell.priceText.text = "$\(p)"
         
         cell.imageView.loadInBackground()
@@ -202,7 +202,7 @@ class DashViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "gotoListing" {
-            let vc = segue.destinationViewController as ListingViewController
+            let vc = segue.destinationViewController as! ListingViewController
             let index = collectionView.indexPathsForSelectedItems()[0].row
             vc.listing = objects[index!]   
         }

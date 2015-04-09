@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -62,7 +62,7 @@
         <!--Dash View Controller-->
         <scene sceneID="uMA-2M-vWJ">
             <objects>
-                <viewController id="0Ho-Lw-v9n" customClass="DashViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Ho-Lw-v9n" customClass="DashViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CTH-yQ-n5X"/>
                         <viewControllerLayoutGuide type="bottom" id="jMI-Y5-6t4"/>
@@ -76,7 +76,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="qIa-HU-iVO" customClass="SSMenuCell" customModule="swagswap" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="qIa-HU-iVO" customClass="MenuCell" customModule="swagswap" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qIa-HU-iVO" id="nux-5n-gXi">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -150,7 +150,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="AKu-Qn-iMd" customClass="SSListingCell" customModule="swagswap" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="AKu-Qn-iMd" customClass="ListingCell" customModule="swagswap" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -424,7 +424,7 @@
                                                 <constraint firstAttribute="width" secondItem="iQd-ra-nL9" secondAttribute="height" multiplier="43:2" id="L5c-Kc-Fou"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -435,7 +435,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wet-Md-WxD">
                                             <rect key="frame" x="67" y="34" width="438" height="18"/>
                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7GW-MO-VR8">
@@ -444,7 +444,7 @@
                                                 <constraint firstAttribute="width" constant="75" id="p0o-W7-zYr"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -497,10 +497,92 @@
                             <outlet property="delegate" destination="h7W-LH-6Fd" id="FKt-Y1-COg"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="J3X-n2-efy" kind="show" identifier="gotoMessage" id="Ddk-aL-UIi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gde-g8-N2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2408" y="2484"/>
+        </scene>
+        <!--Message View Controller-->
+        <scene sceneID="dQ4-Gj-W7z">
+            <objects>
+                <viewController id="J3X-n2-efy" customClass="MessageViewController" customModule="swagswap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6ey-pu-4R9"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZQ1-ff-V08"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jab-l4-W3I">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="42" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="29V-ed-naB">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="C6r-Rv-e7o">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C6r-Rv-e7o" id="OXJ-FU-9wf">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="J3X-n2-efy" id="JOr-jU-DuS"/>
+                                    <outlet property="delegate" destination="J3X-n2-efy" id="LB9-X0-0CJ"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PZF-06-seC" customClass="MessageToolbar" customModule="swagswap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="fixedSpace" id="w6H-Uv-JIY"/>
+                                    <barButtonItem style="plain" id="4Il-K1-Etv">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="M3a-xU-czC">
+                                            <rect key="frame" x="16" y="7" width="515" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="M5K-Gw-20F"/>
+                                    <barButtonItem title="Send" style="done" id="t5o-zi-AHo">
+                                        <color key="tintColor" red="0.0" green="0.29411764709999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="sendAction" destination="PZF-06-seC" id="kzQ-dc-7Ph"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="fixedSpace" id="yYs-K7-iKA"/>
+                                </items>
+                                <connections>
+                                    <outlet property="backSpacing" destination="yYs-K7-iKA" id="iQc-FA-uhq"/>
+                                    <outlet property="bottomConstraint" destination="aOB-SX-bRK" id="QSN-kG-I6f"/>
+                                    <outlet property="contentBarBtn" destination="4Il-K1-Etv" id="cTy-yz-lmH"/>
+                                    <outlet property="contentField" destination="M3a-xU-czC" id="AfC-fI-vsZ"/>
+                                    <outlet property="delegate" destination="J3X-n2-efy" id="U6A-SO-93m"/>
+                                    <outlet property="frontSpacing" destination="w6H-Uv-JIY" id="QgD-Qq-dWF"/>
+                                    <outlet property="sendBtn" destination="t5o-zi-AHo" id="zp3-o6-QiY"/>
+                                </connections>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="29V-ed-naB" firstAttribute="leading" secondItem="Jab-l4-W3I" secondAttribute="leadingMargin" constant="-16" id="20Y-NK-9Xi"/>
+                            <constraint firstItem="PZF-06-seC" firstAttribute="top" secondItem="29V-ed-naB" secondAttribute="bottom" id="DP7-TK-cUu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PZF-06-seC" secondAttribute="trailing" constant="-16" id="NE8-no-caI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="29V-ed-naB" secondAttribute="trailing" constant="-16" id="Slm-Dt-3mA"/>
+                            <constraint firstItem="PZF-06-seC" firstAttribute="leading" secondItem="Jab-l4-W3I" secondAttribute="leadingMargin" constant="-16" id="UaP-ro-ssk"/>
+                            <constraint firstItem="ZQ1-ff-V08" firstAttribute="top" secondItem="PZF-06-seC" secondAttribute="bottom" id="aOB-SX-bRK"/>
+                            <constraint firstItem="29V-ed-naB" firstAttribute="top" secondItem="6ey-pu-4R9" secondAttribute="bottom" id="tba-3m-5nb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="29V-ed-naB" id="NKg-cX-Kkp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xd4-bB-Sqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3104" y="2484"/>
         </scene>
         <!--Listing View Controller-->
         <scene sceneID="nSO-l8-1Rk">
@@ -531,7 +613,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="80" id="0g9-20-ukd" customClass="SSListingImageCell" customModule="swagswap" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="80" id="0g9-20-ukd" customClass="ListingImageCell" customModule="swagswap" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0g9-20-ukd" id="0QU-JL-Jns">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -627,7 +709,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="aUa-Xu-cdG" customClass="SSImageCell" customModule="swagswap" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="aUa-Xu-cdG" customClass="ImageCell" customModule="swagswap" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -744,7 +826,7 @@
                                 <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="Hjd-3K-rjp" customClass="SSExploreCell" customModule="swagswap" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="60" id="Hjd-3K-rjp" customClass="ExploreCell" customModule="swagswap" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hjd-3K-rjp" id="s6C-vb-iy2">
                                             <autoresizingMask key="autoresizingMask"/>
