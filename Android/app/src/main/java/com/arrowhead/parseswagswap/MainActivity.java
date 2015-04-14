@@ -2,20 +2,21 @@ package com.arrowhead.parseswagswap;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.parse.Parse;
 import com.parse.ParseFacebookUtils;
-import com.parse.ParseUser;
+import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseQueryAdapter;
 import com.parse.ui.ParseLoginBuilder;
 import com.software.shell.fab.ActionButton;
 
@@ -26,10 +27,14 @@ import it.sephiroth.android.library.widget.AdapterView;
 import it.sephiroth.android.library.widget.HListView;
 
 
-public class MainActivity extends ActionBarActivity implements CreateListing.OnFragmentInteractionListener {
+public class MainActivity extends ActionBarActivity implements CreateListing.OnFragmentInteractionListener,Listinginfo.OnFragmentInteractionListener ,AdapterView.OnItemClickListener {
     private CreateListing CLfrag;
-    private List<Listing> myListing = new ArrayList<Listing>();
+    private Listinginfo infofrag;
+    private List<ParseObject> myListing = new ArrayList<ParseObject>();
     private boolean madelisting = false;
+    private HListView Scroll;
+    private CustomAdapter urgentTodosAdapter;
+    ParseObject temp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,17 +46,27 @@ public class MainActivity extends ActionBarActivity implements CreateListing.OnF
         actionButton.setButtonColor(getResources().getColor(R.color.fab_material_red_500));
         actionButton.setImageResource(R.drawable.fab_plus_icon);
 
+        ParseObject.registerSubclass(Listing.class);
+
         Parse.initialize(this, getString(R.string.parse_app_id),
                 getString(R.string.parse_client_key));
         ParseFacebookUtils.initialize(getString(R.string.facebook_app_id));
 
+        //ParseInstallation install = ParseInstallation.getCurrentInstallation();
+
+
         ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
         startActivityForResult(builder.build(), 0);
 
-        ParseUser CurrentUser = ParseUser.getCurrentUser();
 
-       // populateListingView();
-        //registerclickcallback();
+
+
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#CE002B")));
+
+
+        populateListingView();
+        Scroll.setOnItemClickListener(this);
 
 
 
@@ -63,69 +78,104 @@ public class MainActivity extends ActionBarActivity implements CreateListing.OnF
 
                 CLfrag = new CreateListing();
 
-                //Now you can set the fragment to be visible here
+
                 setFragment(CLfrag);
 
-               // madelisting = true;
-
-               /* myListing.add(CLfrag.getListingContent());
-                populateListingView();
-                registerclickcallback();*/
 
             }
         });
-        /*if(madelisting == true){
-            myListing.add(CLfrag.getListingContent());
-            populateListingView();
-            registerclickcallback();
-
-        }*/
 
 
-        /*ActionButton.State state = actionButton.getState();
 
-        if(state == ActionButton.State.PRESSED){
-            actionButton.setState(ActionButton.State.NORMAL);
-            CLfrag = new CreateListing();
+    }
 
-            //Now you can set the fragment to be visible here
-            setFragment(CLfrag);
+    public void saveListing(Listing temp){
 
-        }*/
+        myListing.add(temp);
     }
 
 
 
-public void getlisting(){
+    public void selectItem(int position){
 
-    myListing.add(CLfrag.getListingContent());
-}
+
+       Scroll.setItemChecked(position, true);
+        Log.d("Listing Position", String.valueOf(position));
+        Log.d("Actual Lisiting position", String.valueOf(myListing.size()));
+        temp = myListing.get(position);
+
+        Log.d("TEMP INFO!!!!!!!!!!",temp.getString("name"));
+        Log.d("TEMP INFO",""+temp.getDouble("price"));
+        Log.d("TEMP INFO",""+temp.getParseFile("images"));
+
+        infofrag = new Listinginfo();
+        List<ParseFile> IMG = temp.getList("images");
+
+        infofrag.setPobject(temp);
+
+
+      infofrag.setinfo(temp.getString("name"),(temp.getDouble("price")),temp.getString("desc"),IMG);
+
+
+        setFragment(infofrag);
+
+
+
+
+
+
+
+
+        //setTitle(NAV_ITEMS[position]);
+    }
+
+    public ParseObject getTemp(){
+        return temp;
+    }
+
     public void populateListingView() {
-        ArrayAdapter<Listing> adapter = new MyListAdapter();
-       HListView Scroll = (HListView) findViewById(R.id.listView);
-        Scroll.setAdapter(adapter);
+        ParseQueryAdapter<ParseObject> mainAdapter = new ParseQueryAdapter<ParseObject>(this, "Listing");
+        mainAdapter.setTextKey("names");
+
+
+
+        urgentTodosAdapter = new CustomAdapter(this);
+        urgentTodosAdapter.setTextKey("names");
+
+
+         Scroll = (HListView) findViewById(R.id.listView);
+
+        Scroll.setAdapter(urgentTodosAdapter);
+       urgentTodosAdapter.loadObjects();
+        myListing.clear();
+        urgentTodosAdapter.addOnQueryLoadListener(new ParseQueryAdapter.OnQueryLoadListener<ParseObject>() {
+            @Override
+            public void onLoading() {
+
+            }
+
+            @Override
+            public void onLoaded(List<ParseObject> objects, Exception e) {
+                for(int i = 0; i < objects.size();i++){
+                    myListing.add(objects.get(i));
+                }
+
+            }
+        });
+
+
+
+
     }
 
-    public void setFragment(Fragment frag)
-    {
+    public void setFragment(Fragment frag) {
         FragmentManager fm = getFragmentManager();
         if (fm.findFragmentById(R.id.action_bar_container) == null) {
             fm.beginTransaction().add(R.id.action_bar_container, frag).commit();
         }
 
     }
-    public void registerclickcallback() {
 
-        HListView list = (HListView) findViewById(R.id.listView);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View viewClicked, int position, long id) {
-
-            }
-
-        });
-
-    }
 
 
 
@@ -156,34 +206,23 @@ public void getlisting(){
 
     }
 
-    private class MyListAdapter extends ArrayAdapter<Listing> {
-        public MyListAdapter(){
-            super(MainActivity.this,R.layout.listing_view,myListing);
-        }
 
-        @Override
-        public View getView(int position,View convertView,ViewGroup parent){
-            View itemView = convertView;
-            if(itemView == null){
-                itemView = getLayoutInflater().inflate(R.layout.listing_view,parent,false);
-
-            }
-
-            Listing currentListing = myListing.get(position);
-
-            ImageView imgview = (ImageView) itemView.findViewById(R.id.listing_image);
-            imgview.setImageDrawable(currentListing.getImage());
-
-            TextView title = (TextView) itemView.findViewById(R.id.listing_title);
-            title.setText(currentListing.getTitle());
-
-            TextView price = (TextView) itemView.findViewById(R.id.listing_price);
-            price.setText("$"+(currentListing.getPrice()));
-
-            return itemView;
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
 
-            //return super.getView(position,convertView,parent);
-        }
+        selectItem(i);
     }
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+
+        MenuItem item3  = menu.findItem(R.id.back_arrow);
+        item3.setVisible(false);
+        return false;
+    }
+
 }
+
+
+

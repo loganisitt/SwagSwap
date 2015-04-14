@@ -11,11 +11,10 @@
         android:ems="10"
         android:id="@+id/editText"
         android:layout_gravity="center_horizontal|top"
-        android:layout_marginTop="72dp"
+        android:hint="Title"
+        android:layout_marginTop="93dp"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
-        android:hint="Title" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -24,18 +23,17 @@
         android:ems="10"
         android:id="@+id/editText2"
         android:layout_gravity="center"
+        android:hint="description"
         android:layout_below="@+id/editText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="79dp"
-        android:hint="description" />
+        android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
         android:id="@+id/imgPreview"
-        android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="173dp" />
+        android:layout_above="@+id/button"
+        android:layout_alignLeft="@+id/editText3"
+        android:layout_alignStart="@+id/editText3" />
 
     <Button
         android:layout_width="wrap_content"
@@ -53,9 +51,9 @@
         android:ems="10"
         android:id="@+id/editText3"
         android:gravity="top"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:hint="Price" />
+        android:hint="Price"
+        android:layout_below="@+id/editText2"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"

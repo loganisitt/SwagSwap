@@ -27,6 +27,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,6 +44,7 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseFile;
+import com.parse.ParseInstallation;
 import com.parse.ParseTwitterUtils;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
@@ -345,6 +347,26 @@ private Bitmap getProPic(URL imageUrl){
                                           }
 
                               parseUser.put(USER_OBJECT_NAME_FIELD, fbUser.getName());
+                                  ParseInstallation install = ParseInstallation.getCurrentInstallation();
+                                 ParseUser CurrentUser = ParseUser.getCurrentUser();
+                                 // String id = ""+CurrentUser;
+                                  install.put("user",CurrentUser);
+                                  install.put("userId",CurrentUser.getObjectId());
+                                  // install.put("appName","swagswap");
+                                  //install.put("deviceType","Android");
+                                  // install.put("installationId",ParseInstallat);
+                                  //install.put("parseVersion",)
+                                  install.saveInBackground(new SaveCallback() {
+                                      @Override
+                                      public void done(ParseException e) {
+                                          if (e == null) {
+                                              Log.d("SAVED!!!", "INSTALLATION SAVED");
+                                          } else {
+                                              Log.d("NOT SAVED!!!", "INSTALLATION NOT SAVED");
+                                          }
+                                          loginSuccess();
+                                      }
+                                  });
 
                               parseUser.saveInBackground(new SaveCallback() {
                                   @Override
