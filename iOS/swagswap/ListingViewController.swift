@@ -70,6 +70,34 @@ class ListingViewController: UITableViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    func sendMessage(content: String) {
+        
+        var message: PFObject = PFObject(className: "Message")
+        
+        message.setValue(PFUser.currentUser(), forKey: "sender")
+        message.setValue(listing.objectForKey("seller"), forKey: "recipient")
+        message.setValue(content, forKey: "content")
+        
+        message.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+            
+        })
+    }
+    
+    func makeOffer(offer: String) {
+        
+        let val: Double = (offer as NSString).doubleValue
+        
+        var offer: PFObject = PFObject(className: "Offer")
+        
+        offer.setValue(PFUser.currentUser(), forKey: "bidder")
+        offer.setValue(listing, forKey: "listing")
+        offer.setValue(val, forKey: "Value")
+        
+        offer.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+            
+        })
+    }
+    
     @IBAction func nextImageSwipe() {
         let preChange = imgIndex
         let imageCount = listing.objectForKey("images")!.count
@@ -107,11 +135,11 @@ class ListingViewController: UITableViewController {
     // MARK: UITableView Data Source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 1 : section == 1 ? 3 : section == 2 ? 2 : 5
+        return section == 0 || section == 2 || section == 3 ? 1 : section == 1 ? 3 : 5
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -144,7 +172,7 @@ class ListingViewController: UITableViewController {
         
         else if indexPath.section == 1 {
             
-            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("DCell") as! UITableViewCell
 
             switch indexPath.row {
             case 0: cell.textLabel?.text = "Title"
@@ -161,18 +189,34 @@ class ListingViewController: UITableViewController {
         }
         else if indexPath.section == 2 {
             
-            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("CCell") as! UITableViewCell
+            
+            cell.textLabel?.text = "Watch"
+            cell.textLabel?.textColor = UIColor.SSColor.White
+            cell.textLabel?.textAlignment = NSTextAlignment.Center
 
-            switch indexPath.row {
-            case 0: cell.textLabel?.text = "Watch"
-            case 1: cell.textLabel?.text = "Make offer"
-            default: cell.textLabel?.text = ""
-            }
+            cell.textLabel?.font = UIFont.SSFont.H4
+            
+            cell.backgroundColor = UIColor.SSColor.Yellow
+            
+            return cell
+        }
+        else if indexPath.section == 3 {
+            
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("CCell") as! UITableViewCell
+            
+            cell.textLabel?.text = "Make Offer"
+            cell.textLabel?.textColor = UIColor.SSColor.White
+            cell.textLabel?.textAlignment = NSTextAlignment.Center
+            
+            cell.textLabel?.font = UIFont.SSFont.H4
+            
+            cell.backgroundColor = UIColor.SSColor.Blue
             
             return cell
         }
         else {
-            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("CCell") as! UITableViewCell
             
             switch indexPath.row {
             case 0: cell.textLabel?.text = seller.valueForKey("name") as? String
@@ -188,7 +232,7 @@ class ListingViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 1 ? "Details" : section == 3 ? "Seller" : ""
+        return section == 1 ? "Details" : section == 4 ? "Seller" : ""
     }
     
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
@@ -208,10 +252,10 @@ class ListingViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 0 : section == 1 ? 50 : 20
+        return section == 0 || section == 3 ? 4 : section == 1 ? 50 : 20
     }
     override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 20
+        return section == 2 ? 4 : 20
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -266,6 +310,7 @@ class ListingViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 2 && indexPath.row == 0 {
+            
             let lUser: PFUser = listing.valueForKey("seller") as! PFUser
             if lUser == PFUser.currentUser() {
                 return
@@ -280,33 +325,68 @@ class ListingViewController: UITableViewController {
                 
             })
         }
-        if indexPath.section == 2 && indexPath.row == 1 {
+        if indexPath.section == 3 && indexPath.row == 0 {
+            
             let lUser: PFUser = listing.valueForKey("seller") as! PFUser
             if lUser == PFUser.currentUser() {
                 return
             }
-
             
-            var offer: PFObject = PFObject(className: "Offer")
+            let name = lUser.valueForKey("name") as? String
+            let alertController = UIAlertController(title: "New Offer", message: "Highest bid: $\(19.99)", preferredStyle: .Alert)
             
-            offer.setValue(PFUser.currentUser(), forKey: "bidder")
-            offer.setValue(listing, forKey: "listing")
-            offer.setValue(Double(19.99), forKey: "Value")
+            let offerAction = UIAlertAction(title: "Make Offer", style: .Default) { (_) in
+                let offerTextField = alertController.textFields![0] as! UITextField
+                self.makeOffer(offerTextField.text)
+            }
+            offerAction.enabled = false
             
-            offer.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+            
+            alertController.addTextFieldWithConfigurationHandler { (textField) in
+                textField.placeholder = "Offer..."
+                textField.keyboardType = UIKeyboardType.DecimalPad
                 
-            })
+                NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
+                    offerAction.enabled = textField.text != ""
+                }
+            }
+            
+            alertController.addAction(offerAction)
+            alertController.addAction(cancelAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
-        if indexPath.section == 3 && indexPath.row == 3 {
-            var message: PFObject = PFObject(className: "Message")
+        if indexPath.section == 4 && indexPath.row == 3 {
             
-            message.setValue(PFUser.currentUser(), forKey: "sender")
-            message.setValue(listing.objectForKey("seller"), forKey: "recipient")
-            message.setValue("Hello", forKey: "content")
+            let lUser: PFUser = listing.valueForKey("seller") as! PFUser
+            if lUser == PFUser.currentUser() {
+                return
+            }
             
-            message.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+            let name = lUser.valueForKey("name") as! String
+            let alertController = UIAlertController(title: "New message", message: "Sending a message to \(name)", preferredStyle: .Alert)
+            
+            let messageAction = UIAlertAction(title: "Send", style: .Default) { (_) in
+                let messageTextField = alertController.textFields![0] as! UITextField
+                self.sendMessage(messageTextField.text)
+            }
+            messageAction.enabled = false
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
+            
+            alertController.addTextFieldWithConfigurationHandler { (textField) in
+                textField.placeholder = "Message..."
                 
-            })
+                NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in
+                    messageAction.enabled = textField.text != ""
+                }
+            }
+            
+            alertController.addAction(messageAction)
+            alertController.addAction(cancelAction)
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)

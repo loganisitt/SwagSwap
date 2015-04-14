@@ -1,3 +1,4 @@
 pod 'Parse'
 pod 'ParseUI'
 pod 'ParseFacebookUtils', '~> 1.7'
+pod 'AlgoliaSearch-Client', '~> 3.0'
