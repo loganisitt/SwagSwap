@@ -8,12 +8,14 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseUser;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -110,16 +117,14 @@ public class CreateListing extends Fragment {
             @Override
             public void onClick(View v) {
                 setMyListing();
-                //onStop();
-                //getListingContent();
-                //onPause();
+
                 MainActivity activity = (MainActivity) getActivity();
-                activity.getlisting();
+
                 activity.populateListingView();
-               // getActivity().getFragmentManager().popBackStack();
+                activity.saveListing(myListing);
+
                 getActivity().getFragmentManager().beginTransaction().remove(CreateListing.this).commit();
-               // Intent in = new Intent(getActivity(),MainActivity.class);
-               // startActivity(in);
+
             }
         });
 
@@ -127,8 +132,6 @@ public class CreateListing extends Fragment {
 
             @Override
             public void onClick(View v) {
-                // capture picture
-                //captureImage();
                 selectImage();
             }
         });
@@ -137,6 +140,9 @@ public class CreateListing extends Fragment {
 
         return view;
     }
+
+
+
     private void selectImage() {
 
         final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
@@ -166,6 +172,50 @@ public class CreateListing extends Fragment {
         });
         builder.show();
     }
+    public static Bitmap rotateBitmap(Bitmap bitmap, int orientation) {
+
+        Matrix matrix = new Matrix();
+        switch (orientation) {
+            case ExifInterface.ORIENTATION_NORMAL:
+                return bitmap;
+            case ExifInterface.ORIENTATION_FLIP_HORIZONTAL:
+                matrix.setScale(-1, 1);
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                matrix.setRotate(180);
+                break;
+            case ExifInterface.ORIENTATION_FLIP_VERTICAL:
+                matrix.setRotate(180);
+                matrix.postScale(-1, 1);
+                break;
+            case ExifInterface.ORIENTATION_TRANSPOSE:
+                matrix.setRotate(90);
+                matrix.postScale(-1, 1);
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                matrix.setRotate(90);
+                break;
+            case ExifInterface.ORIENTATION_TRANSVERSE:
+                matrix.setRotate(-90);
+                matrix.postScale(-1, 1);
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                matrix.setRotate(-90);
+                break;
+            default:
+                return bitmap;
+        }
+        try {
+            Bitmap bmRotated = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            bitmap.recycle();
+            return bmRotated;
+        }
+        catch (OutOfMemoryError e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -180,17 +230,19 @@ public class CreateListing extends Fragment {
                     }
                 }
                 try {
-                    int h = 48; // height in pixels
-                    int w = 48; // width in pixels
-                    final int IMAGE_MAX_SIZE = 1200000;
-                   // int nh = (int) ( bitmap.getHeight() * (512.0 / bitmap.getWidth()) );
-                     //bitmap = Bitmap.createScaledBitmap(largeBitmap, h, w, true);
+
+
                     Bitmap bitmap;
 
                     BitmapFactory.Options bitmapOptions = new BitmapFactory.Options();
 
                     bitmap = BitmapFactory.decodeFile(f.getAbsolutePath(),
                             bitmapOptions);
+
+
+
+
+
                     int nh = (int) ( bitmap.getHeight() * (512.0 / bitmap.getWidth()) );
                     bitmap = Bitmap.createScaledBitmap(bitmap,512 ,nh, true);
 
@@ -220,6 +272,7 @@ public class CreateListing extends Fragment {
                 }
             } else if (requestCode == 2) {
 
+
                 Uri selectedImage = data.getData();
                 String[] filePath = { MediaStore.Images.Media.DATA };
                 Cursor c = getActivity().getContentResolver().query(selectedImage, filePath, null, null, null);
@@ -229,122 +282,71 @@ public class CreateListing extends Fragment {
                 c.close();
                 Bitmap thumbnail = (BitmapFactory.decodeFile(picturePath));
                 int nh = (int) ( thumbnail.getHeight() * (512.0 / thumbnail.getWidth()) );
-                thumbnail = Bitmap.createScaledBitmap(thumbnail,512 ,nh, true);
-                Log.w("path of image from gallery......******************.........", picturePath + "");
-                imgPreview.setImageBitmap(thumbnail);
+                thumbnail = Bitmap.createScaledBitmap(thumbnail,200 ,200, true);
+                ExifInterface exif = null;
+                try {
+                    exif = new ExifInterface(picturePath);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
+
+                Bitmap bmRotated = rotateBitmap(thumbnail, orientation);
+                imgPreview.setImageBitmap(bmRotated);
+
+
+
             }
         }
     }
 
-    /*public Uri getOutputMediaFileUri(int type) {
-        return Uri.fromFile(getOutputMediaFile(type));
-    }
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
 
-        // save file url in bundle as it will be null on scren orientation
-        // changes
-        outState.putParcelable("file_uri", fileUri);
-    }
-
-
-
-    private static File getOutputMediaFile(int type) {
-
-        // External sdcard location
-        File mediaStorageDir = new File(
-                Environment
-                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
-                IMAGE_DIRECTORY_NAME);
-
-        // Create the storage directory if it does not exist
-        if (!mediaStorageDir.exists()) {
-            if (!mediaStorageDir.mkdirs()) {
-                Log.d(IMAGE_DIRECTORY_NAME, "Oops! Failed create "
-                        + IMAGE_DIRECTORY_NAME + " directory");
-                return null;
-            }
-        }
-
-        // Create a media file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
-                Locale.getDefault()) .format(new Date());
-        File mediaFile;
-        if (type == MEDIA_TYPE_IMAGE) {
-            mediaFile = new File(mediaStorageDir.getPath() + File.separator
-                    + "IMG_" + timeStamp + ".jpg");
-
-        } else {
-            return null;
-        }
-
-        return mediaFile;
-    }
-    private void captureImage() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        fileUri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE);
-
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
-
-        // start the image capture Intent
-        startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
-    }
-    private void previewCapturedImage() {
-        try {
-            // hide video preview
-            //videoPreview.setVisibility(View.GONE);
-
-            imgPreview.setVisibility(View.VISIBLE);
-
-            // bimatp factory
-            BitmapFactory.Options options = new BitmapFactory.Options();
-
-            // downsizing image as it throws OutOfMemory Exception for larger
-            // images
-            options.inSampleSize = 8;
-
-            final Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(),
-                    options);
-
-            imgPreview.setImageBitmap(bitmap);
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-        }
-    }*/
     private void setMyListing(){
-        String t2 =String.valueOf(title.getText());
+        String t2 = String.valueOf((title.getText()));
         String d = String.valueOf(description.getText());
         double p = Double.parseDouble(String.valueOf(price.getText()));
         Drawable img = imgPreview.getDrawable();
-        myListing = new Listing(t2,d,p,img);
+        Bitmap img2 = ((BitmapDrawable) img).getBitmap();
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        img2.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] data = stream.toByteArray();
+        final ParseFile imgFile = new ParseFile("image.png",data);
+
+
+        ParseUser seller = ParseUser.getCurrentUser();
+
+        final Listing imageObj = new Listing();
+
+
+
+        /*final ParseObject imageObj = ParseObject.create("Listing");
+
+
+       imageObj.put("name", t2);
+       imageObj.put("desc", d);
+        imageObj.put("category", "testing");
+        imageObj.put("price", p);
+
+        imageObj.put("seller", seller);*/
+
+        try {
+            imgFile.save();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        //imageObj.add("images", imgFile);
+        imageObj.setDetails(t2,d,"testing",p,imgFile,seller);
+            imageObj.saveInBackground();
+myListing = imageObj;
+
+
     }
     public Listing getListingContent(){
         return myListing;
     }
-    /*
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // if the result is capturing Image
-        if (requestCode == CAMERA_CAPTURE_IMAGE_REQUEST_CODE) {
-            if (resultCode == Activity.RESULT_OK) {
-                // successfully captured the image
-                // display it in image view
-                previewCapturedImage();
-            } else if (resultCode == Activity.RESULT_CANCELED) {
-                // user cancelled Image capture
-                Toast.makeText(getActivity(),
-                        "User cancelled image capture", Toast.LENGTH_SHORT)
-                        .show();
-            } else {
-                // failed to capture image
-                Toast.makeText(getActivity(),
-                        "Sorry! Failed to capture image", Toast.LENGTH_SHORT)
-                        .show();
-            }
-        }
-    }*/
+
 
 
     // TODO: Rename method, update argument and hook method into UI event
