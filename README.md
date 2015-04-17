@@ -8,6 +8,7 @@ Swagswap is a community-based local commerce application that intends to be used
 | [Algolia]  | Realtime database search with analytics                                   |
 | [Cocoapods]| Dependency manager for Swift and Objective-C Cocoa projects               |
 | [Facebook] | Social networking with login, advertising, and application analytics      |
+|[Font Awesome]| Free scalable vector icons that can be customized |
 | [Parse]    | Backend with User Management, Push Notifications, Cloud Code, and Storage |
 
 ###### Future Additions
@@ -18,3 +19,4 @@ Swagswap is a community-based local commerce application that intends to be used
 [Stripe Connect]:https://stripe.com/connect
 [Algolia]:https://www.algolia.com
 [Cocoapods]:http://cocoapods.org
+[Font Awesome]:http://fortawesome.github.io/Font-Awesome/
