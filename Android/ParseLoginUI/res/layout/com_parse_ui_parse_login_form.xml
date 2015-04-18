@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/ParseLoginUI.EditText"
-        android:hint="@string/com_parse_ui_username_input_hint" />
+        android:hint="@string/com_parse_ui_username_input_hint"
+        android:background="#FFF" />
 
     <EditText
         android:id="@+id/login_password_input"
@@ -22,26 +23,29 @@
         android:fontFamily="sans-serif"
         android:hint="@string/com_parse_ui_password_input_hint"
         android:inputType="textPassword"
-        android:selectAllOnFocus="true" />
+        android:selectAllOnFocus="true"
+        android:background="#FFF" />
 
     <LinearLayout
         android:id="@+id/parse_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/com_parse_ui_large_vertical_spacing">
+        android:layout_marginTop="@dimen/com_parse_ui_large_vertical_spacing" >
 
         <Button
             android:id="@+id/parse_login_button"
             style="@style/ParseLoginUI.Button"
             android:layout_weight="0.5"
-            android:text="@string/com_parse_ui_parse_login_button_label" />
+            android:text="@string/com_parse_ui_parse_login_button_label"
+            android:background="#CF0A2C"/>
 
         <Button
             android:id="@+id/parse_signup_button"
             style="@style/ParseLoginUI.Button"
             android:layout_marginLeft="@dimen/com_parse_ui_small_horizontal_spacing"
             android:layout_weight="0.5"
-            android:text="@string/com_parse_ui_parse_signup_button_label" />
+            android:text="@string/com_parse_ui_parse_signup_button_label"
+            android:background="#222" />
     </LinearLayout>
 
     <Button

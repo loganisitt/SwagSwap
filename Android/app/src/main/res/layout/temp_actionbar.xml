@@ -12,10 +12,15 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="SWAGSWAP"
         android:id="@+id/textView14"
+        android:textSize="30sp"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textSize="30dp" />
+        android:layout_marginRight="15dp"
+        android:textColor="#FFF" />
 
     <ImageButton
         android:layout_width="25dp"
