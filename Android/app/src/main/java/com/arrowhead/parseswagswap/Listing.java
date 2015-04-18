@@ -10,12 +10,13 @@ import com.parse.ParseUser;
  */
 @ParseClassName("Listing")
 public class Listing extends ParseObject {
-  /* private String name;
+   private String name;
     private String desc;
     private String category;
     private Number price;
     private ParseFile images;
-    */
+    private ParseUser seller;
+
 
     public Listing(){
 
@@ -24,20 +25,20 @@ public class Listing extends ParseObject {
     }
 
     public void setDetails(String name,String des,String cate,Number p, ParseFile img,ParseUser seller) {
-       /* this.name = name;
+       this.name = name;
         this.desc = des;
         this.category = cate;
         this.price = p;
         this.images = img;
-        this.seller = seller;*/
+        this.seller = seller;
     }
-    public void saveDetails(String name,String des,String cate,Number p, ParseFile img,ParseUser seller) {
+    public void saveDetails() {
         put("name", name);
-        put("desc", des);
-        put("category", cate);
-        put("price", p);
+        put("desc", desc);
+        put("category", category);
+        put("price", price);
         //img.saveInBackground();
-        put("images", img);
+        put("images", images);
         put("seller", seller);
     }
 

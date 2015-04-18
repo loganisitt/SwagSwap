@@ -1,9 +1,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.arrowhead.parseswagswap.ListingInfo"
+    android:layout_height="700dp" tools:context="com.arrowhead.parseswagswap.ListingInfo"
     android:orientation="vertical"
-    android:weightSum="1">
 
+    android:paddingTop="80dp">
+<ScrollView
+    android:layout_width="390dp"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="30dp">
     <!-- TODO: Update blank fragment layout -->
 
     <com.parse.ParseImageView
@@ -11,8 +19,7 @@
         android:layout_height="200dp"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.23"
-        android:paddingTop="70dp" />
+        android:layout_weight="0.23" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -110,4 +117,6 @@
         android:text="Large Text"
         android:id="@+id/textView13"
         android:layout_weight="0.23" />
+    </LinearLayout>
+</ScrollView>
 </LinearLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="                   SwagSwap"
+        android:id="@+id/textView16"
+        android:textColor="#ffffffff"
+        android:paddingRight="60dp"
+        android:gravity="left" />
+
+    <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:id="@+id/searchbtn"
+        android:src="@drawable/abc_ic_search_api_mtrl_alpha" />
+</LinearLayout>
