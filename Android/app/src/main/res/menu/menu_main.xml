@@ -8,8 +8,14 @@
         android:id="@+id/back_arrow"
         android:orderInCategory="1"
         app:showAsAction="always"
-        android:icon="@drawable/backarrow"
-
+        android:icon="@drawable/abc_ic_ab_back_mtrl_am_alpha"
         android:title="" />
+    <item
+        android:id="@+id/add_listing"
+        android:orderInCategory="1"
+        app:showAsAction="always"
+        android:icon="@drawable/fab_plus_icon"
+        android:title="" />
+
 
 </menu>

@@ -25,6 +25,7 @@ import android.widget.ImageView;
 
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import java.io.ByteArrayOutputStream;
@@ -108,9 +109,9 @@ public class CreateListing extends Fragment {
         View view = inflater.inflate(R.layout.fragment_create_listing, container, false);
         imgPreview = (ImageView) view.findViewById(R.id.imgPreview);
         btnCapturePicture = (Button) view.findViewById(R.id.button);
-        title = (EditText) view.findViewById(R.id.editText);
-        description = (EditText) view.findViewById(R.id.editText2);
-        price = (EditText) view.findViewById(R.id.editText3);
+        title = (EditText) view.findViewById(R.id.create_title);
+        description = (EditText) view.findViewById(R.id.create_description);
+        price = (EditText) view.findViewById(R.id.create_price);
         createListing = (Button) view.findViewById(R.id.button2);
 
         createListing.setOnClickListener(new View.OnClickListener() {
@@ -123,7 +124,17 @@ public class CreateListing extends Fragment {
                 activity.populateListingView();
                 activity.saveListing(myListing);
 
+                View actionBarLayout2 =  activity.getLayoutInflater().inflate(
+                        R.layout.main_bar,null);
+
+
+                android.support.v7.app.ActionBar actionBar = activity.getSupportActionBar();
+
+                actionBar.setDisplayShowCustomEnabled(true);
+                actionBar.setCustomView(actionBarLayout2);
+
                 getActivity().getFragmentManager().beginTransaction().remove(CreateListing.this).commit();
+               // getActivity().getFragmentManager().beginTransaction().remove(SellingList.).commit();
 
             }
         });
@@ -317,11 +328,11 @@ public class CreateListing extends Fragment {
 
         ParseUser seller = ParseUser.getCurrentUser();
 
-        final Listing imageObj = new Listing();
+        //final Listing imageObj = new Listing();
 
 
 
-        /*final ParseObject imageObj = ParseObject.create("Listing");
+        final ParseObject imageObj = ParseObject.create("Listing");
 
 
        imageObj.put("name", t2);
@@ -329,17 +340,19 @@ public class CreateListing extends Fragment {
         imageObj.put("category", "testing");
         imageObj.put("price", p);
 
-        imageObj.put("seller", seller);*/
+        imageObj.put("seller", seller);
 
         try {
             imgFile.save();
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        //imageObj.add("images", imgFile);
-        imageObj.setDetails(t2,d,"testing",p,imgFile,seller);
+        //imageObj.put("images",imgFile);
+        imageObj.add("images", imgFile);
+        //imageObj.setDetails(t2,d,"testing",p,imgFile,seller);
+        //imageObj.saveDetails();
             imageObj.saveInBackground();
-myListing = imageObj;
+myListing = (Listing)imageObj;
 
 
     }
@@ -386,6 +399,8 @@ myListing = imageObj;
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
+
+
     }
 
 }

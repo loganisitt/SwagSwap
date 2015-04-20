@@ -17,6 +17,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main { assets.srcDirs = ['src/main/assets', 'src/main/assets/', 'src/main/assets/fonts'] }
+    }
 }
 
 dependencies {
@@ -26,5 +29,6 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:3.23.0'
     compile 'com.github.shell-software:fab:1.0.5'
     compile 'it.sephiroth.android.library.horizontallistview:hlistview:1.2.2'
+    compile 'com.beardedhen:androidbootstrap:+'
 
 }

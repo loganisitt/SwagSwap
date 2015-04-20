@@ -2,15 +2,22 @@ package com.arrowhead.parseswagswap;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.parse.Parse;
 import com.parse.ParseFacebookUtils;
@@ -18,7 +25,6 @@ import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 import com.parse.ui.ParseLoginBuilder;
-import com.software.shell.fab.ActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,14 +33,19 @@ import it.sephiroth.android.library.widget.AdapterView;
 import it.sephiroth.android.library.widget.HListView;
 
 
-public class MainActivity extends ActionBarActivity implements CreateListing.OnFragmentInteractionListener,Listinginfo.OnFragmentInteractionListener ,AdapterView.OnItemClickListener {
+public class MainActivity extends ActionBarActivity implements CreateListing.OnFragmentInteractionListener,Listinginfo.OnFragmentInteractionListener ,SellingList.OnFragmentInteractionListener,AdapterView.OnItemClickListener {
     private CreateListing CLfrag;
     private Listinginfo infofrag;
+    private SellingList SLfrag;
     private List<ParseObject> myListing = new ArrayList<ParseObject>();
     private boolean madelisting = false;
     private HListView Scroll;
+    private ListView MENULIST;
+    private MenuAdapter menuadpater;
     private CustomAdapter urgentTodosAdapter;
     ParseObject temp;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,17 +53,17 @@ public class MainActivity extends ActionBarActivity implements CreateListing.OnF
         setContentView(R.layout.activity_main);
 
 
-        final ActionButton actionButton = (ActionButton) findViewById(R.id.action_button);
-        actionButton.setButtonColor(getResources().getColor(R.color.fab_material_red_500));
-        actionButton.setImageResource(R.drawable.fab_plus_icon);
+       // final ActionButton actionButton = (ActionButton) findViewById(R.id.action_button);
+       // actionButton.setButtonColor(getResources().getColor(R.color.fab_material_red_500));
+       // actionButton.setImageResource(R.drawable.fab_plus_icon);
 
         ParseObject.registerSubclass(Listing.class);
+
 
         Parse.initialize(this, getString(R.string.parse_app_id),
                 getString(R.string.parse_client_key));
         ParseFacebookUtils.initialize(getString(R.string.facebook_app_id));
 
-        //ParseInstallation install = ParseInstallation.getCurrentInstallation();
 
 
         ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
@@ -64,26 +75,32 @@ public class MainActivity extends ActionBarActivity implements CreateListing.OnF
         android.support.v7.app.ActionBar bar = getSupportActionBar();
         bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#CE002B")));
 
+        View actionBarLayout2 =  getLayoutInflater().inflate(
+                R.layout.main_bar,null);
 
-        populateListingView();
+
+        bar.setDisplayShowCustomEnabled(true);
+        bar.setCustomView(actionBarLayout2);
+
+
+        Scroll = (HListView) findViewById(R.id.listView);
         Scroll.setOnItemClickListener(this);
 
+        MENULIST = (ListView) findViewById(R.id.menuList);
+        MENULIST.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
 
-
-
-
-        actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-                CLfrag = new CreateListing();
-
-
-                setFragment(CLfrag);
-
-
+            public void onItemClick(android.widget.AdapterView<?> parent, View view, int position, long id) {
+                selectItem2(position);
             }
         });
+
+
+        populateListingView();
+
+
+        createmenu();
+
 
 
 
@@ -120,17 +137,24 @@ public class MainActivity extends ActionBarActivity implements CreateListing.OnF
         setFragment(infofrag);
 
 
-
-
-
-
-
-
         //setTitle(NAV_ITEMS[position]);
     }
 
     public ParseObject getTemp(){
         return temp;
+    }
+
+    public void createmenu(){
+
+       // MENULIST = (ListView) findViewById(R.id.menuList);
+
+
+        Context context = getApplicationContext();
+        menuadpater = new MenuAdapter(context);
+
+        MENULIST.setAdapter(menuadpater);
+
+
     }
 
     public void populateListingView() {
@@ -143,7 +167,7 @@ public class MainActivity extends ActionBarActivity implements CreateListing.OnF
         urgentTodosAdapter.setTextKey("names");
 
 
-         Scroll = (HListView) findViewById(R.id.listView);
+         //Scroll = (HListView) findViewById(R.id.listView);
 
         Scroll.setAdapter(urgentTodosAdapter);
        urgentTodosAdapter.loadObjects();
@@ -207,19 +231,103 @@ public class MainActivity extends ActionBarActivity implements CreateListing.OnF
     }
 
 
+
+    public void selectItem2(int i){
+    MENULIST.setItemChecked(i,true);
+
+    if(i == 1){
+        SLfrag = new SellingList();
+        setFragment(SLfrag);
+
+    }
+    else if(i == 3){
+
+    }
+
+
+}
+
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-
-        selectItem(i);
+            selectItem(i);
     }
+
+
+
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
 
         MenuItem item3  = menu.findItem(R.id.back_arrow);
+        //MenuItem item4 = menu.findItem(R.id.seller_back);
+        //MenuItem item5 = menu.findItem(R.id.add_listing);
+
         item3.setVisible(false);
+        //item4.setVisible(false);
+        //item5.setVisible(false);
+
         return false;
+    }
+
+
+
+    public class MenuAdapter extends BaseAdapter {
+
+        private Context context;
+        String[] NAV_ITEMS ={"\uf07a","\uf02b","\uf06e","\uf01c","\uf0f3","\uf085"};
+
+        String[] names = {"BUYING","SELLING","WATCHING","INBOX","NOTIFICATIONS","SETTINGS"};
+
+
+        MenuAdapter(Context context) {
+            this.context = context;
+
+            //NAV_ITEMS = context.getResources().getStringArray(R.Nav_drawer_items);
+            //ims = context.getResources().getIntArray(R.array.Nav_drawer_icons);
+            // images[0] = setColorFilter(R.drawable.home);
+        }
+
+        @Override
+        public int getCount() {
+            return NAV_ITEMS.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return NAV_ITEMS[position];
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View row = null;
+            if(convertView== null){
+                LayoutInflater inflater = (LayoutInflater)
+                        context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                row = inflater.inflate(R.layout.menu_temp,parent,false);
+
+
+            }
+            else{
+                row = convertView;
+
+
+            }
+           // MainActivity activity = null;
+            //activity.font;
+            Typeface font =  Typeface.createFromAsset(getAssets(), "font/fontawesome-webfont.ttf");
+            TextView titleImageView=(TextView)row.findViewById(R.id.imgmenu);
+            TextView titleTextView = (TextView) row.findViewById(R.id.menutxt);
+            titleTextView.setText(names[position]);
+            titleImageView.setTypeface(font);
+            titleImageView.setText(NAV_ITEMS[position]);
+            return row;
+        }
     }
 
 }

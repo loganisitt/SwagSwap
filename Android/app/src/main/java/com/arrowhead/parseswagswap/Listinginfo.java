@@ -8,8 +8,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -106,40 +104,21 @@ public class Listinginfo extends Fragment {
         actionbarbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MainActivity activity1 = (MainActivity) getActivity();
+                View actionBarLayout2 =  activity1.getLayoutInflater().inflate(
+                        R.layout.main_bar,null);
+
+
+                android.support.v7.app.ActionBar actionBar = activity1.getSupportActionBar();
+
+                actionBar.setDisplayShowCustomEnabled(true);
+                actionBar.setCustomView(actionBarLayout2);
+
                 getActivity().getFragmentManager().beginTransaction().remove(Listinginfo.this).commit();
             }
         });
 
-        // android.support.v7.app.ActionBar bar = getSupportActionBar();
-       // bar.setDisplayShowHomeEnabled(true);
-       // bar.setDisplayHomeAsUpEnabled(true);
 
-
-       // Intent intent = getIntent();
-       // ParseObject ppo = (ParseObject) intent.getSerializableExtra("parseObject");
-
-        //ParseFile tempIMG =  getIntent().getExtras().getString("img");
-        //ParseObject temmpp = ppo;
-       // List<ParseFile> IMGG = ppo.getList("images");
-       // MainActivity activity =(MainActivity) getCallingActivity();
-        //ParseObject ppo = activity.getTemp();
-        //List<ParseFile> IMGG = ppo.getList("images");
-        //setinfo(ppo.getString("name"),Double.parseDouble(ppo.getString("price")),ppo.getString("desc"),IMGG);
-
-
-        //MainActivity activity = (MainActivity) getActivity();
-        //View v2 = View.inflate(R.layout.temp_actionbar,false);
-        /*activity.getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,
-             ActionBar.DISPLAY_SHOW_CUSTOM);
-        activity.getActionBar().setCustomView(v2, new ActionBar.LayoutParams(
-                ActionBar.LayoutParams.WRAP_CONTENT,
-                ActionBar.LayoutParams.WRAP_CONTENT,
-                Gravity.CENTER_VERTICAL | Gravity.LEFT));*/
-
-       // ActionBar actionBar = activity.getActionBar();
-
-        //actionBar.setDisplayShowHomeEnabled(true);
-        //actionBar.setDisplayHomeAsUpEnabled(true);
 
 
         //setHasOptionsMenu(true);
@@ -214,30 +193,7 @@ public class Listinginfo extends Fragment {
                 });
                 alertDialog.setIcon(R.drawable.ic_launcher);
                 alertDialog.show();
-                //LayoutInflater inflater = getActivity().getLayoutInflater();
-                //alertDialog.setView(inflater.inflate(R.layout.offerpopup, null))
 
-                //alertDialog.setTitle("Reset...");
-                //alertDialog.setMessage("Are you sure?");
-
-
-               // alertDialog.setIcon(R.drawable.ic_launcher);
-               // alertDialog.show();
-               /* ParseObject offer = ParseObject.create("Offer");
-                offer.put("bidder", ParseUser.getCurrentUser());
-                offer.put("Value",tempprice);
-                offer.put("listing",myListingtemp.get(0));
-                offer.saveInBackground(new SaveCallback() {
-                    @Override
-                    public void done(ParseException e) {
-                        if (e == null) {
-                            Log.d("MADE OFFER", "OFFER WORKING");
-                        } else {
-                            Log.d("MADE NOT OFFER", "OFFER NOT WORKING");
-                        }
-                    }
-
-                });*/
 
             }
         });
@@ -255,15 +211,10 @@ public class Listinginfo extends Fragment {
         temptit = t;
         tempdes = Des;
         tempprice = String.valueOf(p);
-        //tempseller = seller;
-//       Title.setText(t);
-        // Description.setText(Des);
-        // cate.setText(Cate);
-        // price.setText(String.valueOf(p));
+
         if (img != null) {
             tempimg = img.get(0);
-            //IMG.setParseFile(img.get(0));
-            //IMG.loadInBackground();
+
         }
 
 
@@ -306,7 +257,7 @@ public class Listinginfo extends Fragment {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
-    public void onPrepareOptionsMenu(Menu menu){
+   /* public void onPrepareOptionsMenu(Menu menu){
         super.onPrepareOptionsMenu(menu);
 
         MenuItem item3  = menu.findItem(R.id.back_arrow);
@@ -318,6 +269,6 @@ public class Listinginfo extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
        // getActivity().getFragmentManager().beginTransaction().remove(Listinginfo.this).commit();
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
 }
