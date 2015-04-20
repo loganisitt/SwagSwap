@@ -24,8 +24,6 @@ class MessageToolbar: UIToolbar {
     @IBOutlet var backSpacing: UIBarButtonItem!
 
     @IBOutlet var bottomConstraint: NSLayoutConstraint!
-    
-//    override var delegate: MessageToolbarDelegate! = nil
 
     override init(frame: CGRect) {
         super.init(frame: frame)

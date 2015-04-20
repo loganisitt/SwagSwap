@@ -5,7 +5,7 @@
 //  Created by Logan Isitt on 4/6/15.
 //  Copyright (c) 2015 Logan Isitt. All rights reserved.
 //
-
+//
 import Parse
 
 class Message : PFObject, PFSubclassing {
@@ -15,16 +15,10 @@ class Message : PFObject, PFSubclassing {
     @NSManaged var content: String!
     
     override class func initialize() {
-        super.initialize()
-        
         self.registerSubclass()
     }
     
     class func parseClassName() -> String {
         return "Message"
-    }
-    
-    func time() -> NSDate {
-        return self.valueForKey("createdAt") as! NSDate
     }
 }

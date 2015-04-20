@@ -65,12 +65,19 @@ class CreateViewController: UIViewController,UIImagePickerControllerDelegate, UI
             
             listing.setValue(imageFiles, forKey: "images")
             
-            listing.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+            PFGeoPoint.geoPointForCurrentLocationInBackground({ (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
+               
+                listing.setValue(geoPoint, forKey: "location")
                 
-                println("Saved!")
-                if (success) {
-                    self.navigationController?.popViewControllerAnimated(true)
-                }
+                println("Point made!")
+                
+                listing.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
+                    
+                    println("Saved!")
+                    if (success) {
+                        self.navigationController?.popViewControllerAnimated(true)
+                    }
+                })
             })
         }
         else {

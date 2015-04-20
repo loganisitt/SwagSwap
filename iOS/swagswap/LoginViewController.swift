@@ -67,7 +67,7 @@ class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate 
         self.logInView!.signUpButton!.layer.cornerRadius = 4.0
         
         self.logInView!.passwordForgottenButton!.setTitleColor(UIColor.SSColor.White, forState: UIControlState.Normal)
-        self.logInView!.passwordForgottenButton!.titleLabel?.font = UIFont.SSFont.P
+        self.logInView!.passwordForgottenButton!.titleLabel?.font = UIFont.SSFont.H5
         self.logInView!.passwordForgottenButton!.titleLabel?.shadowOffset = CGSizeMake(0, 4)
         self.logInView!.passwordForgottenButton!.titleLabel?.shadowColor = UIColor.blackColor()
         
@@ -88,9 +88,6 @@ class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate 
         super.viewDidAppear(animated)
         
         if PFUser.currentUser() != nil && PFFacebookUtils.isLinkedWithUser(PFUser.currentUser()!) {
-//            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-//            let dashVC: DashViewController = storyboard.instantiateViewControllerWithIdentifier("DashViewController") as DashViewController
-//            self.presentViewController(dashVC, animated: false, completion: nil)
             self.performSegueWithIdentifier("gotoDash", sender: self)
         }
     }

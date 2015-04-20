@@ -6,4 +6,9 @@
 //  Copyright (c) 2015 Logan Isitt. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class ListingDetailCell: UITableViewCell {
+    
+    @IBOutlet var detailText: UILabel!
+}

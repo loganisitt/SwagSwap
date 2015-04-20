@@ -15,6 +15,7 @@
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -705,27 +706,31 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="QTA-xa-R7g">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DCell" textLabel="EiK-Lh-WuR" detailTextLabel="st1-05-fT7" style="IBUITableViewCellStyleValue1" id="PJL-nK-c61">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DCell" id="PJL-nK-c61" customClass="ListingDetailCell" customModule="swagswap" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PJL-nK-c61" id="CJW-Tg-Csu">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EiK-Lh-WuR">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="st1-05-fT7">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IaV-Nb-Kd4">
+                                            <rect key="frame" x="8" y="8" width="584" height="27"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="IaV-Nb-Kd4" firstAttribute="leading" secondItem="CJW-Tg-Csu" secondAttribute="leadingMargin" id="cN4-i8-Egg"/>
+                                        <constraint firstItem="IaV-Nb-Kd4" firstAttribute="trailing" secondItem="CJW-Tg-Csu" secondAttribute="trailingMargin" id="chl-YD-bpi"/>
+                                        <constraint firstItem="IaV-Nb-Kd4" firstAttribute="top" secondItem="CJW-Tg-Csu" secondAttribute="topMargin" id="jov-7I-iE5"/>
+                                        <constraint firstItem="IaV-Nb-Kd4" firstAttribute="bottom" secondItem="CJW-Tg-Csu" secondAttribute="bottomMargin" id="mYf-dA-ajs"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="detailText" destination="IaV-Nb-Kd4" id="wyg-fJ-8Pd"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CCell" textLabel="ABt-3H-DSd" style="IBUITableViewCellStyleDefault" id="thb-5H-dyN">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -741,41 +746,26 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="80" id="0g9-20-ukd" customClass="ListingImageCell" customModule="swagswap" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="600" id="0g9-20-ukd" customClass="ListingImageCell" customModule="swagswap" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0g9-20-ukd" id="0QU-JL-Jns">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2zg-5o-MNZ" customClass="PFImageView">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="34"/>
-                                        </imageView>
-                                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="K9T-YF-1r7">
-                                            <rect key="frame" x="8" y="42" width="584" height="37"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="37" id="q9j-HE-FTi"/>
+                                                <constraint firstAttribute="width" secondItem="2zg-5o-MNZ" secondAttribute="height" multiplier="1:1" id="kwE-QS-cZV"/>
                                             </constraints>
-                                        </pageControl>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="K9T-YF-1r7" secondAttribute="bottom" constant="-8" id="LJ9-q8-sy7"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="K9T-YF-1r7" secondAttribute="bottom" constant="-5" id="PBt-bn-xL1"/>
-                                        <constraint firstItem="2zg-5o-MNZ" firstAttribute="top" secondItem="0QU-JL-Jns" secondAttribute="topMargin" constant="-8" id="SjY-OY-nN0"/>
-                                        <constraint firstItem="K9T-YF-1r7" firstAttribute="leading" secondItem="0QU-JL-Jns" secondAttribute="leadingMargin" id="gm5-gZ-WIy"/>
-                                        <constraint firstItem="K9T-YF-1r7" firstAttribute="trailing" secondItem="0QU-JL-Jns" secondAttribute="trailingMargin" id="hsN-dj-4d8"/>
-                                        <constraint firstItem="2zg-5o-MNZ" firstAttribute="leading" secondItem="0QU-JL-Jns" secondAttribute="leadingMargin" constant="-8" id="t1J-TD-AdA"/>
-                                        <constraint firstAttribute="bottom" secondItem="2zg-5o-MNZ" secondAttribute="bottom" id="v0o-Hg-qO2"/>
-                                        <constraint firstItem="K9T-YF-1r7" firstAttribute="top" secondItem="2zg-5o-MNZ" secondAttribute="bottom" constant="8" id="wGv-I6-HJs"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="2zg-5o-MNZ" secondAttribute="trailing" constant="-8" id="z4S-BA-NAn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="2zg-5o-MNZ" secondAttribute="trailing" constant="-8" id="DWH-ow-wcK"/>
+                                        <constraint firstItem="2zg-5o-MNZ" firstAttribute="leading" secondItem="0QU-JL-Jns" secondAttribute="leadingMargin" constant="-8" id="UTR-5J-kzE"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="2zg-5o-MNZ" secondAttribute="bottom" constant="-9" id="XHx-hq-8qN"/>
+                                        <constraint firstItem="2zg-5o-MNZ" firstAttribute="top" secondItem="0QU-JL-Jns" secondAttribute="topMargin" constant="-8" id="x01-3V-VPc"/>
                                     </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="v0o-Hg-qO2"/>
-                                            <exclude reference="PBt-bn-xL1"/>
-                                        </mask>
-                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="imagesCount" destination="K9T-YF-1r7" id="d4T-te-9Lo"/>
                                     <outlet property="listingImageView" destination="2zg-5o-MNZ" id="cJL-Hh-5Sa"/>
                                 </connections>
                             </tableViewCell>

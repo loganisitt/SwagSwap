@@ -17,15 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PFLogInViewControllerDele
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        Parse.enableLocalDatastore()
         
-        Message.registerSubclass()
-        Message()
+//        Listing.registerSubclass()
+//        Message.registerSubclass()
         
         Parse.setApplicationId("FYYc6l6Fi8XTNiH0lybpzsob6tZcTd8luLDiZR1l", clientKey: "smiuvnfGa8CW8H5radVT8TZcy7OOU3HR4PrWIOgF")
-
-        PFFacebookUtils.initializeFacebook() // WithApplicationLaunchOptions(launchOptions)
-        PFUser.enableAutomaticUser()
+    
+        PFFacebookUtils.initializeFacebook() 
         
         let userNotificationTypes = (UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound)
         

@@ -75,7 +75,7 @@ class MessageViewController: UIViewController, UITableViewDataSource, UITableVie
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
         
         cell.textLabel?.text = messages[indexPath.row].content
-        cell.textLabel?.textAlignment = messages[indexPath.row].sender == mUser ? NSTextAlignment.Right : NSTextAlignment.Left
+        cell.textLabel?.textAlignment = messages[indexPath.row].sender.objectId == mUser.objectId ? NSTextAlignment.Right : NSTextAlignment.Left
         
         return cell
     }

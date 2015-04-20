@@ -9,6 +9,6 @@ extension UIColor {
         static let LightBlue = UIColor(red: 56.0/255.0, green: 148.0/255.0, blue: 141.0/255.0, alpha: 1)
         static let Red      = UIColor(red: 206.0/255.0, green: 0, blue: 43.0/255.0, alpha: 1)
         static let Yellow   = UIColor(red: 254.0/255.0, green: 179.0/255.0, blue: 46.0/255.0, alpha: 1)
-        static let White    = UIColor(red: 239.0/255.0, green: 244.0/255.0, blue: 255.0/255.0, alpha: 1)
+        static let White    = UIColor.whiteColor() // UIColor(red: 239.0/255.0, green: 244.0/255.0, blue: 255.0/255.0, alpha: 1)
     }
 }

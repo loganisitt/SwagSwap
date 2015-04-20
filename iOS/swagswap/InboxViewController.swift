@@ -68,10 +68,10 @@ class InboxViewController: UITableViewController {
         
         self.objectsWillLoad()
         
-        var senderQuery = PFQuery(className: parseClassName)
+        var senderQuery = PFQuery(className: "Message")
         senderQuery.whereKey("sender", equalTo: PFUser.currentUser()!)
         
-        var recipientQuery = PFQuery(className: parseClassName)
+        var recipientQuery = PFQuery(className: "Message")
         recipientQuery.whereKey("recipient", equalTo: PFUser.currentUser()!)
         
         var query = PFQuery.orQueryWithSubqueries([senderQuery, recipientQuery])
@@ -85,33 +85,35 @@ class InboxViewController: UITableViewController {
             var messages = objects as! [Message]
             
             let senders: [PFUser] = (messages as NSArray).valueForKeyPath("@distinctUnionOfObjects.sender") as! [PFUser]
-            
+
             let recipient: [PFUser] = (messages as NSArray).valueForKeyPath("@distinctUnionOfObjects.recipient") as! [PFUser]
-            
+
             var userIds = ((senders + recipient) as NSArray).valueForKeyPath("@distinctUnionOfObjects.objectId") as! [String]
             userIds.removeObject(PFUser.currentUser()!.objectId!)
             
+
             var userQuery = PFUser.query()!
             userQuery.whereKey("objectId", containedIn: userIds)
             userQuery.findObjectsInBackgroundWithBlock({ (objects: [AnyObject]?, error: NSError?) -> Void in
-                
+
                 self.uniqueUsers = objects as! [PFUser]
                 
                 for uU in self.uniqueUsers {
                     
-                    let me = PFUser.currentUser()!
-                    let them = uU
-                    let predicate = NSPredicate(format: "(sender==%@ AND recipient==%@) OR (sender==%@ AND recipient==%@)", me, uU, uU, me)
+                    let me = PFUser.currentUser()?.objectId!
+                    let them = uU.objectId
                     
+                    let predicate = NSPredicate(format: "(sender.objectId==%@ AND recipient.objectId==%@) OR (sender.objectId==%@ AND recipient.objectId==%@)", me!, them!, them!, me!)
+
                     let uUMessages = (messages as NSArray).filteredArrayUsingPredicate(predicate)
-                    
-                    let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: true)
-                    
-                    let fMesseage: Message? = (uUMessages as NSArray).sortedArrayUsingDescriptors([sortDescriptor]).first as? Message
-                    
+
+                    let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
+
+                    let filteredMessages = (uUMessages as NSArray).sortedArrayUsingDescriptors([sortDescriptor])
+
+                    let fMesseage: Message! = filteredMessages.first as? Message
                     self.firstMessage.append(fMesseage!)
                 }
-                
                 if (error != nil) {
                     self.objectsDidLoad(nil)
                 }
@@ -146,8 +148,11 @@ class InboxViewController: UITableViewController {
         }
         
         cell.userNameLbl.text = uniqueUsers[indexPath.row].valueForKey("name") as? String
-        cell.lastMessage.text = firstMessage[indexPath.row].content as String
-        cell.timestamp.text = dateFormatter.stringFromDate(firstMessage[indexPath.row].time())
+        cell.lastMessage.text = firstMessage[indexPath.row].content //("content") as? String
+        
+        let date: NSDate = (firstMessage[indexPath.row] as Message).createdAt! as NSDate
+        
+        cell.timestamp.text = dateFormatter.stringFromDate(date)
         
         return cell
     }

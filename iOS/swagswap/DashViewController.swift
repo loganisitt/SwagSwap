@@ -48,8 +48,8 @@ class DashViewController: UIViewController, UITableViewDelegate, UITableViewData
         optToolbar.translucent = false
         
         optionBar.tintColor = UIColor.SSColor.White
-        optionBar.setTitleTextAttributes([NSFontAttributeName: UIFont.SSFont.P!], forState: UIControlState.Normal)
-        optionBar.setTitleTextAttributes([NSFontAttributeName: UIFont.SSFont.P!], forState: UIControlState.Highlighted)
+        optionBar.setTitleTextAttributes([NSFontAttributeName: UIFont.SSFont.H5!], forState: UIControlState.Normal)
+        optionBar.setTitleTextAttributes([NSFontAttributeName: UIFont.SSFont.H5!], forState: UIControlState.Highlighted)
         
         self.navigationItem.title = "SWAGSWAP"
         
@@ -204,7 +204,7 @@ class DashViewController: UIViewController, UITableViewDelegate, UITableViewData
         if segue.identifier == "gotoListing" {
             let vc = segue.destinationViewController as! ListingViewController
             let index = collectionView.indexPathsForSelectedItems()[0].row
-            vc.listing = objects[index!]   
+            vc.listing = objects[index!]
         }
     }
 }

@@ -10,47 +10,23 @@ import UIKit
 
 class ListingViewController: UITableViewController {
     
+    var pageControl: UIPageControl!
+    
     var listing: PFObject! {
         willSet(newListing) {
             
         }
         didSet {
-            
-            var userQuery = PFUser.query()!
-            
-            println(listing.objectForKey("seller"))
-            
-            let objId = (listing.objectForKey("seller") as! PFObject).objectId!
-            userQuery.whereKey("objectId", equalTo: objId)
-            userQuery.getFirstObjectInBackgroundWithBlock { (user: PFObject?, error: NSError?) -> Void in
-                println(user)
-                self.seller = user as? PFUser
+            seller = listing.objectForKey("seller") as! PFUser
+            seller.fetchIfNeededInBackgroundWithBlock { (obj: PFObject?, error: NSError?) -> Void in
+                println("Recived info on \(obj)")
             }
         }
     }
     
     var seller: PFUser!
     var imgIndex = 0
-    
-    // MARK: - Initialization
-    override init(style: UITableViewStyle) {
-        super.init(style: style)
-    }
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        setup()
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    // MARK: - Setup
-    func setup() {
-    
-    }
+    var imgHeight: Int = 0
     
     // MARK: - General
     override func viewDidLoad() {
@@ -61,7 +37,14 @@ class ListingViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
         
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 20
+        
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        tableView.backgroundColor = UIColor.SSColor.White
+        tableView.backgroundView?.backgroundColor = UIColor.SSColor.White
+        
+        view.backgroundColor = UIColor.SSColor.White
     }
     
     // MARK: - Actions
@@ -110,7 +93,8 @@ class ListingViewController: UITableViewController {
         
         if preChange != imgIndex {
             tableView.beginUpdates()
-            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Left)
+            pageControl.currentPage = imgIndex
+            tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Left)
             tableView.endUpdates()
         }
     }
@@ -127,7 +111,8 @@ class ListingViewController: UITableViewController {
         
         if preChange != imgIndex {
             tableView.beginUpdates()
-            tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Right)
+            pageControl.currentPage = imgIndex
+            tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: 0, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Right)
             tableView.endUpdates()
         }
     }
@@ -147,10 +132,10 @@ class ListingViewController: UITableViewController {
         if indexPath.section == 0 {
             let cell: ListingImageCell = tableView.dequeueReusableCellWithIdentifier("ImageCell") as! ListingImageCell
             
-            cell.backgroundColor = UIColor.clearColor()
+            cell.backgroundColor = UIColor.SSColor.White
             
             let file: PFFile = (listing.objectForKey("images") as! [PFFile])[imgIndex]
-            cell.listingImageView.file = file
+            cell.file = file
             
             let leftSwipe: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "nextImageSwipe")
             leftSwipe.direction = UISwipeGestureRecognizerDirection.Left
@@ -161,30 +146,46 @@ class ListingViewController: UITableViewController {
             rightSwipe.direction = UISwipeGestureRecognizerDirection.Right
             
             cell.addGestureRecognizer(rightSwipe)
-            
-            cell.listingImageView.loadInBackground()
-            
-            cell.imagesCount.currentPage = imgIndex
-            cell.imagesCount.numberOfPages = listing.objectForKey("images")!.count
-            
+                        
             return cell
         }
         
         else if indexPath.section == 1 {
             
-            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("DCell") as! UITableViewCell
-
-            switch indexPath.row {
-            case 0: cell.textLabel?.text = "Title"
-            cell.detailTextLabel?.text = listing.valueForKey("name") as? String
-            case 1: cell.textLabel?.text = "Price"
-            let price = listing.valueForKey("price") as? Double
-            cell.detailTextLabel?.text = "$\(price!)"
-            case 2: cell.textLabel?.text = "Description"
-            cell.detailTextLabel?.text = listing.valueForKey("desc") as? String
-            default: cell.textLabel?.text = ""
-            }
+            let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("CCell") as! UITableViewCell
             
+            cell.backgroundColor = UIColor.SSColor.White
+            
+            cell.textLabel?.textColor = UIColor.SSColor.Black
+            
+            if indexPath.row == 0 {
+                cell.textLabel?.text = listing.valueForKey("name") as? String
+                
+                cell.textLabel?.textAlignment = NSTextAlignment.Center
+                
+                cell.textLabel?.font = UIFont.SSFont.H4
+            }
+            else if indexPath.row == 1 {
+                
+                let price = listing.valueForKey("price") as? Double
+                
+                cell.textLabel?.text = "$\(price!)"
+                
+                cell.textLabel?.textAlignment = NSTextAlignment.Center
+                
+                cell.textLabel?.font = UIFont.SSFont.H6
+            }
+            else { // indexPath.row == 2
+                
+                let cell: ListingDetailCell = tableView.dequeueReusableCellWithIdentifier("DCell") as! ListingDetailCell
+                
+                cell.detailText?.text = listing.valueForKey("desc") as? String
+                cell.detailText.numberOfLines = 0
+                
+                cell.detailText.font = UIFont.SSFont.H6
+                
+                return cell
+            }
             return cell
         }
         else if indexPath.section == 2 {
@@ -218,25 +219,23 @@ class ListingViewController: UITableViewController {
         else {
             let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("CCell") as! UITableViewCell
             
+            cell.backgroundColor = UIColor.SSColor.White
+            
             switch indexPath.row {
-            case 0: cell.textLabel?.text = seller.valueForKey("name") as? String
+            case 0: cell.textLabel?.text = "Seller"
             case 1: cell.textLabel?.text = "Seller Rating"
             case 2: cell.textLabel?.text = "Mutual Friends"
             case 3: cell.textLabel?.text = "Message Seller"
             case 4: cell.textLabel?.text = "More from seller"
             default: cell.textLabel?.text = ""
             }
-            
+
             return cell
         }
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 1 ? "Details" : section == 4 ? "Seller" : ""
-    }
-    
-    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return section == 1 ? "42 views" : ""
+        return section == 4 ? "Seller" : ""
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -248,43 +247,41 @@ class ListingViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return indexPath.section == 0 ? view.frame.width : 44
+        if indexPath.section == 0 {
+            return self.view.bounds.width
+        }
+        else if indexPath.section == 1 {
+            
+            let buff = CGFloat(4.0)
+            
+            if indexPath.row == 0 {
+                return UIFont.SSFont.H4!.pointSize + buff
+            }
+            else if indexPath.row == 1 {
+                return UIFont.SSFont.H6!.pointSize + buff
+            }
+            else {
+                return UITableViewAutomaticDimension
+            }
+        }
+        else if indexPath.section == 2 || indexPath.section == 3 {
+            return 44
+        }
+        else {
+            return 44
+        }
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 || section == 3 ? 4 : section == 1 ? 50 : 20
+        return section == 4 || section == 0 ? 20 : section == 2 || section == 3 ? 4 : 1
     }
     override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == 2 ? 4 : 20
-    }
-    
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if (section != 1) {
-            return nil
-        }
-        
-        let height = CGFloat(50)
-        let buffer = CGFloat(8)
-        
-        let h = height - (2 * buffer)
-        let w = view.bounds.width - (2 * buffer)
-        
-        var v = UIView(frame: CGRectMake(0, 0, view.bounds.width, height))
-        var seg = UISegmentedControl(frame: CGRectMake(buffer, buffer, w, h))
-        
-        v.addSubview(seg)
-        
-        seg.insertSegmentWithTitle("Info", atIndex: 0, animated: false)
-        seg.insertSegmentWithTitle("Comments", atIndex: 1, animated: false)
-        seg.selectedSegmentIndex = 0
-        
-        seg.tintColor = UIColor.SSColor.Blue
-        
-        return v
+        return section == 0 ? 20 : section == 2 || section == 3 ? 4 : 1
     }
     
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if (section != 1) {
+        
+        if (section != 0) {
             return nil
         }
         
@@ -295,13 +292,18 @@ class ListingViewController: UITableViewController {
         let w = view.bounds.width - (2 * buffer)
         
         var v = UIView(frame: CGRectMake(0, 0, view.bounds.width, height))
-        var text = UILabel(frame: CGRectMake(buffer, buffer, w, h))
         
-        v.addSubview(text)
-        text.text = "36 views"
-        text.textColor = UIColor.grayColor()
-        text.textAlignment = NSTextAlignment.Center
-        text.font = UIFont.SSFont.P
+        if (pageControl == nil) {
+            
+            pageControl = UIPageControl(frame: CGRectMake(0, 0, self.view.frame.width, 20))
+            
+            pageControl.currentPage = 0
+            pageControl.numberOfPages = (listing.objectForKey("images") as! [PFFile]).count
+            
+            pageControl.currentPageIndicatorTintColor = UIColor.SSColor.Blue
+            pageControl.pageIndicatorTintColor = UIColor.SSColor.LightBlue
+        }
+        v.addSubview(pageControl)
         
         return v
     }
@@ -359,12 +361,11 @@ class ListingViewController: UITableViewController {
         }
         if indexPath.section == 4 && indexPath.row == 3 {
             
-            let lUser: PFUser = listing.valueForKey("seller") as! PFUser
-            if lUser == PFUser.currentUser() {
+            if seller == PFUser.currentUser() {
                 return
             }
             
-            let name = lUser.valueForKey("name") as! String
+            let name = seller.valueForKey("name") as! String
             let alertController = UIAlertController(title: "New message", message: "Sending a message to \(name)", preferredStyle: .Alert)
             
             let messageAction = UIAlertAction(title: "Send", style: .Default) { (_) in
@@ -376,6 +377,7 @@ class ListingViewController: UITableViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (_) in }
             
             alertController.addTextFieldWithConfigurationHandler { (textField) in
+                
                 textField.placeholder = "Message..."
                 
                 NSNotificationCenter.defaultCenter().addObserverForName(UITextFieldTextDidChangeNotification, object: textField, queue: NSOperationQueue.mainQueue()) { (notification) in

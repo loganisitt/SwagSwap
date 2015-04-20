@@ -25,7 +25,13 @@ extension UIFont {
         static let H4       = UIFont(name: font, size: 20.0)
         static let H4_Bold  = UIFont(name: fontBold, size: 20.0)
         
-        static let P       = UIFont(name: font, size: 15.0)
-        static let P_Bold  = UIFont(name: fontBold, size: 15.0)
+        static let H5       = UIFont(name: font, size: 16.0)
+        static let H5_Bold  = UIFont(name: font, size: 16.0)
+        
+        static let H6       = UIFont(name: font, size: 12.00)
+        static let H6_Bold  = UIFont(name: font, size: 12.00)
+
+        static let P       = UIFont(name: font, size: 8.0)
+        static let P_Bold  = UIFont(name: fontBold, size: 8.0)
     }
 }

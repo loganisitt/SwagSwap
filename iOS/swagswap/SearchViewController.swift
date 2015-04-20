@@ -35,8 +35,7 @@ class SearchViewController: UIViewController, ExploreHeaderViewDelegate, UISearc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Search"
-        
+        navigationItem.title = "Search" 
         
         navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
         

@@ -7,16 +7,23 @@
 //
 
 import UIKit
+import Toucan
 
 class ListingImageCell: PFTableViewCell {
     
     @IBOutlet var listingImageView: PFImageView!
-    @IBOutlet var imagesCount: UIPageControl!
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        imagesCount.currentPageIndicatorTintColor = UIColor.SSColor.Blue
-        imagesCount.pageIndicatorTintColor = UIColor.SSColor.LightBlue
+    var file: PFFile! {
+        willSet(newFile) {
+            
+        }
+        didSet {
+            listingImageView.file = file
+            listingImageView.loadInBackground { (image: UIImage?, error: NSError?) -> Void in
+                
+                self.listingImageView.image = Toucan(image: image!).maskWithRoundedRect(cornerRadius: 5).image
+            }
+        }
     }
 }
+
