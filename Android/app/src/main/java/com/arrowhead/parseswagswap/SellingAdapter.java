@@ -5,10 +5,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.parse.ParseFile;
+import com.parse.ParseImageView;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
+
+import java.util.List;
 
 /**
  * Created by Miguel on 4/14/2015.
@@ -51,17 +55,20 @@ public class SellingAdapter extends ParseQueryAdapter<ParseObject> {
 
 
         // Add and download the image
-        //final ParseImageView todoImage = (ParseImageView) v.findViewById(R.id.listing_image);
-       // List<ParseFile> imageFile = object.getList("images");
+        final ParseImageView todoImage = (ParseImageView) v.findViewById(R.id.imageView3);
+        List<ParseFile> imageFile = object.getList("images");
 
-        //imageFile.get(0)
+        imageFile.get(0);
 
 
-
+        todoImage.setParseFile(imageFile.get(0));
+        todoImage.loadInBackground();
 
         // Add the title view
         TextView titleTextView = (TextView) v.findViewById(R.id.sellingtitle);
         titleTextView.setText(object.getString("name"));
+        TextView titleTextView2 = (TextView) v.findViewById(R.id.sellingprice);
+        titleTextView2.setText("$"+object.get("price"));
 
         // Add a reminder of how long this item has been outstanding
         /*TextView priceView = (TextView) v.findViewById(R.id.listing_price);

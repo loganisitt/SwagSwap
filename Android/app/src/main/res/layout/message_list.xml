@@ -15,5 +15,5 @@
         android:text="Large Text"
         android:id="@+id/sender_name"
         android:textSize="30dp"
-        android:textColor="#ff030303" />
+        android:textColor="#ff080808" />
 </LinearLayout>
