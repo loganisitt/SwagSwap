@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0217C18D1AE4C4CC00CD7EBB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217C18C1AE4C4CC00CD7EBB /* Category.swift */; };
 		02262C6D1AE6073B00EBE204 /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02262C6C1AE6073B00EBE204 /* Watch.swift */; };
+		02262C771AE6155700EBE204 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02262C761AE6155700EBE204 /* AccountViewController.swift */; };
+		02262C791AE6A59F00EBE204 /* BrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02262C781AE6A59F00EBE204 /* BrowseViewController.swift */; };
 		022704CC1ABE5591000D47DA /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022704CB1ABE5591000D47DA /* ListingViewController.swift */; };
 		022B23411ADD73040053276A /* ListingDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022B23401ADD73040053276A /* ListingDetailCell.swift */; };
 		0237A9B21A9ED8A300221F5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237A9B11A9ED8A300221F5E /* AppDelegate.swift */; };
@@ -213,6 +215,8 @@
 		0217C18C1AE4C4CC00CD7EBB /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		021BAA2B1ADD833300710380 /* Toucan.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Toucan.xcodeproj; path = Toucan/Toucan.xcodeproj; sourceTree = "<group>"; };
 		02262C6C1AE6073B00EBE204 /* Watch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
+		02262C761AE6155700EBE204 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		02262C781AE6A59F00EBE204 /* BrowseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseViewController.swift; sourceTree = "<group>"; };
 		022704CB1ABE5591000D47DA /* ListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
 		022B23401ADD73040053276A /* ListingDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingDetailCell.swift; sourceTree = "<group>"; };
 		0237A9AC1A9ED8A300221F5E /* swagswap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swagswap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -475,6 +479,7 @@
 				027E40411A9FBE400072CBF4 /* SignUpViewController.swift */,
 				027E404C1A9FCA0F0072CBF4 /* DashViewController.swift */,
 				027B92CD1AA63DA400CB2D31 /* SearchViewController.swift */,
+				02262C781AE6A59F00EBE204 /* BrowseViewController.swift */,
 				0247FA6D1AE4937700302678 /* CategoryViewController.swift */,
 				02902CF71AAFDC3900338983 /* BuyViewController.swift */,
 				02902CF91AAFDDE100338983 /* SellViewController.swift */,
@@ -483,6 +488,7 @@
 				02C4749B1AD468BC00BD9C4A /* MessageViewController.swift */,
 				02594F7D1AA2B25C001E5B7F /* CreateViewController.swift */,
 				022704CB1ABE5591000D47DA /* ListingViewController.swift */,
+				02262C761AE6155700EBE204 /* AccountViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -785,6 +791,7 @@
 				02902CF81AAFDC3900338983 /* BuyViewController.swift in Sources */,
 				0247FA6E1AE4937700302678 /* CategoryViewController.swift in Sources */,
 				02B05D5F1AD3BE9E00175542 /* Array.swift in Sources */,
+				02262C771AE6155700EBE204 /* AccountViewController.swift in Sources */,
 				02C4749A1AD45DCF00BD9C4A /* InboxCell.swift in Sources */,
 				022704CC1ABE5591000D47DA /* ListingViewController.swift in Sources */,
 				0297EFB41AD2E86D0094C8A5 /* InboxViewController.swift in Sources */,
@@ -792,6 +799,7 @@
 				029F2A4A1AA052C9008D9E0B /* OGImageExtensionsPersistor.m in Sources */,
 				0237A9B41A9ED8A300221F5E /* LoginViewController.swift in Sources */,
 				027E404D1A9FCA0F0072CBF4 /* DashViewController.swift in Sources */,
+				02262C791AE6A59F00EBE204 /* BrowseViewController.swift in Sources */,
 				02AA31791AA933CB00C58268 /* UINavigationControllerExtension.swift in Sources */,
 				02594F7E1AA2B25C001E5B7F /* CreateViewController.swift in Sources */,
 				027E404B1A9FC8400072CBF4 /* UIViewControllerExtension.swift in Sources */,

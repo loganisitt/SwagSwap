@@ -163,7 +163,7 @@ class CreateViewController: UIViewController,UIImagePickerControllerDelegate, UI
             })
         }
         else {
-            println("poop")
+            
         }
     }
     

@@ -149,7 +149,6 @@ class LoginViewController: PFLogInViewController, PFLogInViewControllerDelegate 
             if error == nil {
                 var objects = objs as! [PFObject]
                 if objects.count > 0 {
-                    println("Randomly selecting from \(objects.count)")
                     
                     var limit: UInt32 = UInt32(objects.count)
                     var rand = Int(arc4random_uniform(limit))

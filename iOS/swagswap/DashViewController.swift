@@ -62,6 +62,7 @@ class DashViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.loadObjects()
     }
     
@@ -130,6 +131,7 @@ class DashViewController: UIViewController, UITableViewDelegate, UITableViewData
         case 1: performSegueWithIdentifier("gotoSell", sender: self); break
         case 2: performSegueWithIdentifier("gotoWatch", sender: self); break
         case 3: performSegueWithIdentifier("gotoInbox", sender: self); break
+        case 5: performSegueWithIdentifier("gotoAccount", sender: self); break
         default: break
         }
         

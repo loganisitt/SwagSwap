@@ -1,18 +1,19 @@
 //
-//  SSSellViewController.swift
+//  BrowseViewController.swift
 //  swagswap
 //
-//  Created by Logan Isitt on 3/10/15.
+//  Created by Logan Isitt on 4/21/15.
 //  Copyright (c) 2015 Logan Isitt. All rights reserved.
 //
 
 import UIKit
 
-class SellViewController: UICollectionViewController {
+class BrowseViewController: UICollectionViewController {
     
     let parseClassName: String = "Listing"
     
     var listings: [Listing] = [Listing]()
+    var category: Category!
     
     // MARK: - Initialization
     override init(collectionViewLayout layout: UICollectionViewLayout) {
@@ -33,7 +34,7 @@ class SellViewController: UICollectionViewController {
     // MARK: - Setup
     
     func setup() {
-        loadObjects()
+//        loadObjects()
     }
     
     // MARK: - General
@@ -41,7 +42,7 @@ class SellViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Selling"
+        self.navigationItem.title = "Browse"
         
         navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
     }
@@ -61,12 +62,13 @@ class SellViewController: UICollectionViewController {
     // MARK: - Parse
     
     func loadObjects() {
+
         var query = PFQuery(className: parseClassName)
-        query.whereKey("seller", equalTo: PFUser.currentUser()!)
+        query.whereKey("category", equalTo: category)
         
         query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]?, error: NSError?) -> Void in
             
-            self.listings = objects as! [Listing]
+            self.listings = objects as! [Listing] // (offers as NSArray).valueForKeyPath("@distinctUnionOfObjects.listing") as! [Listing]
             
             self.collectionView?.reloadData()
         }

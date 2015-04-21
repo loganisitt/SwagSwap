@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CategoryViewControllerDelegate {
+    func selectedCategory(category: Category)
+}
+
 class CategoryViewController: UITableViewController, ExploreHeaderViewDelegate {
     
     var selectedSection: Int = -1
@@ -16,6 +20,8 @@ class CategoryViewController: UITableViewController, ExploreHeaderViewDelegate {
     var subSections = [[Category]]()
     
     var selected: Category!
+    
+    var delegate: CategoryViewControllerDelegate!
     
     // MARK: - Initialization
     
@@ -59,7 +65,12 @@ class CategoryViewController: UITableViewController, ExploreHeaderViewDelegate {
                 
                 let predicate = NSPredicate(format: "category==%@", title)
                 
-                let subCategories: [Category] = (categories as NSArray).filteredArrayUsingPredicate(predicate) as! [Category]
+                let filtered = (categories as NSArray).filteredArrayUsingPredicate(predicate) as! [Category]
+                
+                let subCategories: [Category] = filtered.sorted({ (c1: Category, c2: Category) -> Bool in
+                    //
+                    return c1.subcategory < c2.subcategory
+                })
                 
                 self.subSections.append(subCategories)
             }
@@ -156,6 +167,10 @@ class CategoryViewController: UITableViewController, ExploreHeaderViewDelegate {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selected = subSections[indexPath.section][indexPath.row] as Category
+        
+        if delegate != nil {
+            delegate.selectedCategory(selected)
+        }
     }
     
     // MARK: - ExploreHeaderViewDelegate

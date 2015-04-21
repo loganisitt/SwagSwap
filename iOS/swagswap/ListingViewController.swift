@@ -19,7 +19,7 @@ class ListingViewController: UITableViewController {
         didSet {
             seller = listing.objectForKey("seller") as! PFUser
             seller.fetchIfNeededInBackgroundWithBlock { (obj: PFObject?, error: NSError?) -> Void in
-                println("Recived info on \(obj)")
+                
             }
         }
     }
@@ -221,7 +221,7 @@ class ListingViewController: UITableViewController {
             
             cell.backgroundColor = UIColor.SSColor.White
             
-            let name: String = seller != nil ? seller.valueForKey("name") as! String: "Seller"
+            let name: String = "Seller " // seller != nil ? seller.valueForKey("name") as! String: "Seller"
             
             switch indexPath.row {
             case 0: cell.textLabel?.text = name
@@ -335,7 +335,8 @@ class ListingViewController: UITableViewController {
             }
             
             let name = seller.valueForKey("name") as? String
-            let alertController = UIAlertController(title: "New Offer", message: "Highest bid: $\(19.99)", preferredStyle: .Alert)
+            let price = listing.valueForKey("price") as! Double
+            let alertController = UIAlertController(title: "New Offer", message: "Highest bid: $\(price)", preferredStyle: .Alert)
             
             let offerAction = UIAlertAction(title: "Make Offer", style: .Default) { (_) in
                 let offerTextField = alertController.textFields![0] as! UITextField
