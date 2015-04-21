@@ -23,9 +23,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.io.ByteArrayOutputStream;
@@ -60,6 +62,7 @@ public class CreateListing extends Fragment {
     private EditText title;
     private EditText description;
     private EditText price;
+
     private ImageView imgPreview;
     private  Button btnCapturePicture;
     private Button createListing;
@@ -112,6 +115,7 @@ public class CreateListing extends Fragment {
         title = (EditText) view.findViewById(R.id.create_title);
         description = (EditText) view.findViewById(R.id.create_description);
         price = (EditText) view.findViewById(R.id.create_price);
+
         createListing = (Button) view.findViewById(R.id.button2);
 
         createListing.setOnClickListener(new View.OnClickListener() {
@@ -256,8 +260,16 @@ public class CreateListing extends Fragment {
 
                     int nh = (int) ( bitmap.getHeight() * (512.0 / bitmap.getWidth()) );
                     bitmap = Bitmap.createScaledBitmap(bitmap,512 ,nh, true);
+                    ExifInterface exif = null;
+                    try {
+                        exif = new ExifInterface(f.getAbsolutePath());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
 
-                    imgPreview.setImageBitmap(bitmap);
+                    Bitmap bmRotated = rotateBitmap(bitmap, orientation);
+                    imgPreview.setImageBitmap(bmRotated);
 
                     String path = android.os.Environment
                             .getExternalStorageDirectory()
@@ -314,9 +326,10 @@ public class CreateListing extends Fragment {
 
 
     private void setMyListing(){
-        String t2 = String.valueOf((title.getText()));
-        String d = String.valueOf(description.getText());
-        double p = Double.parseDouble(String.valueOf(price.getText()));
+       final String t2 = String.valueOf((title.getText()));
+        final String d = String.valueOf(description.getText());
+
+        final double p = Double.parseDouble(String.valueOf(price.getText()));
         Drawable img = imgPreview.getDrawable();
         Bitmap img2 = ((BitmapDrawable) img).getBitmap();
 
@@ -326,33 +339,44 @@ public class CreateListing extends Fragment {
         final ParseFile imgFile = new ParseFile("image.png",data);
 
 
-        ParseUser seller = ParseUser.getCurrentUser();
+        final ParseUser seller = ParseUser.getCurrentUser();
 
         //final Listing imageObj = new Listing();
 
 
 
         final ParseObject imageObj = ParseObject.create("Listing");
+        //ParseObject category = ParseObject.create("Category");
+        ParseQuery query = new ParseQuery("Category");
+
+        query.getInBackground("1Ye9EYfXAo",new GetCallback() {
+            @Override
+            public void done(ParseObject parseObject, ParseException e) {
+                imageObj.put("name", t2);
+                imageObj.put("desc", d);
+                imageObj.put("category", parseObject);
+                imageObj.put("price", p);
+
+                imageObj.put("seller", seller);
 
 
-       imageObj.put("name", t2);
-       imageObj.put("desc", d);
-        imageObj.put("category", "testing");
-        imageObj.put("price", p);
+                try {
+                    imgFile.save();
+                } catch (ParseException e1) {
+                    e1.printStackTrace();
+                }
 
-        imageObj.put("seller", seller);
 
-        try {
-            imgFile.save();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        //imageObj.put("images",imgFile);
-        imageObj.add("images", imgFile);
-        //imageObj.setDetails(t2,d,"testing",p,imgFile,seller);
-        //imageObj.saveDetails();
-            imageObj.saveInBackground();
-myListing = (Listing)imageObj;
+                //imageObj.put("images",imgFile);
+                imageObj.add("images", imgFile);
+                //imageObj.setDetails(t2,d,"testing",p,imgFile,seller);
+                //imageObj.saveDetails();
+                imageObj.saveInBackground();
+                myListing = (Listing)imageObj;
+            }
+        });
+
+
 
 
     }

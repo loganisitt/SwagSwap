@@ -20,11 +20,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.parse.Parse;
+import com.parse.ParseAnalytics;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
-import com.parse.ui.ParseLoginBuilder;
+import com.parse.PushService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +34,10 @@ import it.sephiroth.android.library.widget.AdapterView;
 import it.sephiroth.android.library.widget.HListView;
 
 
-public class MainActivity extends ActionBarActivity implements CreateListing.OnFragmentInteractionListener,Listinginfo.OnFragmentInteractionListener ,SellingList.OnFragmentInteractionListener,AdapterView.OnItemClickListener {
+public class MainActivity extends ActionBarActivity implements CreateListing.OnFragmentInteractionListener,Listinginfo.OnFragmentInteractionListener ,SellingList.OnFragmentInteractionListener,AdapterView.OnItemClickListener, Messsages.OnFragmentInteractionListener {
     private CreateListing CLfrag;
     private Listinginfo infofrag;
+    private Messsages messfrag;
     private SellingList SLfrag;
     private List<ParseObject> myListing = new ArrayList<ParseObject>();
     private boolean madelisting = false;
@@ -66,8 +68,12 @@ public class MainActivity extends ActionBarActivity implements CreateListing.OnF
 
 
 
-        ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
-        startActivityForResult(builder.build(), 0);
+        //ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
+        //startActivityForResult(builder.build(), 0);
+        Context context = this.getApplicationContext();
+        PushService.startServiceIfRequired(context);
+        ParseAnalytics.trackAppOpenedInBackground(getIntent());
+
 
 
 
@@ -131,7 +137,7 @@ public class MainActivity extends ActionBarActivity implements CreateListing.OnF
         infofrag.setPobject(temp);
 
 
-      infofrag.setinfo(temp.getString("name"),(temp.getDouble("price")),temp.getString("desc"),IMG);
+      infofrag.setinfo(temp.getString("name"),(temp.getDouble("price")),temp.getString("desc"),IMG,temp.getParseUser("seller"));
 
 
         setFragment(infofrag);
@@ -241,7 +247,8 @@ public class MainActivity extends ActionBarActivity implements CreateListing.OnF
 
     }
     else if(i == 3){
-
+        messfrag = new Messsages();
+        setFragment(messfrag);
     }
 
 

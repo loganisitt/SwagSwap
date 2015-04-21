@@ -15,84 +15,63 @@
     <!-- TODO: Update blank fragment layout -->
 
     <com.parse.ParseImageView
-        android:layout_width="fill_parent"
-        android:layout_height="200dp"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.23"
-        android:adjustViewBounds="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp" />
+        android:layout_weight="0.23" />
 
     <TextView
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Title"
-        android:id="@+id/textView"
-        android:textColor="#CF0A2C"
-        android:textSize="12pt"
-        android:gravity="center_horizontal"
-        android:visibility="gone" />
+        android:id="@+id/textView" />
 
     <TextView
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/textView2"
-        android:gravity="center_horizontal"
-        android:textStyle="bold" />
+        android:id="@+id/textView2" />
 
-        <TextView
-        android:layout_width="fill_parent"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Description"
+        android:id="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textView4" />
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Price"
-        android:id="@+id/textView5"
-        android:textColor="#CF0A2C"
-        android:textSize="12pt"
-            android:gravity="center_horizontal"
-            android:visibility="gone" />
+        android:id="@+id/textView5" />
 
-        <TextView
-        android:layout_width="fill_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/textView6"
-            android:gravity="center_horizontal" />
+        android:id="@+id/textView6" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Description"
-            android:id="@+id/textView3"
-            android:textColor="#CF0A2C"
-            android:textSize="12pt" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/textView4"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-
-        <TextView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Category"
-        android:id="@+id/textView7"
-        android:textColor="#CF0A2C"
-        android:textSize="12pt" />
+        android:id="@+id/textView7" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/textView8"
-        android:layout_marginLeft="20dp" />
+        android:id="@+id/textView8" />
 
     <Button
         android:layout_width="fill_parent"
@@ -101,17 +80,37 @@
         android:id="@+id/button3"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:background="#CF0A2C"
+        android:background="#0b5154"
         android:textColor="#FFF" />
 
-    <TextView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/textView17"
+            android:layout_weight="0.23"
+            android:textColor="@android:color/transparent" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Message Seller"
+            android:id="@+id/button4"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:background="#CF0A2C"
+            android:textColor="#FFF"
+            />
+
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/textView9"
         android:layout_weight="0.23"
-        android:visibility="invisible" />
+            android:textColor="@android:color/transparent"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -119,7 +118,7 @@
         android:text="New Text"
         android:id="@+id/textView10"
         android:layout_weight="0.23"
-        android:visibility="invisible" />
+        android:textColor="@android:color/transparent"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -127,7 +126,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/textView12"
-        android:layout_weight="0.23" />
+        android:layout_weight="0.23"
+        android:textColor="@android:color/transparent"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -135,7 +135,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/textView11"
-        android:layout_weight="0.23" />
+        android:layout_weight="0.23"
+        android:textColor="@android:color/transparent"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -143,7 +144,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/textView13"
-        android:layout_weight="0.23" />
+        android:layout_weight="0.23"
+        android:textColor="#ffffffff"/>
     </LinearLayout>
 </ScrollView>
 </LinearLayout>

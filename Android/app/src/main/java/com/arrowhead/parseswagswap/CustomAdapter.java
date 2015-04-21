@@ -10,6 +10,7 @@ import com.parse.ParseImageView;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +34,7 @@ import java.util.List;
 
                     ParseQuery query = new ParseQuery("Listing");
                     query.orderByDescending("createdAt");
+                    query.whereNotEqualTo("seller", ParseUser.getCurrentUser());
 
 
 

@@ -44,11 +44,13 @@ public class Listinginfo extends Fragment {
     TextView price;
     TextView cate;
     TextView category;
-    TextView offer;
+    Button offer;
+    Button message;
     String temptit;
     String tempprice;
     String tempdes;
     ParseFile tempimg;
+    ParseUser tempseller;
     private List<ParseObject> myListingtemp = new ArrayList<ParseObject>();
 
     // TODO: Rename parameter arguments, choose names that match
@@ -142,6 +144,7 @@ public class Listinginfo extends Fragment {
         cate = (TextView) v.findViewById(R.id.textView7);
         category= (TextView) v.findViewById(R.id.textView8);
         offer = (Button) v.findViewById(R.id.button3);
+        message = (Button) v.findViewById(R.id.button4);
 
 
 
@@ -198,6 +201,57 @@ public class Listinginfo extends Fragment {
             }
         });
 
+      message.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              final AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+              alertDialog.setTitle("Message Seller");
+
+
+              final EditText edittext= new EditText(getActivity().getApplicationContext());
+              alertDialog.setView(edittext);
+              alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int which) {
+
+                      ParseObject messagetemp = ParseObject.create("Message");
+                      String mess = String.valueOf(edittext.getText());
+                      messagetemp.put("sender",ParseUser.getCurrentUser());
+                      messagetemp.put("recipient",tempseller);
+                      messagetemp.put("content",mess);
+                      messagetemp.saveInBackground();
+
+// here you can add functions
+                      /*Double Value = Double.parseDouble(String.valueOf(edittext.getText()));
+                      ParseObject offertemp = ParseObject.create("Offer");
+                      offertemp.put("listing", myListingtemp.get(0));
+                      offertemp.put("Value", Value);
+                      offertemp.put("bidder", ParseUser.getCurrentUser());
+                      Log.d("LISTING!!!!",myListingtemp.get(0).getObjectId()+"!!!!!!!!!");
+                      Log.d("VALUE!!!!", Value+"!!!!!!!!!");
+                      Log.d("BIDDER!!!!",ParseUser.getCurrentUser().getObjectId()+"!!!!!!!!!");
+
+                      offertemp.saveInBackground(new SaveCallback() {
+                          @Override
+                          public void done(ParseException e) {
+                              if(e == null){
+
+                                  Log.d("MADE OFFER!!!!","OFFER WORKS!!!!!!!!!");
+
+                              }
+                              else{
+                                  Log.d("MADE NOT OFFER!!!!","OFFER NOT WORKS!!!!!!!!!");
+                                  System.out.print("THIS IS THE ERROR!!!!!! "+e);
+                              }
+                          }
+                      });*/
+                  }
+              });
+              alertDialog.setIcon(R.drawable.ic_launcher);
+              alertDialog.show();
+
+          }
+      });
+
         return v;
     }
 
@@ -206,11 +260,12 @@ public class Listinginfo extends Fragment {
 
     }
 
-    public void setinfo(String t, Number p,String Des,List<ParseFile> img){
+    public void setinfo(String t, Number p,String Des,List<ParseFile> img,ParseUser seller){
         Log.d("TITLE!!!!!!!!", t);
         temptit = t;
         tempdes = Des;
         tempprice = String.valueOf(p);
+        tempseller = seller;
 
         if (img != null) {
             tempimg = img.get(0);
