@@ -164,8 +164,9 @@ public class ParseLoginActivity extends FragmentActivity implements
     // This default implementation returns to the parent activity with
     // RESULT_OK.
     // You can change this implementation if you want a different behavior.
-    setResult(RESULT_OK);
-    finish();
+    //getCallingActivity().getClass().getMethods();
+setResult(RESULT_OK);
+      finish();
   }
 
   /**
