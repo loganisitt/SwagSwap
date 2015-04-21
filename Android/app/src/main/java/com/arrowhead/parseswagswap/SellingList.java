@@ -91,28 +91,18 @@ public class SellingList extends Fragment {
             @Override
             public void onClick(View v) {
                 CLfrag = new CreateListing();
-                //MainActivity activity = (MainActivity) getActivity();
-                //View actionBarLayout =  activity.getLayoutInflater().inflate(
-                       // R.layout.fragment_create_listing,null);
 
-               // FragmentManager fragmentManager = getFragmentManager();
-                //FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                final FragmentTransaction transaction = getFragmentManager().beginTransaction();
-               // Fragment transaction = getChildFragmentManager().findFragmentById(R.id.sellerview);
-                //noinspection ConstantConditions
+
                 transaction.replace(((ViewGroup)getView().getParent()).getId(),CLfrag);
 
-               //transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-                //transaction.addToBackStack(null);
-                transaction.commit();
-//                getFragmentManager().executePendingTransactions();
 
-                //setTargetFragment(CLfrag,0);
+                transaction.commit();
+//
 
                 Log.d("TESTING!!!!!!!!!!","ADD BUTTON TEST!!!!!!!");
 
-                //Fragment transaction = getChildFragmentManager().findFragmentById(R.id.sellerview);
-                //transaction.add(R.layout.fragment_create_listing, CLfrag).commit();
+
             }
         });
 
@@ -133,10 +123,7 @@ public class SellingList extends Fragment {
                 getActivity().getFragmentManager().beginTransaction().remove(SellingList.this).commit();
             }
         });
-        //actionBar.setCustomView(actionBarLayout);
 
-
-        //actionBar.setCustomView(actionBarLayout);
 
 
         if (getArguments() != null) {
@@ -163,11 +150,7 @@ public class SellingList extends Fragment {
         return v;
     }
 
-   /* public void mymethod(View v)
-    {
-        getActivity().getFragmentManager().beginTransaction().remove(SellingList.this).commit();
-        //your method
-    }*/
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -188,24 +171,6 @@ public class SellingList extends Fragment {
     }
 
 
-   /* @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name

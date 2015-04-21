@@ -58,7 +58,7 @@ public class SellingAdapter extends ParseQueryAdapter<ParseObject> {
         final ParseImageView todoImage = (ParseImageView) v.findViewById(R.id.imageView3);
         List<ParseFile> imageFile = object.getList("images");
 
-        imageFile.get(0);
+
 
 
         todoImage.setParseFile(imageFile.get(0));
@@ -70,19 +70,6 @@ public class SellingAdapter extends ParseQueryAdapter<ParseObject> {
         TextView titleTextView2 = (TextView) v.findViewById(R.id.sellingprice);
         titleTextView2.setText("$"+object.get("price"));
 
-        // Add a reminder of how long this item has been outstanding
-        /*TextView priceView = (TextView) v.findViewById(R.id.listing_price);
-        priceView.setText(String.valueOf(object.getDouble("price")));
-        String des = object.getString("desc");
-        String seller = String.valueOf(object.getParseUser("seller"));
-        ParseObject temp = ParseObject.create("Listing");
-        temp.put("name", titleTextView.getText());
-        temp.put("desc", des);
-        temp.put("price", priceView.getText());
-        temp.put("seller", seller);
-        temp.put("images", imageFile.get(0));*/
-
-        // adapterListing.add(temp);
         return v;
     }
 

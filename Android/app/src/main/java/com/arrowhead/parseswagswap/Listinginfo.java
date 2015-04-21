@@ -220,30 +220,7 @@ public class Listinginfo extends Fragment {
                       messagetemp.put("content",mess);
                       messagetemp.saveInBackground();
 
-// here you can add functions
-                      /*Double Value = Double.parseDouble(String.valueOf(edittext.getText()));
-                      ParseObject offertemp = ParseObject.create("Offer");
-                      offertemp.put("listing", myListingtemp.get(0));
-                      offertemp.put("Value", Value);
-                      offertemp.put("bidder", ParseUser.getCurrentUser());
-                      Log.d("LISTING!!!!",myListingtemp.get(0).getObjectId()+"!!!!!!!!!");
-                      Log.d("VALUE!!!!", Value+"!!!!!!!!!");
-                      Log.d("BIDDER!!!!",ParseUser.getCurrentUser().getObjectId()+"!!!!!!!!!");
 
-                      offertemp.saveInBackground(new SaveCallback() {
-                          @Override
-                          public void done(ParseException e) {
-                              if(e == null){
-
-                                  Log.d("MADE OFFER!!!!","OFFER WORKS!!!!!!!!!");
-
-                              }
-                              else{
-                                  Log.d("MADE NOT OFFER!!!!","OFFER NOT WORKS!!!!!!!!!");
-                                  System.out.print("THIS IS THE ERROR!!!!!! "+e);
-                              }
-                          }
-                      });*/
                   }
               });
               alertDialog.setIcon(R.drawable.ic_launcher);
@@ -312,18 +289,6 @@ public class Listinginfo extends Fragment {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
-   /* public void onPrepareOptionsMenu(Menu menu){
-        super.onPrepareOptionsMenu(menu);
 
-        MenuItem item3  = menu.findItem(R.id.back_arrow);
-
-        item3.setVisible(true);
-
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-       // getActivity().getFragmentManager().beginTransaction().remove(Listinginfo.this).commit();
-        return super.onOptionsItemSelected(item);
-    }*/
 
 }
