@@ -1,15 +1,16 @@
 package com.arrowhead.parseswagswap;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -153,6 +154,13 @@ public class Messsages extends Fragment {
         messageAdapter = new MessageAdapter(context);
 
         messages.setAdapter(messageAdapter);
+
+        messages.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                selectitem(position);
+            }
+        });
         // Inflate the layout for this fragment
         return v;
                 //inflater.inflate(R.layout.fragment_messsages, container, false);
@@ -163,6 +171,11 @@ public class Messsages extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+    }
+
+    public void selectitem(int position){
+
+
     }
 
     @Override
@@ -196,5 +209,7 @@ public class Messsages extends Fragment {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
+
+
 
 }
