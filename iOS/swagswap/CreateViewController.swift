@@ -7,17 +7,25 @@
 //
 
 import UIKit
+import TextFieldEffects
+import Toucan
 
 class CreateViewController: UIViewController,UIImagePickerControllerDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout {
     
-    @IBOutlet var nameField:    UITextField!
-    @IBOutlet var priceField:   UITextField!
-    @IBOutlet var categoryField: UITextField!
-    @IBOutlet var descView:     UITextView!
-    @IBOutlet var imgCollection: UICollectionView!
+    var categoryViewController: CategoryViewController!
+
+    @IBOutlet var nameField:  YokoTextField!
+    @IBOutlet var priceField: YokoTextField!
+    
+    @IBOutlet var categoryField: UIButton!
     @IBOutlet var addImgBtn:    UIButton!
     
+    @IBOutlet var descView: KMPlaceholderTextView!
+    
+    @IBOutlet var imgCollection: UICollectionView!
+    
     var imgArray: [UIImage]!
+    var category: Category!
     
     // MARK: - View
     override func viewDidLoad() {
@@ -26,41 +34,117 @@ class CreateViewController: UIViewController,UIImagePickerControllerDelegate, UI
 
         imgArray = []
         
-        let doubleTap = UITapGestureRecognizer(target: self, action: "fake")
-        doubleTap.numberOfTapsRequired = 2
-        view.addGestureRecognizer(doubleTap)
+        categoryField.titleLabel?.adjustsFontSizeToFitWidth = true
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: "resignFirstResponders")
+        singleTap.numberOfTapsRequired = 1
+        view.addGestureRecognizer(singleTap)
+        
+        let downSwipe = UISwipeGestureRecognizer(target: self, action: Selector("resignFirstResponders"))
+        downSwipe.direction = UISwipeGestureRecognizerDirection.Down
+        view.addGestureRecognizer(downSwipe)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if categoryViewController != nil {
+            if categoryViewController.selected != nil {
+                category = categoryViewController.selected
+                categoryField.backgroundColor = UIColor(rgba: categoryViewController.selected.color)
+                categoryField.setTitle("\(categoryViewController.selected.category): \(categoryViewController.selected.subcategory)", forState: UIControlState.Normal)
+            }
+        }
     }
     
     // MARK: - Actions
-    @IBAction func addImage() {
+    
+    @IBAction func backButtonPressed() {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func showImageSourcePicker() {
         
         var imagePickerController: UIImagePickerController = UIImagePickerController()
-        
         imagePickerController.delegate = self
+
         
-        self.presentViewController(imagePickerController, animated: true) { () -> Void in
-            
+        let sourceAlertController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (action: UIAlertAction!) -> Void in
+            //
         }
+    
+        sourceAlertController.addAction(cancelAction)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default) { (action: UIAlertAction!) -> Void in
+            //
+            imagePickerController.sourceType = UIImagePickerControllerSourceType.Camera
+            
+            self.presentViewController(imagePickerController, animated: true, completion: nil)
+        }
+        sourceAlertController.addAction(cameraAction)
+        
+        let libraryAction = UIAlertAction(title: "Photo Library", style: UIAlertActionStyle.Default) { (action: UIAlertAction!) -> Void in
+            
+            imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            
+            self.presentViewController(imagePickerController, animated: true, completion: nil)
+        }
+        sourceAlertController.addAction(libraryAction)
+        
+        self.presentViewController(sourceAlertController, animated: true, completion: nil)
     }
     
     @IBAction func cancel() {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    @IBAction func showCategoryViewController() {
+        
+        if (categoryViewController == nil) {
+            categoryViewController = CategoryViewController()
+        }
+        
+        let navController = UINavigationController(rootViewController: categoryViewController)
+        
+        navController.navigationBar.hideHairline()
+        navController.navigationBar.translucent = false
+        navController.navigationBar.barTintColor = UIColor.SSColor.Red
+        navController.navigationBar.tintColor = UIColor.SSColor.White
+        navController.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont.SSFont.H3!, NSForegroundColorAttributeName: UIColor.SSColor.White]
+        
+        self.presentViewController(navController, animated: true, completion: nil)
+    }
+    
+    @IBAction func resignFirstResponders() {
+        
+        for v in view.subviews {
+            if v.isFirstResponder() {
+                v.resignFirstResponder()
+            }
+        }
+    }
+    
     @IBAction func saveListing() {
         
-        if (!nameField.text.isEmpty && !categoryField.text.isEmpty && !priceField.text.isEmpty && !descView.text.isEmpty && imgArray.count > 0) {
+        if (!nameField.text.isEmpty && !priceField.text.isEmpty && !descView.text.isEmpty && imgArray.count > 0 && categoryViewController.selected != nil) {
             var listing: PFObject = PFObject(className: "Listing")
             
             listing.setValue(nameField.text, forKey: "name")
-            listing.setValue(categoryField.text, forKey: "category")
+            listing.setValue(category, forKey: "category")
             listing.setValue((priceField.text as NSString).doubleValue, forKey: "price")
             listing.setValue(descView.text, forKey: "desc")
             listing.setValue(PFUser.currentUser(), forKey: "seller")
             
             var imageFiles: [PFFile] = []
             for img in imgArray {
-                imageFiles.append(PFFile(data: UIImageJPEGRepresentation(img, 1)))
+                imageFiles.append(PFFile(data: UIImageJPEGRepresentation(img, 0.80)))
+                
+                let mbs: Float = Float(NSData(data: UIImageJPEGRepresentation(img, 0.80)).length) / powf(1024, 2)
+                println("Saving image of \(mbs)MBs")
             }
             
             listing.setValue(imageFiles, forKey: "images")
@@ -68,8 +152,6 @@ class CreateViewController: UIViewController,UIImagePickerControllerDelegate, UI
             PFGeoPoint.geoPointForCurrentLocationInBackground({ (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
                
                 listing.setValue(geoPoint, forKey: "location")
-                
-                println("Point made!")
                 
                 listing.saveInBackgroundWithBlock({ (success:Bool, error:NSError?) -> Void in
                     
@@ -85,31 +167,17 @@ class CreateViewController: UIViewController,UIImagePickerControllerDelegate, UI
         }
     }
     
-    // MARK: - Fake 
-    func fake() {
-        let fakker = Faker()
-        nameField.text = "\(fakker.company) \(fakker.state)"
-        categoryField.text = "Testing"
-        let rand = arc4random_uniform(10000)
-        let price = Double(rand) / 100.0
-        priceField.text = "\(price)"
-        descView.text = fakker.fullDescription
-        
-        let data = NSData(contentsOfURL: NSURL(string: "http://lorempixel.com/500/500")!)
-        let img1 = UIImage(data: data!)
-        
-        imgArray.append(img1!)
-        
-        imgCollection.reloadData()
-    }
-    
-    // MARK: - UIImagePickerController Delegate
+    // MARK: - UIImagePickerControllerDelegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         
         let tempImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        imgArray.append(tempImage)
+        let size = CGSizeMake(1024, 1024)
+        
+        let scaled: UIImage = RBResizeImage(tempImage, targetSize: size)
+        
+        imgArray.append(scaled)
         
         self.imgCollection.reloadData()
         
@@ -121,7 +189,7 @@ class CreateViewController: UIViewController,UIImagePickerControllerDelegate, UI
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    // MARK: - Collection View Data Source
+    // MARK: - UICollectionViewDataSource
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -140,7 +208,7 @@ class CreateViewController: UIViewController,UIImagePickerControllerDelegate, UI
         return cell
     }
     
-    // UICollectionViewDelegateFlowLayout
+    // MARK: - UICollectionViewDelegateFlowLayout
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
@@ -166,6 +234,34 @@ class CreateViewController: UIViewController,UIImagePickerControllerDelegate, UI
         
         var cgImg = imgArray[indexPath.row].og_imageAspectScaledToAtMostHeight(collectionView.bounds.size.height).CGImage
         
-        return CGSize(width: CGFloat(CGImageGetWidth(cgImg)), height: CGFloat(CGImageGetHeight(cgImg)))
+        return CGSize(width: CGFloat(CGImageGetWidth(cgImg) - 10), height: CGFloat(CGImageGetHeight(cgImg) - 10))
+    }
+    
+    // MARK: - Helper
+    // TODO: Move into Extension
+    func RBResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio  = targetSize.width  / image.size.width
+        let heightRatio = targetSize.height / image.size.height
+        
+        // Figure out what our orientation is, and use that to form the rectangle
+        var newSize: CGSize
+        if(widthRatio > heightRatio) {
+            newSize = CGSizeMake(size.width * heightRatio, size.height * heightRatio)
+        } else {
+            newSize = CGSizeMake(size.width * widthRatio,  size.height * widthRatio)
+        }
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRectMake(0, 0, newSize.width, newSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.drawInRect(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
 }

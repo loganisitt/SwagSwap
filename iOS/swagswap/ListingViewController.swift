@@ -221,8 +221,10 @@ class ListingViewController: UITableViewController {
             
             cell.backgroundColor = UIColor.SSColor.White
             
+            let name: String = seller != nil ? seller.valueForKey("name") as! String: "Seller"
+            
             switch indexPath.row {
-            case 0: cell.textLabel?.text = "Seller"
+            case 0: cell.textLabel?.text = name
             case 1: cell.textLabel?.text = "Seller Rating"
             case 2: cell.textLabel?.text = "Mutual Friends"
             case 3: cell.textLabel?.text = "Message Seller"
@@ -313,8 +315,7 @@ class ListingViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 2 && indexPath.row == 0 {
             
-            let lUser: PFUser = listing.valueForKey("seller") as! PFUser
-            if lUser == PFUser.currentUser() {
+            if seller == PFUser.currentUser() {
                 return
             }
             
@@ -329,12 +330,11 @@ class ListingViewController: UITableViewController {
         }
         if indexPath.section == 3 && indexPath.row == 0 {
             
-            let lUser: PFUser = listing.valueForKey("seller") as! PFUser
-            if lUser == PFUser.currentUser() {
+            if seller == PFUser.currentUser() {
                 return
             }
             
-            let name = lUser.valueForKey("name") as? String
+            let name = seller.valueForKey("name") as? String
             let alertController = UIAlertController(title: "New Offer", message: "Highest bid: $\(19.99)", preferredStyle: .Alert)
             
             let offerAction = UIAlertAction(title: "Make Offer", style: .Default) { (_) in

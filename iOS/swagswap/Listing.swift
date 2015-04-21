@@ -32,18 +32,7 @@ class Listing: PFObject, PFSubclassing {
     }
     
     class func parseClassName() -> String {
-        return "Message"
-    }
-    
-    override init() {
-        super.init()
-        
-        println("Hey")
-    }
-    
-    override init(className newClassName: String) {
-        super.init(className: newClassName)
-        println("Hey2")        
+        return "Listing"
     }
 }
 

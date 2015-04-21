@@ -4,3 +4,9 @@
 [submodule "iOS/Toucan"]
 	path = iOS/Toucan
 	url = git@github.com:gavinbunney/Toucan.git
+[submodule "iOS/Cartography"]
+	path = iOS/Cartography
+	url = git@github.com:robb/Cartography.git
+[submodule "iOS/TextFieldEffects"]
+	path = iOS/TextFieldEffects
+	url = git@github.com:raulriera/TextFieldEffects.git

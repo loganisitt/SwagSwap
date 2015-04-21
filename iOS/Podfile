@@ -1,4 +1,9 @@
+#platform :ios, '8.0'
+#use_frameworks!
+
 pod 'Parse'
 pod 'ParseUI'
-pod 'ParseFacebookUtils', '~> 1.7'
-pod 'AlgoliaSearch-Client', '~> 3.0'
+pod 'ParseFacebookUtils' #, '~> 1.7'
+pod 'AlgoliaSearch-Client'#, '~> 3.0'
+#pod 'KMPlaceholderTextView'#, '~> 0.1.2'
+

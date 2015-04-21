@@ -14,15 +14,15 @@ protocol ExploreHeaderViewDelegate {
 
 class ExploreHeaderView: UITableViewHeaderFooterView {
     
-    enum ExploreItem:Int {
-        case Pets = 0, Vehicle, Tech, Furniture, Jewelry, Tickets, Default
-    }
-    
     @IBOutlet var title: UILabel!
     @IBOutlet var icon: UILabel!
     @IBOutlet var accessory: UILabel!
     
-    var exploreItem: ExploreItem!
+    var titleText: String!
+    var iconName: String!
+    var color: String!
+    var section: Int!
+    
     var isExpanded: Bool!
     
     let indentationWidth = CGFloat(10)
@@ -48,6 +48,7 @@ class ExploreHeaderView: UITableViewHeaderFooterView {
     }
     
     // MARK: - Setup
+    
     func setup() {
         
         contentView.backgroundColor = UIColor.clearColor()
@@ -66,6 +67,9 @@ class ExploreHeaderView: UITableViewHeaderFooterView {
         layer.addSublayer(indentationLayer)
         
         isExpanded = false
+        
+        let tapRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
+        self.addGestureRecognizer(tapRecognizer)
     }
     
     // MARK: - Layout
@@ -82,11 +86,7 @@ class ExploreHeaderView: UITableViewHeaderFooterView {
         
         title.frame = CGRectMake(CGRectGetMaxX(icon.frame) + 8, 0, tWidth, size.height)
         
-        if exploreItem == nil {
-            exploreItem = .Default
-        }
-        
-        title.text = getTitle(exploreItem).uppercaseString
+        title.text = titleText
         title.textColor = UIColor.SSColor.Black
         title.textAlignment = NSTextAlignment.Left
         title.font = UIFont.SSFont.H3
@@ -95,12 +95,12 @@ class ExploreHeaderView: UITableViewHeaderFooterView {
         accessory.textAlignment = NSTextAlignment.Center
         accessory.font = UIFont.fontAwesomeOfSize(30)
         
-        icon.text = getIcon(exploreItem)
+        icon.text = String.fontAwesomeIconWithName(iconName)
         icon.textColor = UIColor.SSColor.Black
         icon.textAlignment = NSTextAlignment.Center
         icon.font = UIFont.fontAwesomeOfSize(30)
         
-        indentationLayer.backgroundColor = getColor(exploreItem).CGColor
+        indentationLayer.backgroundColor = UIColor(rgba: color).CGColor // SSColor.Yellow.CGColor
         
         if isExpanded == true {
             accessory.text = String.fontAwesomeIconWithName("fa-angle-down")
@@ -110,51 +110,16 @@ class ExploreHeaderView: UITableViewHeaderFooterView {
         }
     }
     
-    // MARK: - Explore Item
-    private func getTitle(mi: ExploreItem) -> String {
-        switch mi {
-        case .Furniture:    return "Furniture"
-        case .Pets:         return "Pets"
-        case .Tech:         return "Tech"
-        case .Vehicle:      return "Cars & Trucks"
-        case .Jewelry:      return "Jewelry"
-        case .Tickets:      return "Tickets"
-        default:            return ""
-        }
-    }
-    
-    private func getIcon(mi: ExploreItem) -> String {
-        switch mi {
-        case .Furniture:    return String.fontAwesomeIconWithName("fa-bed")
-        case .Pets:         return String.fontAwesomeIconWithName("fa-paw")
-        case .Tech:         return String.fontAwesomeIconWithName("fa-mobile")
-        case .Vehicle:      return String.fontAwesomeIconWithName("fa-car")
-        case .Jewelry:      return String.fontAwesomeIconWithName("fa-diamond")
-        case .Tickets:      return String.fontAwesomeIconWithName("fa-ticket")
-        default:            return ""
-        }
-    }
-    
-    private func getColor(mi: ExploreItem) -> UIColor {
-        switch mi {
-        case .Furniture:    return UIColor.SSColor.Yellow
-        case .Pets:         return UIColor.SSColor.Red
-        case .Tech:         return UIColor.SSColor.Blue
-        case .Vehicle:      return UIColor.SSColor.LightBlue
-        case .Jewelry:      return UIColor.SSColor.Aqua
-        case .Tickets:      return UIColor.SSColor.Black
-        default:            return UIColor.SSColor.Black
-        }
-    }
-    
     // MARK: - Draw
+    
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         indentationLayer.frame = CGRectMake(0, 0, indentationWidth, rect.height)
     }
     
-    // MARK: - Touches
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    // MARK: - Actions 
+    
+    func handleTap(sender: UITapGestureRecognizer) {
         if (accessory.text == String.fontAwesomeIconWithName("fa-angle-right")) {
             
             accessory.text = String.fontAwesomeIconWithName("fa-angle-down")
@@ -162,7 +127,6 @@ class ExploreHeaderView: UITableViewHeaderFooterView {
         else {
             accessory.text = String.fontAwesomeIconWithName("fa-angle-right")
         }
-        delegate.expandOrContractSection(exploreItem.rawValue)
-
+        delegate.expandOrContractSection(section)
     }
 }

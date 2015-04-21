@@ -10,14 +10,11 @@ import UIKit
 
 class ExploreCell: UITableViewCell {
     
-    enum ExploreItem: Int {
-        case Pets = 0, Vehicle, Tech, Furniture, Jewelry, Tickets, Default
-    }
-    
     @IBOutlet var title: UILabel!
     @IBOutlet var icon: UILabel!
     
-    var exploreItem: ExploreItem!
+    var color: String!
+    
     var indentationLayer: CALayer!
     
     // MARK: - Initialization
@@ -47,10 +44,6 @@ class ExploreCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        if exploreItem == nil {
-            exploreItem = .Default
-        }
-        
 //        title.text = getTitle(exploreItem).uppercaseString
         title.textColor = UIColor.SSColor.Black
         title.textAlignment = NSTextAlignment.Left
@@ -66,45 +59,45 @@ class ExploreCell: UITableViewCell {
 //        icon.textAlignment = NSTextAlignment.Center
 //        icon.font = UIFont.fontAwesomeOfSize(30)
         
-        indentationLayer.backgroundColor = getColor(exploreItem).CGColor
+        indentationLayer.backgroundColor = UIColor(rgba: color).CGColor // getColor(exploreItem).CGColor
     }
     
-    // MARK: - Menu Item
-    private func getTitle(mi: ExploreItem) -> String {
-        switch mi {
-        case .Furniture:    return "Furniture"
-        case .Pets:         return "Pets"
-        case .Tech:         return "Tech"
-        case .Vehicle:      return "Cars & Trucks"
-        case .Jewelry:      return "Jewelry"
-        case .Tickets:      return "Tickets"
-        default:            return ""
-        }
-    }
-    
-    private func getIcon(mi: ExploreItem) -> String {
-        switch mi {
-        case .Furniture:    return String.fontAwesomeIconWithName("fa-bed")
-        case .Pets:         return String.fontAwesomeIconWithName("fa-paw")
-        case .Tech:         return String.fontAwesomeIconWithName("fa-mobile")
-        case .Vehicle:      return String.fontAwesomeIconWithName("fa-car")
-        case .Jewelry:      return String.fontAwesomeIconWithName("fa-diamond")
-        case .Tickets:      return String.fontAwesomeIconWithName("fa-ticket")
-        default:            return ""
-        }
-    }
-    
-    private func getColor(mi: ExploreItem) -> UIColor {
-        switch mi {
-        case .Furniture:    return UIColor.SSColor.Yellow
-        case .Pets:         return UIColor.SSColor.Red
-        case .Tech:         return UIColor.SSColor.Blue
-        case .Vehicle:      return UIColor.SSColor.LightBlue
-        case .Jewelry:      return UIColor.SSColor.Aqua
-        case .Tickets:      return UIColor.SSColor.Black
-        default:            return UIColor.SSColor.Black
-        }
-    }
+//    // MARK: - Menu Item
+//    private func getTitle(mi: ExploreItem) -> String {
+//        switch mi {
+//        case .Furniture:    return "Furniture"
+//        case .Pets:         return "Pets"
+//        case .Tech:         return "Tech"
+//        case .Vehicle:      return "Cars & Trucks"
+//        case .Jewelry:      return "Jewelry"
+//        case .Tickets:      return "Tickets"
+//        default:            return ""
+//        }
+//    }
+//    
+//    private func getIcon(mi: ExploreItem) -> String {
+//        switch mi {
+//        case .Furniture:    return String.fontAwesomeIconWithName("fa-bed")
+//        case .Pets:         return String.fontAwesomeIconWithName("fa-paw")
+//        case .Tech:         return String.fontAwesomeIconWithName("fa-mobile")
+//        case .Vehicle:      return String.fontAwesomeIconWithName("fa-car")
+//        case .Jewelry:      return String.fontAwesomeIconWithName("fa-diamond")
+//        case .Tickets:      return String.fontAwesomeIconWithName("fa-ticket")
+//        default:            return ""
+//        }
+//    }
+//    
+//    private func getColor(mi: ExploreItem) -> UIColor {
+//        switch mi {
+//        case .Furniture:    return UIColor.SSColor.Yellow
+//        case .Pets:         return UIColor.SSColor.Red
+//        case .Tech:         return UIColor.SSColor.Blue
+//        case .Vehicle:      return UIColor.SSColor.LightBlue
+//        case .Jewelry:      return UIColor.SSColor.Aqua
+//        case .Tickets:      return UIColor.SSColor.Black
+//        default:            return UIColor.SSColor.Black
+//        }
+//    }
     
     // MARK: - Draw
     override func drawRect(rect: CGRect) {

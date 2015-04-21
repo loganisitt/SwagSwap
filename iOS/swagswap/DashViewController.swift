@@ -65,7 +65,7 @@ class DashViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.loadObjects()
     }
     
-    // MARK: - Loading & Recieving
+    // MARK: - Loading & Receiving
     
     func loadObjects() {
         
@@ -199,7 +199,7 @@ class DashViewController: UIViewController, UITableViewDelegate, UITableViewData
         return UIBarPosition.TopAttached
     }
     
-    // MARK: - Navigation
+    // MARK: - UIViewController
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "gotoListing" {
             let vc = segue.destinationViewController as! ListingViewController

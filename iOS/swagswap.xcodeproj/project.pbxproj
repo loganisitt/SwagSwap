@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0217C18D1AE4C4CC00CD7EBB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217C18C1AE4C4CC00CD7EBB /* Category.swift */; };
+		02262C6D1AE6073B00EBE204 /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02262C6C1AE6073B00EBE204 /* Watch.swift */; };
 		022704CC1ABE5591000D47DA /* ListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022704CB1ABE5591000D47DA /* ListingViewController.swift */; };
 		022B23411ADD73040053276A /* ListingDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022B23401ADD73040053276A /* ListingDetailCell.swift */; };
 		0237A9B21A9ED8A300221F5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237A9B11A9ED8A300221F5E /* AppDelegate.swift */; };
@@ -15,6 +17,10 @@
 		0237A9B91A9ED8A300221F5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0237A9B81A9ED8A300221F5E /* Images.xcassets */; };
 		0237A9BC1A9ED8A300221F5E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0237A9BA1A9ED8A300221F5E /* LaunchScreen.xib */; };
 		0237A9C81A9ED8A300221F5E /* swagswapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237A9C71A9ED8A300221F5E /* swagswapTests.swift */; };
+		0247FA6E1AE4937700302678 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0247FA6D1AE4937700302678 /* CategoryViewController.swift */; };
+		0247FA741AE49B0D00302678 /* ExploreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0247FA731AE49B0D00302678 /* ExploreCell.xib */; };
+		0247FA8E1AE4A61800302678 /* Cartography.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0247FA7D1AE4A5D500302678 /* Cartography.framework */; };
+		0247FA8F1AE4A61800302678 /* Cartography.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0247FA7D1AE4A5D500302678 /* Cartography.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		025720091ADC8CEF0049B6A1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F6D2E71ADC8C8A005CC81D /* SwiftyJSON.framework */; };
 		0257200A1ADC8CEF0049B6A1 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02F6D2E71ADC8C8A005CC81D /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02594F7E1AA2B25C001E5B7F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02594F7D1AA2B25C001E5B7F /* CreateViewController.swift */; };
@@ -34,10 +40,14 @@
 		027E40491A9FC46F0072CBF4 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 027E40471A9FC46F0072CBF4 /* Montserrat-Regular.ttf */; };
 		027E404B1A9FC8400072CBF4 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E404A1A9FC8400072CBF4 /* UIViewControllerExtension.swift */; };
 		027E404D1A9FCA0F0072CBF4 /* DashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027E404C1A9FCA0F0072CBF4 /* DashViewController.swift */; };
+		0280E8D81AE5DED200F44692 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280E8D71AE5DED200F44692 /* Offer.swift */; };
+		028B7BEC1AE571FF0067718B /* KMPlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028B7BEB1AE571FF0067718B /* KMPlaceholderTextView.swift */; };
 		02902CF81AAFDC3900338983 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02902CF71AAFDC3900338983 /* BuyViewController.swift */; };
 		02902CFA1AAFDDE100338983 /* SellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02902CF91AAFDDE100338983 /* SellViewController.swift */; };
 		02902CFC1AAFDDF800338983 /* WatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02902CFB1AAFDDF800338983 /* WatchViewController.swift */; };
 		02902CFE1AAFE0EE00338983 /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02902CFD1AAFE0EE00338983 /* UIBarButtonItemExtension.swift */; };
+		0293324D1AE577550053ABBF /* TextFieldEffects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029332451AE577360053ABBF /* TextFieldEffects.framework */; };
+		0293324E1AE577550053ABBF /* TextFieldEffects.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 029332451AE577360053ABBF /* TextFieldEffects.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0297EFB41AD2E86D0094C8A5 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297EFB31AD2E86D0094C8A5 /* InboxViewController.swift */; };
 		029F2A3A1AA04448008D9E0B /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029F2A391AA04448008D9E0B /* UIImageExtension.swift */; };
 		029F2A3C1AA0489F008D9E0B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 029F2A3B1AA0489F008D9E0B /* CoreGraphics.framework */; };
@@ -81,6 +91,41 @@
 			remoteGlobalIDString = 0237A9AB1A9ED8A300221F5E;
 			remoteInfo = swagswap;
 		};
+		0247FA7C1AE4A5D500302678 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0247FA751AE4A5D500302678 /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54C96A11195063CD000CDD27;
+			remoteInfo = "Cartography-iOS";
+		};
+		0247FA7E1AE4A5D500302678 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0247FA751AE4A5D500302678 /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54C96A1C195063CD000CDD27;
+			remoteInfo = "Cartography-iOS-Tests";
+		};
+		0247FA801AE4A5D500302678 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0247FA751AE4A5D500302678 /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54F6A838195C20C100313D24;
+			remoteInfo = "Cartography-Mac";
+		};
+		0247FA821AE4A5D500302678 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0247FA751AE4A5D500302678 /* Cartography.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54F6A842195C20C200313D24;
+			remoteInfo = "Cartography-Mac-Tests";
+		};
+		0247FA901AE4A61800302678 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0247FA751AE4A5D500302678 /* Cartography.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 54C96A10195063CD000CDD27;
+			remoteInfo = "Cartography-iOS";
+		};
 		0257200B1ADC8CEF0049B6A1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 02F6D2DF1ADC8C89005CC81D /* SwiftyJSON.xcodeproj */;
@@ -94,6 +139,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 740AC3E91999799900AB9A86;
 			remoteInfo = Toucan;
+		};
+		029332421AE577360053ABBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 029332371AE577360053ABBF /* TextFieldEffects.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CBF766D1A71AF7700073B6A;
+			remoteInfo = TextFieldsDemo;
+		};
+		029332441AE577360053ABBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 029332371AE577360053ABBF /* TextFieldEffects.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4CB3B6CE1AA8DEA7000AFA56;
+			remoteInfo = TextFieldEffects;
+		};
+		0293324F1AE577550053ABBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 029332371AE577360053ABBF /* TextFieldEffects.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4CB3B6CD1AA8DEA7000AFA56;
+			remoteInfo = TextFieldEffects;
 		};
 		02F6D2E61ADC8C8A005CC81D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -134,6 +200,8 @@
 			files = (
 				026648E31ADD835D00E7B7E3 /* Toucan.framework in Embed Frameworks */,
 				0257200A1ADC8CEF0049B6A1 /* SwiftyJSON.framework in Embed Frameworks */,
+				0247FA8F1AE4A61800302678 /* Cartography.framework in Embed Frameworks */,
+				0293324E1AE577550053ABBF /* TextFieldEffects.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,7 +210,9 @@
 
 /* Begin PBXFileReference section */
 		020A1FB81A9EE42A00D7D02E /* swagswap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swagswap-Bridging-Header.h"; sourceTree = "<group>"; };
+		0217C18C1AE4C4CC00CD7EBB /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		021BAA2B1ADD833300710380 /* Toucan.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Toucan.xcodeproj; path = Toucan/Toucan.xcodeproj; sourceTree = "<group>"; };
+		02262C6C1AE6073B00EBE204 /* Watch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
 		022704CB1ABE5591000D47DA /* ListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingViewController.swift; sourceTree = "<group>"; };
 		022B23401ADD73040053276A /* ListingDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingDetailCell.swift; sourceTree = "<group>"; };
 		0237A9AC1A9ED8A300221F5E /* swagswap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swagswap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +225,9 @@
 		0237A9C11A9ED8A300221F5E /* swagswapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swagswapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0237A9C61A9ED8A300221F5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0237A9C71A9ED8A300221F5E /* swagswapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swagswapTests.swift; sourceTree = "<group>"; };
+		0247FA6D1AE4937700302678 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		0247FA731AE49B0D00302678 /* ExploreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExploreCell.xib; sourceTree = "<group>"; };
+		0247FA751AE4A5D500302678 /* Cartography.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cartography.xcodeproj; path = Cartography/Cartography.xcodeproj; sourceTree = "<group>"; };
 		02594F7D1AA2B25C001E5B7F /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		026298471ABE8FD20009734E /* Faker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
 		026CF7981AA3B932009A1FE2 /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
@@ -170,10 +243,13 @@
 		027E40471A9FC46F0072CBF4 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		027E404A1A9FC8400072CBF4 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		027E404C1A9FCA0F0072CBF4 /* DashViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashViewController.swift; sourceTree = "<group>"; };
+		0280E8D71AE5DED200F44692 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		028B7BEB1AE571FF0067718B /* KMPlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMPlaceholderTextView.swift; sourceTree = "<group>"; };
 		02902CF71AAFDC3900338983 /* BuyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		02902CF91AAFDDE100338983 /* SellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellViewController.swift; sourceTree = "<group>"; };
 		02902CFB1AAFDDF800338983 /* WatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchViewController.swift; sourceTree = "<group>"; };
 		02902CFD1AAFE0EE00338983 /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
+		029332371AE577360053ABBF /* TextFieldEffects.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TextFieldEffects.xcodeproj; path = TextFieldEffects/TextFieldEffects/TextFieldEffects.xcodeproj; sourceTree = "<group>"; };
 		0297EFB31AD2E86D0094C8A5 /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
 		029F2A391AA04448008D9E0B /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		029F2A3B1AA0489F008D9E0B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -209,7 +285,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				029F2A3C1AA0489F008D9E0B /* CoreGraphics.framework in Frameworks */,
+				0293324D1AE577550053ABBF /* TextFieldEffects.framework in Frameworks */,
 				A2D47059C298E5B3C00CEA82 /* libPods.a in Frameworks */,
+				0247FA8E1AE4A61800302678 /* Cartography.framework in Frameworks */,
 				026648E21ADD835D00E7B7E3 /* Toucan.framework in Frameworks */,
 				025720091ADC8CEF0049B6A1 /* SwiftyJSON.framework in Frameworks */,
 			);
@@ -237,6 +315,8 @@
 		0237A9A31A9ED8A300221F5E = {
 			isa = PBXGroup;
 			children = (
+				029332371AE577360053ABBF /* TextFieldEffects.xcodeproj */,
+				0247FA751AE4A5D500302678 /* Cartography.xcodeproj */,
 				021BAA2B1ADD833300710380 /* Toucan.xcodeproj */,
 				02F6D2DF1ADC8C89005CC81D /* SwiftyJSON.xcodeproj */,
 				0237A9AE1A9ED8A300221F5E /* swagswap */,
@@ -303,11 +383,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0247FA761AE4A5D500302678 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0247FA7D1AE4A5D500302678 /* Cartography.framework */,
+				0247FA7F1AE4A5D500302678 /* Cartography-iOS-Tests.xctest */,
+				0247FA811AE4A5D500302678 /* Cartography.framework */,
+				0247FA831AE4A5D500302678 /* Cartography-Mac-Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0276720B1AD32E2200254607 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				027672091AD32E1F00254607 /* Message.swift */,
 				02ECD0291AE31D2E000C4DCE /* Listing.swift */,
+				0217C18C1AE4C4CC00CD7EBB /* Category.swift */,
+				0280E8D71AE5DED200F44692 /* Offer.swift */,
+				02262C6C1AE6073B00EBE204 /* Watch.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -331,6 +425,15 @@
 			name = Font;
 			sourceTree = "<group>";
 		};
+		029332381AE577360053ABBF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				029332431AE577360053ABBF /* TextFieldsDemo.app */,
+				029332451AE577360053ABBF /* TextFieldEffects.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		029F2A401AA052C9008D9E0B /* OGImageExtensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,7 +454,6 @@
 			children = (
 				02AA31761AA8E9CB00C58268 /* MenuCell.swift */,
 				02DFBCA51AB0AB080004F4AF /* ExploreHeaderView.swift */,
-				02DFBCA31AAFF7B70004F4AF /* ExploreCell.swift */,
 				02A0E5821AA2CB3B0076449C /* ListingCell.swift */,
 				02A0E5851AA2DBCC0076449C /* ImageCell.swift */,
 				027B841C1AC129460037CF3E /* ListingImageCell.swift */,
@@ -359,6 +461,9 @@
 				026CF7981AA3B932009A1FE2 /* AddButton.swift */,
 				02C474991AD45DCF00BD9C4A /* InboxCell.swift */,
 				02AADD071AD4F33200F35EF2 /* MessageToolbar.swift */,
+				02DFBCA31AAFF7B70004F4AF /* ExploreCell.swift */,
+				0247FA731AE49B0D00302678 /* ExploreCell.xib */,
+				028B7BEB1AE571FF0067718B /* KMPlaceholderTextView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -370,6 +475,7 @@
 				027E40411A9FBE400072CBF4 /* SignUpViewController.swift */,
 				027E404C1A9FCA0F0072CBF4 /* DashViewController.swift */,
 				027B92CD1AA63DA400CB2D31 /* SearchViewController.swift */,
+				0247FA6D1AE4937700302678 /* CategoryViewController.swift */,
 				02902CF71AAFDC3900338983 /* BuyViewController.swift */,
 				02902CF91AAFDDE100338983 /* SellViewController.swift */,
 				02902CFB1AAFDDF800338983 /* WatchViewController.swift */,
@@ -442,6 +548,8 @@
 			dependencies = (
 				0257200C1ADC8CEF0049B6A1 /* PBXTargetDependency */,
 				026648E51ADD835D00E7B7E3 /* PBXTargetDependency */,
+				0247FA911AE4A61800302678 /* PBXTargetDependency */,
+				029332501AE577550053ABBF /* PBXTargetDependency */,
 			);
 			name = swagswap;
 			productName = swagswap;
@@ -498,8 +606,16 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 0247FA761AE4A5D500302678 /* Products */;
+					ProjectRef = 0247FA751AE4A5D500302678 /* Cartography.xcodeproj */;
+				},
+				{
 					ProductGroup = 02F6D2E01ADC8C89005CC81D /* Products */;
 					ProjectRef = 02F6D2DF1ADC8C89005CC81D /* SwiftyJSON.xcodeproj */;
+				},
+				{
+					ProductGroup = 029332381AE577360053ABBF /* Products */;
+					ProjectRef = 029332371AE577360053ABBF /* TextFieldEffects.xcodeproj */;
 				},
 				{
 					ProductGroup = 021BAA2C1ADD833300710380 /* Products */;
@@ -527,6 +643,48 @@
 			fileType = wrapper.cfbundle;
 			path = ToucanTests.xctest;
 			remoteRef = 021BAA321ADD833300710380 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0247FA7D1AE4A5D500302678 /* Cartography.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cartography.framework;
+			remoteRef = 0247FA7C1AE4A5D500302678 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0247FA7F1AE4A5D500302678 /* Cartography-iOS-Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Cartography-iOS-Tests.xctest";
+			remoteRef = 0247FA7E1AE4A5D500302678 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0247FA811AE4A5D500302678 /* Cartography.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cartography.framework;
+			remoteRef = 0247FA801AE4A5D500302678 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0247FA831AE4A5D500302678 /* Cartography-Mac-Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Cartography-Mac-Tests.xctest";
+			remoteRef = 0247FA821AE4A5D500302678 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		029332431AE577360053ABBF /* TextFieldsDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TextFieldsDemo.app;
+			remoteRef = 029332421AE577360053ABBF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		029332451AE577360053ABBF /* TextFieldEffects.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TextFieldEffects.framework;
+			remoteRef = 029332441AE577360053ABBF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		02F6D2E71ADC8C8A005CC81D /* SwiftyJSON.framework */ = {
@@ -568,6 +726,7 @@
 				0237A9B71A9ED8A300221F5E /* Main.storyboard in Resources */,
 				026CF79B1AA3C373009A1FE2 /* FontAwesome.otf in Resources */,
 				0237A9BC1A9ED8A300221F5E /* LaunchScreen.xib in Resources */,
+				0247FA741AE49B0D00302678 /* ExploreCell.xib in Resources */,
 				027E40491A9FC46F0072CBF4 /* Montserrat-Regular.ttf in Resources */,
 				0237A9B91A9ED8A300221F5E /* Images.xcassets in Resources */,
 			);
@@ -621,8 +780,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				027E40401A9F9E6A0072CBF4 /* SSColor.swift in Sources */,
+				02262C6D1AE6073B00EBE204 /* Watch.swift in Sources */,
 				02DFBCA41AAFF7B70004F4AF /* ExploreCell.swift in Sources */,
 				02902CF81AAFDC3900338983 /* BuyViewController.swift in Sources */,
+				0247FA6E1AE4937700302678 /* CategoryViewController.swift in Sources */,
 				02B05D5F1AD3BE9E00175542 /* Array.swift in Sources */,
 				02C4749A1AD45DCF00BD9C4A /* InboxCell.swift in Sources */,
 				022704CC1ABE5591000D47DA /* ListingViewController.swift in Sources */,
@@ -636,6 +797,7 @@
 				027E404B1A9FC8400072CBF4 /* UIViewControllerExtension.swift in Sources */,
 				0276720A1AD32E1F00254607 /* Message.swift in Sources */,
 				02A0E5831AA2CB3B0076449C /* ListingCell.swift in Sources */,
+				028B7BEC1AE571FF0067718B /* KMPlaceholderTextView.swift in Sources */,
 				027E40421A9FBE400072CBF4 /* SignUpViewController.swift in Sources */,
 				029F2A491AA052C9008D9E0B /* NSData+OGImageExtensions.m in Sources */,
 				02902CFC1AAFDDF800338983 /* WatchViewController.swift in Sources */,
@@ -643,6 +805,7 @@
 				02A0E5861AA2DBCC0076449C /* ImageCell.swift in Sources */,
 				02902CFA1AAFDDE100338983 /* SellViewController.swift in Sources */,
 				02AA31771AA8E9CB00C58268 /* MenuCell.swift in Sources */,
+				0280E8D81AE5DED200F44692 /* Offer.swift in Sources */,
 				02AADD081AD4F33200F35EF2 /* MessageToolbar.swift in Sources */,
 				02ECD02A1AE31D2E000C4DCE /* Listing.swift in Sources */,
 				0237A9B21A9ED8A300221F5E /* AppDelegate.swift in Sources */,
@@ -654,6 +817,7 @@
 				027B841D1AC129460037CF3E /* ListingImageCell.swift in Sources */,
 				026298481ABE8FD20009734E /* Faker.swift in Sources */,
 				02DFBCA61AB0AB080004F4AF /* ExploreHeaderView.swift in Sources */,
+				0217C18D1AE4C4CC00CD7EBB /* Category.swift in Sources */,
 				029F2A4B1AA052C9008D9E0B /* UIImage+OGImageExtensions.m in Sources */,
 				029F2A3A1AA04448008D9E0B /* UIImageExtension.swift in Sources */,
 				02C4749C1AD468BC00BD9C4A /* MessageViewController.swift in Sources */,
@@ -676,6 +840,11 @@
 			target = 0237A9AB1A9ED8A300221F5E /* swagswap */;
 			targetProxy = 0237A9C21A9ED8A300221F5E /* PBXContainerItemProxy */;
 		};
+		0247FA911AE4A61800302678 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Cartography-iOS";
+			targetProxy = 0247FA901AE4A61800302678 /* PBXContainerItemProxy */;
+		};
 		0257200C1ADC8CEF0049B6A1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "SwiftyJSON iOS";
@@ -685,6 +854,11 @@
 			isa = PBXTargetDependency;
 			name = Toucan;
 			targetProxy = 026648E41ADD835D00E7B7E3 /* PBXContainerItemProxy */;
+		};
+		029332501AE577550053ABBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TextFieldEffects;
+			targetProxy = 0293324F1AE577550053ABBF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

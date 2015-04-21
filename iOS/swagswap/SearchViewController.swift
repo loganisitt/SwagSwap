@@ -8,8 +8,11 @@
 
 import UIKit
 import SwiftyJSON
+import Cartography
 
-class SearchViewController: UIViewController, ExploreHeaderViewDelegate, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+    
+    var categoryViewController: CategoryViewController!
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
@@ -35,6 +38,7 @@ class SearchViewController: UIViewController, ExploreHeaderViewDelegate, UISearc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         navigationItem.title = "Search" 
         
         navigationItem.leftBarButtonItem = UIBarButtonItem().SSBackButton("backButtonPressed", target: self)
@@ -43,19 +47,41 @@ class SearchViewController: UIViewController, ExploreHeaderViewDelegate, UISearc
         
         let vc = UIViewController()
         
-
         searchBar.setBackgroundImage(img, forBarPosition: UIBarPosition.Any, barMetrics: UIBarMetrics.Default)
         
         let apiClient = ASAPIClient.apiClientWithApplicationID("JS58CV0B5Y", apiKey: "c4a8bd50025f151ef367f7dfe71c81b4") as ASAPIClient
         index = apiClient.getIndex("listings") as ASRemoteIndex
         
-        tableView.registerClass(ExploreHeaderView.self, forHeaderFooterViewReuseIdentifier: "Header")
         
-        tableView.rowHeight = 40
-        tableView.sectionFooterHeight = 0
-        tableView.tableFooterView = UIView(frame: CGRectZero)
+//        tableView.rowHeight = 40
+//        tableView.sectionFooterHeight = 0
+        
+        addCategoryViewController()
         
         self.definesPresentationContext = true
+    }
+    
+    func addCategoryViewController() {
+        
+        categoryViewController = CategoryViewController()
+        addChildViewController(categoryViewController)
+        
+        view.addSubview(categoryViewController.tableView)
+        
+        let tv: UITableView = categoryViewController.tableView as UITableView
+        
+        layout(tv, searchBar) { view1, view2 in
+            view1.top == view2.bottom
+            view1.bottom == view1.superview!.bottom
+            
+            view1.width == view1.superview!.width
+            
+            view1.centerX == view1.superview!.centerX
+        }
+        
+        categoryViewController.tableView.frame = tableView.bounds
+        
+        categoryViewController.didMoveToParentViewController(self)
     }
     
     // MARK: - Actions
@@ -67,66 +93,22 @@ class SearchViewController: UIViewController, ExploreHeaderViewDelegate, UISearc
     // MARK: UITableView Data Source
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return isSearching ? 1 : 6
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isSearching ? search.count : section == selectedSection ? 3 : 0
+        return search.count
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if isSearching {
-            return nil
-        }
-        else {
-            let header: ExploreHeaderView = tableView.dequeueReusableHeaderFooterViewWithIdentifier("Header") as! ExploreHeaderView
-            header.delegate = self
-            header.exploreItem = ExploreHeaderView.ExploreItem(rawValue: section)
-            header.isExpanded = selectedSection == section
-            header.contentView.backgroundColor = UIColor.whiteColor()
-            
-            return header
-        }
-    }
-
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if isSearching {
-            var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
-            cell.textLabel?.text = search[indexPath.row]["name"].string
-            return cell
-        }
-        else {
-            var cell: ExploreCell = tableView.dequeueReusableCellWithIdentifier("ECell") as! ExploreCell
-            cell.exploreItem = ExploreCell.ExploreItem(rawValue: indexPath.section)
-            cell.title.text = "Item \(indexPath.row)"
-            return cell
-        }
+        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! UITableViewCell
+        cell.textLabel?.text = search[indexPath.row]["name"].string
+        return cell
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return isSearching ? 0 : 60
-    }
-
-    
-    // SSExploreView Delegate
-    
-    func expandOrContractSection(section: Int) {
-        
-        if selectedSection == section { // Selected the same one, collapse
-            selectedSection = -1
-            tableView.reloadSections(NSIndexSet(index: section), withRowAnimation: UITableViewRowAnimation.Automatic)
-        }
-        else {
-            let lastSection = selectedSection
-            selectedSection = section
-            
-            let set = NSMutableIndexSet(index: selectedSection)
-            if lastSection != -1 {
-                set.addIndex(lastSection)
-            }
-            tableView.reloadSections(set, withRowAnimation: UITableViewRowAnimation.Automatic)
-        }
     }
     
     // MARK: - UISearchBarDelegate
@@ -135,6 +117,9 @@ class SearchViewController: UIViewController, ExploreHeaderViewDelegate, UISearc
         isSearching = true
         tableView.reloadData()
         searchBar.showsCancelButton = true
+    
+        view.bringSubviewToFront(tableView)
+        
         return true
     }
     
@@ -171,6 +156,10 @@ class SearchViewController: UIViewController, ExploreHeaderViewDelegate, UISearc
         searchBar.showsCancelButton = false
         searchBar.resignFirstResponder()
         tableView.reloadData()
+        
+        let tv: UITableView = categoryViewController.tableView as UITableView
+
+        view.bringSubviewToFront(tv)
     }
     
 //    optional func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int)
