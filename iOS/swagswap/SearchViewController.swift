@@ -108,6 +108,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate, CategoryViewC
                 let json: JSON = JSON(answers) as JSON
                 let search = json["hits"].array!
                 
+                self.listings = []
+                
                 for s in search {
                     let objId: String = s["objectId"].string!
                     
