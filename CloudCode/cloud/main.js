@@ -84,7 +84,7 @@ Parse.Cloud.afterSave("Offer", function(request) {
 			Parse.Push.send({
 				where: pushQuery, 
 				data: {
-					alert: "Snap, Crackle, Pop"
+					alert: "New offer!"
 				}
 			}, 
 			{
