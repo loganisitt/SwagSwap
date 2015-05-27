@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Logan Isitt. All rights reserved.
 //
 
-import Parse
-
 class Listing: PFObject, PFSubclassing {
 
     @NSManaged var seller: PFUser!

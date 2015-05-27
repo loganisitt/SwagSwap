@@ -26,7 +26,6 @@
 		025720091ADC8CEF0049B6A1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F6D2E71ADC8C8A005CC81D /* SwiftyJSON.framework */; };
 		0257200A1ADC8CEF0049B6A1 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02F6D2E71ADC8C8A005CC81D /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02594F7E1AA2B25C001E5B7F /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02594F7D1AA2B25C001E5B7F /* CreateViewController.swift */; };
-		026298481ABE8FD20009734E /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026298471ABE8FD20009734E /* Faker.swift */; };
 		026648E21ADD835D00E7B7E3 /* Toucan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 021BAA311ADD833300710380 /* Toucan.framework */; };
 		026648E31ADD835D00E7B7E3 /* Toucan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 021BAA311ADD833300710380 /* Toucan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		026CF7991AA3B932009A1FE2 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026CF7981AA3B932009A1FE2 /* AddButton.swift */; };
@@ -233,7 +232,6 @@
 		0247FA731AE49B0D00302678 /* ExploreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExploreCell.xib; sourceTree = "<group>"; };
 		0247FA751AE4A5D500302678 /* Cartography.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cartography.xcodeproj; path = Cartography/Cartography.xcodeproj; sourceTree = "<group>"; };
 		02594F7D1AA2B25C001E5B7F /* CreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
-		026298471ABE8FD20009734E /* Faker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
 		026CF7981AA3B932009A1FE2 /* AddButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		026CF79A1AA3C373009A1FE2 /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		026CF79C1AA3C381009A1FE2 /* FontAwesome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesome.swift; sourceTree = "<group>"; };
@@ -358,7 +356,6 @@
 		0237A9AF1A9ED8A300221F5E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				026298471ABE8FD20009734E /* Faker.swift */,
 				026CF79C1AA3C381009A1FE2 /* FontAwesome.swift */,
 				029F2A401AA052C9008D9E0B /* OGImageExtensions */,
 				0237A9BA1A9ED8A300221F5E /* LaunchScreen.xib */,
@@ -823,7 +820,6 @@
 				027E40451A9FC1590072CBF4 /* SSFont.swift in Sources */,
 				026CF79D1AA3C381009A1FE2 /* FontAwesome.swift in Sources */,
 				027B841D1AC129460037CF3E /* ListingImageCell.swift in Sources */,
-				026298481ABE8FD20009734E /* Faker.swift in Sources */,
 				02DFBCA61AB0AB080004F4AF /* ExploreHeaderView.swift in Sources */,
 				0217C18D1AE4C4CC00CD7EBB /* Category.swift in Sources */,
 				029F2A4B1AA052C9008D9E0B /* UIImage+OGImageExtensions.m in Sources */,

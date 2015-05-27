@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -164,10 +164,10 @@
                                         <size key="customSize" width="240" height="240"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="mB6-he-ZiD"/>
-                                                <exclude reference="ajQ-Jj-ztV"/>
-                                                <exclude reference="ZG0-Je-cyZ"/>
                                                 <exclude reference="7i1-Bc-nF2"/>
+                                                <exclude reference="ZG0-Je-cyZ"/>
+                                                <exclude reference="ajQ-Jj-ztV"/>
+                                                <exclude reference="mB6-he-ZiD"/>
                                                 <exclude reference="IWY-xf-Ik3"/>
                                             </mask>
                                         </variation>
@@ -597,10 +597,10 @@
                                 <size key="customSize" width="240" height="240"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="cX8-bK-ggJ"/>
-                                        <exclude reference="qLG-0T-Snq"/>
                                         <exclude reference="Cpw-uF-eaq"/>
+                                        <exclude reference="cX8-bK-ggJ"/>
                                         <exclude reference="kPd-QO-6Ke"/>
+                                        <exclude reference="qLG-0T-Snq"/>
                                         <exclude reference="sTc-6B-KOw"/>
                                     </mask>
                                 </variation>
@@ -724,10 +724,10 @@
                                 <size key="customSize" width="240" height="240"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="iZ5-vt-K1v"/>
-                                        <exclude reference="7b3-wb-SFG"/>
-                                        <exclude reference="xhR-3H-Ltd"/>
                                         <exclude reference="6cm-Yx-u18"/>
+                                        <exclude reference="7b3-wb-SFG"/>
+                                        <exclude reference="iZ5-vt-K1v"/>
+                                        <exclude reference="xhR-3H-Ltd"/>
                                         <exclude reference="gQm-UR-px5"/>
                                     </mask>
                                 </variation>
@@ -820,10 +820,10 @@
                                 <size key="customSize" width="240" height="240"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="zuC-6C-Sik"/>
+                                        <exclude reference="4bq-Dy-nzb"/>
                                         <exclude reference="RBg-5p-bBo"/>
                                         <exclude reference="pB3-on-11W"/>
-                                        <exclude reference="4bq-Dy-nzb"/>
+                                        <exclude reference="zuC-6C-Sik"/>
                                         <exclude reference="35m-bR-sLz"/>
                                     </mask>
                                 </variation>
@@ -1012,7 +1012,6 @@
                                 </items>
                                 <connections>
                                     <outlet property="backSpacing" destination="yYs-K7-iKA" id="iQc-FA-uhq"/>
-                                    <outlet property="bottomConstraint" destination="aOB-SX-bRK" id="QSN-kG-I6f"/>
                                     <outlet property="contentBarBtn" destination="4Il-K1-Etv" id="cTy-yz-lmH"/>
                                     <outlet property="contentField" destination="M3a-xU-czC" id="AfC-fI-vsZ"/>
                                     <outlet property="delegate" destination="J3X-n2-efy" id="U6A-SO-93m"/>
@@ -1024,12 +1023,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="29V-ed-naB" firstAttribute="leading" secondItem="Jab-l4-W3I" secondAttribute="leadingMargin" constant="-16" id="20Y-NK-9Xi"/>
+                            <constraint firstItem="ZQ1-ff-V08" firstAttribute="top" secondItem="PZF-06-seC" secondAttribute="bottom" id="4xj-NN-Ao7"/>
+                            <constraint firstItem="29V-ed-naB" firstAttribute="top" secondItem="6ey-pu-4R9" secondAttribute="bottom" id="6VV-Lr-rCd"/>
                             <constraint firstItem="PZF-06-seC" firstAttribute="top" secondItem="29V-ed-naB" secondAttribute="bottom" id="DP7-TK-cUu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PZF-06-seC" secondAttribute="trailing" constant="-16" id="NE8-no-caI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="29V-ed-naB" secondAttribute="trailing" constant="-16" id="Slm-Dt-3mA"/>
                             <constraint firstItem="PZF-06-seC" firstAttribute="leading" secondItem="Jab-l4-W3I" secondAttribute="leadingMargin" constant="-16" id="UaP-ro-ssk"/>
-                            <constraint firstItem="ZQ1-ff-V08" firstAttribute="top" secondItem="PZF-06-seC" secondAttribute="bottom" id="aOB-SX-bRK"/>
-                            <constraint firstItem="29V-ed-naB" firstAttribute="top" secondItem="6ey-pu-4R9" secondAttribute="bottom" id="tba-3m-5nb"/>
                         </constraints>
                     </view>
                     <connections>

@@ -48,6 +48,14 @@ class MessageToolbar: UIToolbar {
             .addObserver(self, selector: Selector("keyboardDidHide:"), name:UIKeyboardDidHideNotification, object: nil);
     }
     
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -82,7 +90,6 @@ class MessageToolbar: UIToolbar {
         
         self.layoutIfNeeded()
     }
-    
     
     func keyboardWillHide(notification: NSNotification) {
         

@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 Logan Isitt. All rights reserved.
 //
 
-import Parse
-
 class Category : PFObject, PFSubclassing {
     
     @NSManaged var category: String!

@@ -86,9 +86,9 @@ class SignUpViewController: PFSignUpViewController, PFSignUpViewControllerDelega
     // MARK: - FAKER
     
     func fake() {
-        let fakker = Faker()
+//        let fakker = Faker()
         
-        signUpView!.usernameField!.text = fakker.email
+//        signUpView!.usernameField!.text = fakker.email
         signUpView!.passwordField!.text = "password"
     }
     
