@@ -17,6 +17,9 @@ Swagswap is a community-based local commerce application that intends to be used
 ###### Future Additions
 * [Stripe Connect] - Everything marketplaces and platforms need to get users paid.
 
+###### Useful Links
+[Facebook Developer Control Panel](https://developers.facebook.com/apps/742900129109809/dashboard/)
+
 [Parse]:http://www.parse.com
 [Facebook]:https://developers.facebook.com
 [Stripe Connect]:https://stripe.com/connect
